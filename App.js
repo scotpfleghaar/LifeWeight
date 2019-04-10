@@ -1,6 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {createBottomTabNavigator, createAppContainer, createSwitchNavigator, createStackNavigator} from "react-navigation";
+import { ThemeProvider, Icon } from 'react-native-elements';
+
+
 import ReportsScreen from "./src/screens/ReportsScreen";
 import RecordedWeightsScreen from "./src/screens/RecordedWeightsScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
@@ -11,9 +14,9 @@ import SignUp from "./src/screens/Authentication/SignUp";
 class App extends React.Component {
     render() {
         return (
-            <View style={styles.container}>
+            <ThemeProvider>
                 <Text>Open up App.js to start working on your app!</Text>
-            </View>
+            </ThemeProvider>
         );
     }
 }
@@ -29,18 +32,54 @@ const styles = StyleSheet.create({
 
 const AppStack = createBottomTabNavigator({
         Home: {
-            screen: App
+            screen: App,
+            navigationOptions: {
+                tabBarIcon: ({ focused, tintColor }) => {
+                 return <Icon
+                    name='home'
+                    type='font-awesome'
+                     />;
+                },
+            }
         },
         Reports: {
-            screen: ReportsScreen
+            screen: ReportsScreen,
+            navigationOptions: {
+                tabBarIcon: ({ focused, tintColor }) => {
+                 return <Icon
+                    name='area-chart'
+                    type='font-awesome'
+                     />;
+                },
+            }
         },
         Records: {
-            screen: RecordedWeightsScreen
+            screen: RecordedWeightsScreen,
+            navigationOptions: {
+                tabBarIcon: ({ focused, tintColor }) => {
+                 return <Icon
+                    name='bars'
+                    type='font-awesome'
+                     />;
+                },
+            }
         },
-        Settings: SettingsScreen,
+        Settings: {
+            screen: SettingsScreen,
+            navigationOptions: {
+                tabBarIcon: ({ focused, tintColor }) => {
+                 return <Icon
+                    name='cog'
+                    type='font-awesome'
+                     />;
+                },
+            }
+        },
     },
     {
-        initialRouteName: "Home"
+        initialRouteName: "Home",
+        tabBarOptions: { showLabel: false }
+
     }
 );
 
