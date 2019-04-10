@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View } from 'react-native';
 import {createBottomTabNavigator, createAppContainer, createSwitchNavigator, createStackNavigator} from "react-navigation";
-import { ThemeProvider, Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
 
 import ReportsScreen from "./src/screens/ReportsScreen";
@@ -14,9 +14,9 @@ import SignUp from "./src/screens/Authentication/SignUp";
 class App extends React.Component {
     render() {
         return (
-            <ThemeProvider>
+            <View>
                 <Text>Open up App.js to start working on your app!</Text>
-            </ThemeProvider>
+            </View>
         );
     }
 }
@@ -38,6 +38,7 @@ const AppStack = createBottomTabNavigator({
                  return <Icon
                     name='home'
                     type='font-awesome'
+                    color={tintColor}
                      />;
                 },
             }
@@ -49,6 +50,7 @@ const AppStack = createBottomTabNavigator({
                  return <Icon
                     name='area-chart'
                     type='font-awesome'
+                    color={tintColor}
                      />;
                 },
             }
@@ -60,6 +62,7 @@ const AppStack = createBottomTabNavigator({
                  return <Icon
                     name='bars'
                     type='font-awesome'
+                    color={tintColor}
                      />;
                 },
             }
@@ -67,10 +70,11 @@ const AppStack = createBottomTabNavigator({
         Settings: {
             screen: SettingsScreen,
             navigationOptions: {
-                tabBarIcon: ({ focused, tintColor }) => {
+                tabBarIcon: ({ tintColor }) => {
                  return <Icon
                     name='cog'
                     type='font-awesome'
+                    color={tintColor}
                      />;
                 },
             }
@@ -78,8 +82,11 @@ const AppStack = createBottomTabNavigator({
     },
     {
         initialRouteName: "Home",
-        tabBarOptions: { showLabel: false }
-
+        tabBarOptions: {
+            showLabel: false,
+            activeTintColor: '#517fa4',
+            inactiveTintColor: '#090909',
+        }
     }
 );
 
