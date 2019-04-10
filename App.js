@@ -1,9 +1,12 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {createBottomTabNavigator, createAppContainer} from "react-navigation";
+import {createBottomTabNavigator, createAppContainer, createSwitchNavigator, createStackNavigator} from "react-navigation";
 import ReportsScreen from "./src/screens/ReportsScreen";
 import RecordedWeightsScreen from "./src/screens/RecordedWeightsScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
+import StartupAuthentication from "./src/screens/Authentication/StartupAuthentication";
+import LogIn from "./src/screens/Authentication/LogIn";
+import SignUp from "./src/screens/Authentication/SignUp";
 
 class App extends React.Component {
     render() {
@@ -24,7 +27,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const AppNavigator = createBottomTabNavigator({
+const AppStack = createBottomTabNavigator({
         Home: {
             screen: App
         },
@@ -38,6 +41,22 @@ const AppNavigator = createBottomTabNavigator({
     },
     {
         initialRouteName: "Home"
+    }
+);
+
+const AuthStack = createStackNavigator({
+        SignIn: LogIn,
+        SignUp: SignUp
+    });
+
+const AppNavigator = createSwitchNavigator(
+    {
+        AuthLoading: StartupAuthentication,
+        App: AppStack,
+        Auth: AuthStack,
+    },
+    {
+        initialRouteName: 'AuthLoading',
     }
 );
 
