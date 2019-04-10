@@ -11,6 +11,8 @@ import StartupAuthentication from "./src/screens/Authentication/StartupAuthentic
 import LogIn from "./src/screens/Authentication/LogIn";
 import SignUp from "./src/screens/Authentication/SignUp";
 
+import { HANSIS_DARK, HANSIS_MEDIUM } from './Constants'
+
 class App extends React.Component {
     render() {
         return (
@@ -84,8 +86,8 @@ const AppStack = createBottomTabNavigator({
         initialRouteName: "Home",
         tabBarOptions: {
             showLabel: false,
-            activeTintColor: '#517fa4',
-            inactiveTintColor: '#090909',
+            activeTintColor: HANSIS_MEDIUM,
+            inactiveTintColor: HANSIS_DARK,
         }
     }
 );
