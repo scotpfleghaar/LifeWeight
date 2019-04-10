@@ -11,12 +11,12 @@ import StartupAuthentication from "./src/screens/Authentication/StartupAuthentic
 import LogIn from "./src/screens/Authentication/LogIn";
 import SignUp from "./src/screens/Authentication/SignUp";
 
-import { HANSIS_DARK, HANSIS_MEDIUM } from './Constants'
+import { HANSIS_DARK, HANSIS_MEDIUM, PURE_WHITE, HANSIS_LIGHT } from './Constants'
 
 class App extends React.Component {
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <Text>Open up App.js to start working on your app!</Text>
             </View>
         );
@@ -26,7 +26,7 @@ class App extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: PURE_WHITE,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -88,7 +88,8 @@ const AppStack = createBottomTabNavigator({
             showLabel: false,
             activeTintColor: HANSIS_MEDIUM,
             inactiveTintColor: HANSIS_DARK,
-        }
+        },
+        backgroundColor: HANSIS_LIGHT
     }
 );
 
