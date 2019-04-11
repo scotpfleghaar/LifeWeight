@@ -1,41 +1,38 @@
-import React, {Component} from 'react';
-import { View, Text, StyleSheet} from 'react-native';
-import { Button } from "react-native-elements";
-import { HANSIS_DARK } from '../../../Constants';
+import React from 'react';
+import {
+    ActivityIndicator,
+    AsyncStorage,
+    StatusBar,
+    View,
+} from 'react-native';
 
-class StartupAuthentication extends Component {
-    routeToHome() {
-        console.log('Button Pressed');
-        this.props.navigation.navigate('Home')
-    };
+class StartupAuthentication extends React.Component {
+    constructor(props) {
+        super(props);
+        //this._bootstrapAsync();
+    }
 
+    componentDidMount() {
+        this.props.navigation.navigate('Auth');
+    }
+
+    // Fetch the token from storage then navigate to our appropriate place
+    // _bootstrapAsync = async () => {
+    //     const userToken = await AsyncStorage.getItem('userToken');
+    //
+    //     // This will switch to the App screen or Auth screen and this loading
+    //     // screen will be unmounted and thrown away.
+    //     this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+    // };
+
+    // Render any loading content that you like here
     render() {
         return (
-            <View style={styles.container}>
-                <Text>
-                    StartupAuthentication
-                </Text>
-                <Button
-                    title={"Start"}
-                    buttonStyle={ styles.buttonStyle }
-                    onPress={this.routeToHome.bind(this)}
-                />
+            <View>
+                <ActivityIndicator />
             </View>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    buttonStyle: {
-        backgroundColor: HANSIS_DARK
-    }
-});
-
 
 export default StartupAuthentication;

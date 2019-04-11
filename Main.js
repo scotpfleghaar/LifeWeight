@@ -1,7 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View } from 'react-native';
-import {createBottomTabNavigator, createAppContainer, createSwitchNavigator, createStackNavigator} from "react-navigation";
-import { Icon } from 'react-native-elements';
+import {StyleSheet, Text, View} from 'react-native';
+import {
+    createBottomTabNavigator,
+    createAppContainer,
+    createSwitchNavigator,
+    createStackNavigator
+} from "react-navigation";
+import {Icon} from 'react-native-elements';
 
 import ReportsScreen from "./src/screens/ReportsScreen";
 import RecordedWeightsScreen from "./src/screens/RecordedWeightsScreen";
@@ -10,7 +15,7 @@ import StartupAuthentication from "./src/screens/Authentication/StartupAuthentic
 import LogIn from "./src/screens/Authentication/LogIn";
 import SignUp from "./src/screens/Authentication/SignUp";
 
-import { HANSIS_DARK, HANSIS_MEDIUM, PURE_WHITE, HANSIS_LIGHT } from './Constants'
+import {HANSIS_DARK, HANSIS_MEDIUM, PURE_WHITE, HANSIS_LIGHT} from './Constants'
 
 class Main extends React.Component {
     render() {
@@ -35,7 +40,7 @@ const AppStack = createBottomTabNavigator({
         Home: {
             screen: Main,
             navigationOptions: {
-                tabBarIcon: ({ focused, tintColor }) => {
+                tabBarIcon: ({tintColor}) => {
                     return <Icon
                         name='home'
                         type='font-awesome'
@@ -47,7 +52,7 @@ const AppStack = createBottomTabNavigator({
         Reports: {
             screen: ReportsScreen,
             navigationOptions: {
-                tabBarIcon: ({ focused, tintColor }) => {
+                tabBarIcon: ({tintColor}) => {
                     return <Icon
                         name='area-chart'
                         type='font-awesome'
@@ -59,7 +64,7 @@ const AppStack = createBottomTabNavigator({
         Records: {
             screen: RecordedWeightsScreen,
             navigationOptions: {
-                tabBarIcon: ({ focused, tintColor }) => {
+                tabBarIcon: ({tintColor}) => {
                     return <Icon
                         name='bars'
                         type='font-awesome'
@@ -71,7 +76,7 @@ const AppStack = createBottomTabNavigator({
         Settings: {
             screen: SettingsScreen,
             navigationOptions: {
-                tabBarIcon: ({ tintColor }) => {
+                tabBarIcon: ({tintColor}) => {
                     return <Icon
                         name='cog'
                         type='font-awesome'
@@ -93,9 +98,19 @@ const AppStack = createBottomTabNavigator({
 );
 
 const AuthStack = createStackNavigator({
-    SignIn: LogIn,
-    SignUp: SignUp
-});
+        SignIn: {
+            name: 'Login',
+            screen: LogIn
+        },
+        SignUp: {
+            name: 'Create Account',
+            screen: SignUp
+        }
+    },
+    {
+        initialRouteName: 'SignIn',
+    }
+);
 
 const AppNavigator = createSwitchNavigator(
     {
