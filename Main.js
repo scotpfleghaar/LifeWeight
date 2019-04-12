@@ -97,7 +97,7 @@ const AppStack = createBottomTabNavigator({
     }
 );
 
-const AuthStack = createStackNavigator({
+const AuthStack = createSwitchNavigator({
         SignIn: {
             name: 'Login',
             screen: LogIn
@@ -109,6 +109,9 @@ const AuthStack = createStackNavigator({
     },
     {
         initialRouteName: 'SignIn',
+        navigationOptions: {
+            tabBarVisible: false
+        },
     }
 );
 
