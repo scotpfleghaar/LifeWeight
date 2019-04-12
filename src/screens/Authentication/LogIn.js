@@ -49,6 +49,7 @@ class LogIn extends Component {
                     />
                     <Button
                         title={"Login"}
+                        type="clear"
                         titleStyle={ styles.buttonTitleStyle }
                         buttonStyle={ styles.buttonStyle }
                         //onPress={this.routeToApp.bind(this)}
@@ -58,6 +59,7 @@ class LogIn extends Component {
                     <Text>Don't Have an Account?</Text>
                      <Button
                         title={"Create Account"}
+                        type="clear"
                         titleStyle={ styles.buttonTitleStyle }
                         buttonStyle={ styles.buttonStyle }
                         //onPress={this.routeToApp.bind(this)}
@@ -72,34 +74,41 @@ const styles = StyleSheet.create({
     titleStyle: {
         color: HANSIS_MEDIUM_DARK
     },
+
     iconContainerStyle: {
        width: 52
     },
+
     headerStyle: {
         height: 64,
         textAlign: 'center',
         borderBottomColor: HANSIS_MEDIUM,
         borderBottomWidth: 1,
         width: DEVICE_WIDTH,
-        // backgroundColor: 'blue',
     },
+
     formStyle: {
         height: 240,
-        // backgroundColor: 'red',
-        justifyContent: 'center'
+        justifyContent: 'center',
+         alignItems: 'center',
     },
+
     viewStyle: {
         marginTop: 32,
         flex: 1,
         flexDirection: 'column',
-        // justifyContent: 'center',
         alignItems: 'stretch',
     },
+
      buttonTitleStyle: {
-        color: HANSIS_LIGHT
+        fontSize: 24,
+        color: HANSIS_DARK
     },
+
     buttonStyle: {
-        backgroundColor: HANSIS_DARK
+        marginTop: 22,
+        // backgroundColor: HANSIS_DARK,
+        width: DEVICE_WIDTH * 0.75,
     }
 });
 
