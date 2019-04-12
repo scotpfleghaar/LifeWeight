@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements'
-import { HANSIS_MEDIUM_LIGHT} from "../../../Constants";
+import { HANSIS_DARK, HANSIS_LIGHT, HANSIS_MEDIUM_DARK } from "../../../Constants";
 
 class SignUp extends Component {
     static navigationOptions = ({navigation}) => {
@@ -10,7 +10,7 @@ class SignUp extends Component {
                 <Button
                     title="Login"
                     type="clear"
-                    buttonStyles={styles.buttonStyle}
+                    titleStyle={styles.titleStyle}
                     onPress={() => navigation.goBack()}
                 />
             ),
@@ -30,6 +30,7 @@ class SignUp extends Component {
                 </Text>
                 <Button
                     title={"Start"}
+                    titleStyle={ styles.buttonTitleStyle }
                     buttonStyle={ styles.buttonStyle }
                     onPress={this.routeToApp.bind(this)}
                 />
@@ -39,9 +40,16 @@ class SignUp extends Component {
 }
 
 const styles = StyleSheet.create({
+    titleStyle: {
+        color: HANSIS_MEDIUM_DARK
+    },
+    buttonTitleStyle: {
+        color: HANSIS_LIGHT
+    },
     buttonStyle: {
-        color: HANSIS_MEDIUM_LIGHT
+        backgroundColor: HANSIS_DARK
     }
+
 });
 
 

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements'
-import { HANSIS_MEDIUM_LIGHT } from "../../../Constants";
+import { View, StyleSheet } from 'react-native';
+import { Button, Input, Text } from 'react-native-elements'
+import { HANSIS_MEDIUM_DARK } from "../../../Constants";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class LogIn extends Component {
     static navigationOptions = ({navigation}) => {
@@ -10,7 +11,7 @@ class LogIn extends Component {
                <Button
                    title="Sign Up"
                    type="clear"
-                   buttonStyles={styles.buttonStyle}
+                   titleStyle={styles.titleStyle}
                    onPress={() => navigation.navigate('SignUp')}
                />
            ),
@@ -20,17 +21,40 @@ class LogIn extends Component {
     render() {
         return (
             <View>
-                <Text>
-                    LogIn
-                </Text>
+               <Text h1>Login</Text>
+               <Input
+                    placeholder='Email'
+                    leftIconContainerStyle={styles.iconContainerStyle}
+                    leftIcon={
+                        <Icon
+                            name='envelope'
+                            size={24}
+                            color='black'
+                        />
+                    }
+                    />
+                <Input
+                    placeholder='Password'
+                    leftIconContainerStyle={styles.iconContainerStyle}
+                    leftIcon={
+                        <Icon
+                            name='lock'
+                            size={24}
+                            color='black'
+                        />
+                    }
+                />
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    buttonStyle: {
-        color: HANSIS_MEDIUM_LIGHT
+    titleStyle: {
+        color: HANSIS_MEDIUM_DARK
+    },
+    iconContainerStyle: {
+       width: 52
     }
 });
 
