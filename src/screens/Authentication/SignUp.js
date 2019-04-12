@@ -56,9 +56,7 @@ class SignUp extends Component {
                     <Text>Already Have an Account?</Text>
                      <FormButton
                         title={"Login"}
-                       // onPress={() => this.props.navigation.navigate('SignIn')}
-                       //For Development ONlY
-                       onPress={() => this.props.navigation.navigate('App')}
+                        onPress={() => this.props.navigation.navigate('SignIn')}
                     />
                 </View>
             </HeaderWrapper>
