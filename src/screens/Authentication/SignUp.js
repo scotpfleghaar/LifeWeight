@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions, BackHandler } from 'react-native';
 import { Input, Text } from 'react-native-elements'
 import { HANSIS_MEDIUM_DARK, HANSIS_MEDIUM, HANSIS_LIGHT, HANSIS_DARK } from "../../../Constants";
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -7,6 +7,13 @@ import { HeaderWrapper, FormButton } from '../Components'
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
 class SignUp extends Component {
+
+    componentDidMount() {
+        const self = this;
+        BackHandler.addEventListener('hardwareBackPress', function() {
+          self.props.navigation.navigate('SignIn')
+        });
+    }
 
     render() {
         return (
