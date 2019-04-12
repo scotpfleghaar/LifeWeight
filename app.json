@@ -4,6 +4,7 @@
     "slug": "LifeWeight",
     "privacy": "public",
     "sdkVersion": "32.0.0",
+    "primaryColor": "#4979ab",
     "platforms": [
       "ios",
       "android"

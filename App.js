@@ -8,12 +8,12 @@ import reducers from './src/Redux/Reducers';
 class App extends React.Component {
     componentWillMount() {
         const config = {
-            apiKey: "AIzaSyAofptNb9dVMTXF_L1meY6MmvguRUEWgM0",
-            authDomain: "reactnativemanager-fda85.firebaseapp.com",
-            databaseURL: "https://reactnativemanager-fda85.firebaseio.com",
-            projectId: "reactnativemanager-fda85",
-            storageBucket: "reactnativemanager-fda85.appspot.com",
-            messagingSenderId: "716165608292"
+             apiKey: "AIzaSyBHizhi9yWthb-uvNr_juILneAtp8bZmiQ",
+            authDomain: "tiberius-cougar-alpha.firebaseapp.com",
+            databaseURL: "https://tiberius-cougar-alpha.firebaseio.com",
+            projectId: "tiberius-cougar-alpha",
+            storageBucket: "tiberius-cougar-alpha.appspot.com",
+            messagingSenderId: "889412483336"
         };
         firebase.initializeApp(config);
     }
