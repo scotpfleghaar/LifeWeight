@@ -22,6 +22,7 @@ class LogIn extends Component {
                     <Input
                         placeholder='Email'
                         leftIconContainerStyle={styles.iconContainerStyle}
+                        inputContainerStyle={{height: 52}}
                         leftIcon={
                             <Icon
                                 name='envelope'
@@ -33,6 +34,7 @@ class LogIn extends Component {
                     <Input
                         placeholder='Password'
                         leftIconContainerStyle={styles.iconContainerStyle}
+                        inputContainerStyle={{height: 52}}
                         leftIcon={
                             <Icon
                                 name='lock'

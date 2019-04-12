@@ -8,7 +8,7 @@ import reducers from './src/Redux/Reducers';
 class App extends React.Component {
     componentWillMount() {
         const config = {
-             apiKey: "AIzaSyBHizhi9yWthb-uvNr_juILneAtp8bZmiQ",
+            apiKey: "AIzaSyBHizhi9yWthb-uvNr_juILneAtp8bZmiQ",
             authDomain: "tiberius-cougar-alpha.firebaseapp.com",
             databaseURL: "https://tiberius-cougar-alpha.firebaseio.com",
             projectId: "tiberius-cougar-alpha",

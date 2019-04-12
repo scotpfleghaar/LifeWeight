@@ -24,6 +24,7 @@ class SignUp extends Component {
                     <Input
                         placeholder='Email'
                         leftIconContainerStyle={styles.iconContainerStyle}
+                        inputContainerStyle={{height: 52}}
                         leftIcon={
                             <Icon
                                 name='envelope'
@@ -35,6 +36,7 @@ class SignUp extends Component {
                     <Input
                         placeholder='Password'
                         leftIconContainerStyle={styles.iconContainerStyle}
+                        inputContainerStyle={{height: 52}}
                         leftIcon={
                             <Icon
                                 name='lock'
@@ -46,6 +48,7 @@ class SignUp extends Component {
                       <Input
                         placeholder='Confirm Password'
                         leftIconContainerStyle={styles.iconContainerStyle}
+                        inputContainerStyle={{height: 52}}
                         leftIcon={
                             <Icon
                                 name='lock'
