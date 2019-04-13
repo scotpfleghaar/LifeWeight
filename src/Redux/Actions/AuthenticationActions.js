@@ -8,7 +8,6 @@ import {
 import firebase from 'firebase';
 
 export const emailChange = (text) => {
-    console.log('emailChange', text);
     return {
         type: EMAIL_CHANGED,
         payload: text
@@ -22,25 +21,32 @@ export const passwordChange = (text) => {
     }
 };
 
-export const loginUser = ({email, password}) => (dispatch) => {
+export const loginUser = (email, password, callBack) => (dispatch) => {
     dispatch({
         type: LOGIN_USER_INITIALIZED
     });
     firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(user => loginUserSuccess(dispatch, user))
+        .then(user => loginUserSuccess(dispatch, user, callBack))
         .catch(() => {
-            firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then(user => loginUserSuccess(dispatch, user))
-                .catch(() => loginUserFail(dispatch))
+            // Create Account?
         });
 };
 
-const loginUserSuccess = (dispatch, user) => {
+export const createAccount = (email, password, callBack) => (dispatch) => {
+    dispatch({
+        type: LOGIN_USER_INITIALIZED
+    });
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(user => loginUserSuccess(dispatch, user, callBack))
+        .catch((err) => loginUserFail(dispatch))
+};
+
+const loginUserSuccess = (dispatch, user, callBack) => {
     dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: user
     });
-   // @TODO Handle Navigation
+    callBack();
 };
 
 const loginUserFail = (dispatch) => {

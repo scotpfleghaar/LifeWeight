@@ -52,7 +52,9 @@ class LogIn extends Component {
                     />
                     <FormButton
                         title={"Login"}
-                        // onPress={this.routeToSignUp.bind(this)}
+                        onPress={() => this.props.loginUser(this.props.email, this.props.password, () => {
+                            this.props.navigation.navigate('App')
+                        })}
                     />
                 </View>
                 <View style={styles.formStyle}>
