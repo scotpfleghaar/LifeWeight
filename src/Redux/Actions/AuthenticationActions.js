@@ -8,6 +8,7 @@ import {
 import firebase from 'firebase';
 
 export const emailChange = (text) => {
+    console.log('emailChange', text);
     return {
         type: EMAIL_CHANGED,
         payload: text

@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import { Input, Text } from 'react-native-elements'
-import { HANSIS_MEDIUM_DARK, HANSIS_MEDIUM, HANSIS_LIGHT, HANSIS_DARK } from "../../../Constants";
+import {View, StyleSheet, Dimensions} from 'react-native';
+import {Input, Text} from 'react-native-elements'
+import {HANSIS_MEDIUM_DARK, HANSIS_MEDIUM} from "../../../Constants";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { HeaderWrapper, FormButton } from '../Components'
+import {HeaderWrapper, FormButton} from '../Components'
+import {loginUser, emailChange, passwordChange} from "../../Redux/Actions";
+import {connect} from "react-redux";
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
+
 
 class LogIn extends Component {
     routeToSignUp() {
@@ -18,9 +21,11 @@ class LogIn extends Component {
             <HeaderWrapper
                 title={'Login'}
             >
-                 <View style={styles.formStyle}>
+                <View style={styles.formStyle}>
                     <Input
                         placeholder='Email'
+                        value={this.props.email}
+                        onChangeText={text => this.props.emailChange(text)}
                         leftIconContainerStyle={styles.iconContainerStyle}
                         inputContainerStyle={{height: 52}}
                         leftIcon={
@@ -30,9 +35,11 @@ class LogIn extends Component {
                                 color={HANSIS_MEDIUM_DARK}
                             />
                         }
-                        />
+                    />
                     <Input
                         placeholder='Password'
+                        value={this.props.password}
+                        onChangeText={text => this.props.passwordChange(text)}
                         leftIconContainerStyle={styles.iconContainerStyle}
                         inputContainerStyle={{height: 52}}
                         leftIcon={
@@ -47,10 +54,10 @@ class LogIn extends Component {
                         title={"Login"}
                         // onPress={this.routeToSignUp.bind(this)}
                     />
-               </View>
+                </View>
                 <View style={styles.formStyle}>
                     <Text>Don't Have an Account?</Text>
-                     <FormButton
+                    <FormButton
                         title={"Create Account"}
                         onPress={this.routeToSignUp.bind(this)}
                     />
@@ -62,7 +69,7 @@ class LogIn extends Component {
 
 const styles = StyleSheet.create({
     iconContainerStyle: {
-       width: 52
+        width: 52
     },
 
     headerStyle: {
@@ -76,9 +83,18 @@ const styles = StyleSheet.create({
     formStyle: {
         height: 240,
         justifyContent: 'center',
-         alignItems: 'center',
+        alignItems: 'center',
     }
 });
 
+const mapStateToProps = state => {
+    const {email, password, error, loading} = state.auth;
+    return {
+        email,
+        password,
+        error,
+        loading
+    }
+};
 
-export default LogIn;
+export default connect(mapStateToProps, {loginUser, emailChange, passwordChange})(LogIn);

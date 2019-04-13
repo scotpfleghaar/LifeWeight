@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { View, StyleSheet, Dimensions, BackHandler } from 'react-native';
 import { Input, Text } from 'react-native-elements'
-import { HANSIS_MEDIUM_DARK, HANSIS_MEDIUM, HANSIS_LIGHT, HANSIS_DARK } from "../../../Constants";
+import { HANSIS_MEDIUM_DARK, HANSIS_MEDIUM } from "../../../Constants";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { HeaderWrapper, FormButton } from '../Components'
 const DEVICE_WIDTH = Dimensions.get('window').width;
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
          alignItems: 'center',
     }
 });
+
 
 
 export default SignUp;
