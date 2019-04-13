@@ -6,6 +6,7 @@ import {
     LOGIN_USER_INITIALIZED
 } from "../../../Constants";
 import firebase from 'firebase';
+import {firebaseErrorCodesTranslated} from "../../screens/Utilities";
 
 export const emailChange = (text) => {
     return {
@@ -27,18 +28,20 @@ export const loginUser = (email, password, callBack) => (dispatch) => {
     });
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(user => loginUserSuccess(dispatch, user, callBack))
-        .catch(() => {
-            // Create Account?
-        });
+        .catch((err) => loginUserFail(dispatch, err));
 };
 
-export const createAccount = (email, password, callBack) => (dispatch) => {
+export const createAccount = (email, password, matcherPassword, callBack) => (dispatch) => {
+    console.log("createAccount", email, password, matcherPassword);
     dispatch({
         type: LOGIN_USER_INITIALIZED
     });
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(user => loginUserSuccess(dispatch, user, callBack))
-        .catch((err) => loginUserFail(dispatch))
+    if (password === matcherPassword) {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(user => loginUserSuccess(dispatch, user, callBack))
+            .catch((err) => loginUserFail(dispatch, err))
+    }
+    loginUserFail(dispatch, {message: 'Passwords do not match'});
 };
 
 const loginUserSuccess = (dispatch, user, callBack) => {
@@ -49,9 +52,9 @@ const loginUserSuccess = (dispatch, user, callBack) => {
     callBack();
 };
 
-const loginUserFail = (dispatch) => {
+const loginUserFail = (dispatch, error) => {
     return dispatch({
         type: LOGIN_USER_FAILED,
-        payload: "Authentication Failed"
+        payload: firebaseErrorCodesTranslated(error)
     })
 };

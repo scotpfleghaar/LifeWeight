@@ -38,10 +38,12 @@ class LogIn extends Component {
                     />
                     <Input
                         placeholder='Password'
+                        secureTextEntry
                         value={this.props.password}
                         onChangeText={text => this.props.passwordChange(text)}
                         leftIconContainerStyle={styles.iconContainerStyle}
                         inputContainerStyle={{height: 52}}
+                        errorMessage={this.props.error ? this.props.error : null}
                         leftIcon={
                             <Icon
                                 name='lock'
