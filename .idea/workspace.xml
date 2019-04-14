@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96edc2d9-58a7-4b9f-8cdb-0af36c41891b" name="Default Changelist" comment="Login Server is working">
-      <change afterPath="$PROJECT_DIR$/src/screens/Utilities/index.js" afterDir="false" />
+    <list default="true" id="96edc2d9-58a7-4b9f-8cdb-0af36c41891b" name="Default Changelist" comment="Working toword Async persistant storage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/Actions/AuthenticationActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Actions/AuthenticationActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authentication/LogIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authentication/LogIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authentication/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authentication/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,14 +29,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/Authentication/SignUp.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="88" column="27" lean-forward="true" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+            <state relative-caret-position="347">
+              <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -55,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/Authentication/LogIn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="45" column="81" lean-forward="true" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="81" />
+            <state relative-caret-position="465">
+              <caret line="22" column="13" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="22" selection-end-column="13" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -67,17 +74,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/react-native-elements/src/index.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="19067">
               <caret line="852" column="9" selection-start-line="852" selection-start-column="2" selection-end-line="852" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Redux/Actions/AuthenticationActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+            <state relative-caret-position="202">
+              <caret line="42" column="57" lean-forward="true" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
               <folding>
                 <element signature="e#0#152#0" expanded="true" />
               </folding>
@@ -134,12 +141,13 @@
         <option value="$PROJECT_DIR$/src/Redux/Reducers/index.js" />
         <option value="$PROJECT_DIR$/src/Redux/Actions/index.js" />
         <option value="$PROJECT_DIR$/src/screens/Authentication/StartupAuthentication.js" />
-        <option value="$PROJECT_DIR$/Main.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/screens/Utilities/index.js" />
         <option value="$PROJECT_DIR$/src/screens/Authentication/LogIn.js" />
         <option value="$PROJECT_DIR$/src/screens/Authentication/SignUp.js" />
         <option value="$PROJECT_DIR$/src/Redux/Actions/AuthenticationActions.js" />
+        <option value="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" />
+        <option value="$PROJECT_DIR$/Main.js" />
       </list>
     </option>
   </component>
@@ -255,7 +263,8 @@
       <option name="presentableId" value="Default" />
       <updated>1554892593156</updated>
       <workItem from="1554892595357" duration="13412000" />
-      <workItem from="1555176665300" duration="1836000" />
+      <workItem from="1555176665300" duration="2169000" />
+      <workItem from="1555266724510" duration="3449000" />
     </task>
     <task id="LOCAL-00001" summary="Working through Screens">
       <created>1554896318061</created>
@@ -313,17 +322,31 @@
       <option name="project" value="LOCAL" />
       <updated>1555116969528</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Create Account is working">
+      <created>1555179062825</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1555179062825</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Working toword Async persistant storage">
+      <created>1555184386917</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1555184386917</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15248000" />
+    <option name="totallyTimeSpent" value="19030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22317597" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22603719" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -341,7 +364,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Terminal" order="3" visible="true" weight="0.21459228" />
+      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.21459228" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +378,9 @@
     <MESSAGE value="Base Navigation in place" />
     <MESSAGE value="Linked up React Redux" />
     <MESSAGE value="Login Server is working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login Server is working" />
+    <MESSAGE value="Create Account is working" />
+    <MESSAGE value="Working toword Async persistant storage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working toword Async persistant storage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -460,51 +485,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2201">
-          <caret line="115" column="2" selection-start-line="115" selection-start-column="2" selection-end-line="115" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-elements/src/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="852" column="9" selection-start-line="852" selection-start-column="2" selection-end-line="852" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/Utilities/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Authentication/SignUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="88" column="27" lean-forward="true" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+        <state relative-caret-position="1863">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -518,22 +502,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-elements/src/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19067">
+          <caret line="852" column="9" selection-start-line="852" selection-start-column="2" selection-end-line="852" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Utilities/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/Actions/AuthenticationActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="42" column="57" lean-forward="true" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#152#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Authentication/LogIn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="45" column="81" lean-forward="true" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="81" />
+        <state relative-caret-position="465">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="22" selection-end-column="13" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/Actions/AuthenticationActions.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        <state relative-caret-position="-441" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="90" column="43" lean-forward="true" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
-            <element signature="e#0#152#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

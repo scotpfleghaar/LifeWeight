@@ -1,12 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, ScrollView} from 'react-native';
 import {
     createBottomTabNavigator,
     createAppContainer,
-    createSwitchNavigator,
-    createStackNavigator
+    createSwitchNavigator
 } from "react-navigation";
-import {Icon} from 'react-native-elements';
+import {Icon, Card} from 'react-native-elements';
 
 import ReportsScreen from "./src/screens/ReportsScreen";
 import RecordedWeightsScreen from "./src/screens/RecordedWeightsScreen";
@@ -14,26 +13,101 @@ import SettingsScreen from "./src/screens/SettingsScreen";
 import StartupAuthentication from "./src/screens/Authentication/StartupAuthentication";
 import LogIn from "./src/screens/Authentication/LogIn";
 import SignUp from "./src/screens/Authentication/SignUp";
-
-import {HANSIS_DARK, HANSIS_MEDIUM, PURE_WHITE, HANSIS_LIGHT} from './Constants'
+import {HANSIS_DARK, HANSIS_MEDIUM, HANSIS_LIGHT} from './Constants'
+import {HeaderWrapper} from "./src/screens/Components";
 
 class Main extends React.Component {
     render() {
         return (
-            <View style={styles.container}>
-                <Text>Open up App.js to start working on your app!</Text>
-            </View>
+            <HeaderWrapper
+                title={'Summary'}
+            >
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.scrollStyle}>
+
+                    <Card
+                        title='Your Weight'
+                    >
+                        <Text style={{marginBottom: 10}}>
+                            BLAH BLAH
+                        </Text>
+                    </Card>
+
+                    <Card
+                        title='Example'
+                    >
+                        <Text style={{marginBottom: 10}}>
+                            BLAH BLAH
+                        </Text>
+                    </Card>
+
+                    <Card
+                        title='Example'
+                    >
+                        <Text style={{marginBottom: 10}}>
+                            BLAH BLAH
+                        </Text>
+                    </Card>
+
+                    <Card
+                        title='Example'
+                    >
+                        <Text style={{marginBottom: 10}}>
+                            BLAH BLAH
+                        </Text>
+                    </Card>
+
+                    <Card
+                        title='Example'
+                    >
+                        <Text style={{marginBottom: 10}}>
+                            BLAH BLAH
+                        </Text>
+                    </Card>
+
+                    <Card
+                        title='Example'
+                    >
+                        <Text style={{marginBottom: 10}}>
+                            BLAH BLAH
+                        </Text>
+                    </Card>
+
+                    <Card
+                        title='Example'
+                    >
+                        <Text style={{marginBottom: 10}}>
+                            BLAH BLAH
+                        </Text>
+                    </Card>
+
+                    <Card
+                        title='Example'
+                    >
+                        <Text style={{marginBottom: 10}}>
+                            BLAH BLAH
+                        </Text>
+                    </Card>
+
+                    <Card
+                        title='Example'
+                    >
+                        <Text style={{marginBottom: 10}}>
+                            BLAH BLAH
+                        </Text>
+                    </Card>
+
+                </ScrollView>
+            </HeaderWrapper>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: PURE_WHITE,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+    scrollStyle: {
+        paddingBottom: 110
+    }
 });
 
 const AppStack = createBottomTabNavigator({
@@ -93,7 +167,8 @@ const AppStack = createBottomTabNavigator({
             activeTintColor: HANSIS_MEDIUM,
             inactiveTintColor: HANSIS_DARK,
         },
-        backgroundColor: HANSIS_LIGHT
+        backgroundColor: HANSIS_LIGHT,
+        drawBehind:true
     }
 );
 
