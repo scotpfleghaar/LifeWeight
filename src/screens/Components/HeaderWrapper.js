@@ -9,12 +9,10 @@ const DEVICE_WIDTH = Dimensions.get('window').width;
 export class HeaderWrapper extends Component {
     render() {
         return (
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                <View style={this.props.style}>
-                    <Header centerComponent={{ text: this.props.title, style: { color: HANSIS_LIGHT, fontSize: 24 } }} />
-                    {this.props.children}
-                </View>
-            </TouchableWithoutFeedback>
+            <View style={this.props.style}>
+                <Header centerComponent={{ text: this.props.title, style: { color: HANSIS_LIGHT, fontSize: 24 } }} />
+                {this.props.children}
+            </View>
         );
     }
 }

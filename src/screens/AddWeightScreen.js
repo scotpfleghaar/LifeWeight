@@ -20,9 +20,8 @@ class AddWeightScreen extends Component {
         }
     }
 
-    goBack() {
-        console.log('Button Pressed');
-        this.props.navigation.navigate.pop()
+    goHome() {
+        this.props.navigation.navigate('Home')
     };
 
     render() {
@@ -48,7 +47,7 @@ class AddWeightScreen extends Component {
                        <WeightCheck/>
                         <FormButton
                             title={"Add Entry"}
-                            onPress={() => this.goBack.bind(this)}
+                            onPress={this.goHome.bind(this)}
                         />
                     </View>
                 </TouchableWithoutFeedback>
