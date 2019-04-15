@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Dimensions} from 'react-native';
+import {View, StyleSheet, Dimensions, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import {Input, Text} from 'react-native-elements'
 import {HANSIS_MEDIUM_DARK, HANSIS_MEDIUM} from "../../Constants";
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -30,25 +30,28 @@ class AddWeightScreen extends Component {
             <HeaderWrapper
                 title={'Add Record'}
             >
-                <View style={styles.formStyle}>
-                    <Input
-                        placeholder='Weight'
-                        keyboardType='numeric'
-                        value={this.state.weight}
-                        onChangeText={(text) => {
-                            this.setState({
-                                weight: text
-                            })
-                        }}
-                        leftIconContainerStyle={styles.iconContainerStyle}
-                        inputContainerStyle={{height: 52}}
-                    />
-                   <WeightCheck/>
-                    <FormButton
-                        title={"Add Entry"}
-                        onPress={() => this.goBack.bind(this)}
-                    />
-                </View>
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                    <View style={styles.formStyle}>
+                        <Input
+                            placeholder='Weight'
+                            keyboardType='numeric'
+                            value={this.state.weight}
+                            onChangeText={(text) => {
+                                this.setState({
+                                    weight: text
+                                })
+                            }}
+                            leftIconContainerStyle={styles.iconContainerStyle}
+                            inputContainerStyle={{height: 64, width: DEVICE_WIDTH/2, alignSelf: 'center',  marginTop: 30}}
+                            inputStyle={{textAlign: 'center', fontSize: 40}}
+                        />
+                       <WeightCheck/>
+                        <FormButton
+                            title={"Add Entry"}
+                            onPress={() => this.goBack.bind(this)}
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
             </HeaderWrapper>
         );
     }

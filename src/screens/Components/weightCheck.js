@@ -41,9 +41,10 @@ class WeightCheck extends Component {
                     onPress={this.updateIndex}
                     selectedIndex={selectedIndex}
                     buttons={buttons}
-                    //containerStyle={{height: 100}}
                     selectedButtonStyle={styles.buttonGroupSelectedButtonStyle}
                     buttonStyle={styles.buttonGroupButtonStyle}
+                    innerBorderStyle={{ color: HANSIS_MEDIUM_LIGHT }}
+                    containerStyle={{borderColor: PURE_WHITE}}
                 />
             </View>
         )
@@ -52,13 +53,13 @@ class WeightCheck extends Component {
 
 const styles = StyleSheet.create({
     viewGroup: {
-        marginTop: 20
+        marginTop: 30
     },
     viewGroupLabel: {
         marginBottom: 5
     },
     buttonGroupButtonStyle: {
-        backgroundColor: HANSIS_LIGHT,
+        backgroundColor: PURE_WHITE,
     },
     buttonGroupSelectedButtonStyle: {
         backgroundColor: HANSIS_MEDIUM_LIGHT,
