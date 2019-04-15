@@ -1,26 +1,48 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
+import { ListItem } from 'react-native-elements'
+import { HeaderWrapper } from "./Components";
+
+const list = [
+    {
+        name: 'Amy Farha',
+        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+        subtitle: 'Vice President'
+    },
+    {
+        name: 'Chris Jackson',
+        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+        subtitle: 'Vice Chairman'
+    },
+];
 
 class RecordedWeightsScreen extends Component {
-    render() {
+
+    keyExtractor = (item, index) => index.toString();
+
+    renderItem = ({ item }) => (
+        <ListItem
+            title={item.name}
+            subtitle={item.subtitle}
+            leftAvatar={{ source: { uri: item.avatar_url } }}
+            rightIcon={{ name: 'chevron-right', type: 'font-awesome' }}
+        />
+    );
+
+    render () {
         return (
-            <View style={styles.container}>
-                <Text>
-                    RecordedWeightsScreen
-                </Text>
-            </View>
-        );
+            <HeaderWrapper
+                title={'Records'}
+            >
+                <FlatList
+                    keyExtractor={this.keyExtractor}
+                    data={list}
+                    renderItem={this.renderItem}
+                />
+            </HeaderWrapper>
+        )
     }
 }
 
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
-});
 
 export default RecordedWeightsScreen;
