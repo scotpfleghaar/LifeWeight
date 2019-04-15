@@ -103,13 +103,40 @@ const AuthStack = createSwitchNavigator({
     }
 );
 
+// export default createSwitchNavigator(
+//     {
+//         AuthLoading: StartupAuthentication,
+//         App: AppStack,
+//         Auth: AuthStack,
+//     },
+//     {
+//         initialRouteName: 'AuthLoading',
+//     }
+// );
+
+
+const devRouter = createBottomTabNavigator({
+    Home: {
+        screen: AddWeightScreen,
+        navigationOptions: {
+            tabBarIcon: ({tintColor}) => {
+                return <Icon
+                    name='home'
+                    type='font-awesome'
+                    color={tintColor}
+                />;
+            },
+        }
+    }
+}, {
+    initialRouteName: "Home",
+});
+
 export default createSwitchNavigator(
     {
-        AuthLoading: StartupAuthentication,
-        App: AppStack,
-        Auth: AuthStack,
+        dev: devRouter,
     },
     {
-        initialRouteName: 'AuthLoading',
+        initialRouteName: 'dev',
     }
 );

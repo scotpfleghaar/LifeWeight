@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
-import {Input} from 'react-native-elements'
+import {Input, Text} from 'react-native-elements'
 import {HANSIS_MEDIUM_DARK, HANSIS_MEDIUM} from "../../Constants";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {HeaderWrapper, FormButton} from './Components'
 import {connect} from "react-redux";
+import WeightCheck from "./Components/weightCheck";
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
@@ -42,6 +43,7 @@ class AddWeightScreen extends Component {
                         leftIconContainerStyle={styles.iconContainerStyle}
                         inputContainerStyle={{height: 52}}
                     />
+                   <WeightCheck/>
                     <FormButton
                         title={"Add Entry"}
                         onPress={() => this.goBack.bind(this)}
