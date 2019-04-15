@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'firebase'
 import {
     ActivityIndicator,
     AsyncStorage,
@@ -6,27 +7,28 @@ import {
     View,
 } from 'react-native';
 
+
 class StartupAuthentication extends React.Component {
-    constructor(props) {
-        super(props);
-        //this._bootstrapAsync();
+
+    constructor() {
+        super();
+        this.state = {
+        loading: true,
+        authenticated: false,
+        };
     }
 
     componentDidMount() {
-        this.props.navigation.navigate('Auth');
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.props.navigation.navigate('App');
+            } else {
+               this.props.navigation.navigate('Auth');
+            }
+        });
     }
 
-    // Fetch the token from storage then navigate to our appropriate place
-    // _bootstrapAsync = async () => {
-    //     const userToken = await AsyncStorage.getItem('userToken');
-    //
-    //     // This will switch to the App screen or Auth screen and this loading
-    //     // screen will be unmounted and thrown away.
-    //     this.props.navigation.navigate(userToken ? 'App' : 'Auth');
-    // };
-
-    // Render any loading content that you like here
-    render() {
+     render() {
         return (
             <View>
                 <ActivityIndicator />
