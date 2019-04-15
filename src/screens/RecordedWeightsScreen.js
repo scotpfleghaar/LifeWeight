@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { ListItem } from 'react-native-elements'
-import { HeaderWrapper } from "./Components";
+import { HeaderWrapper, FormButton } from "./Components";
 import { connect } from 'react-redux'
 import { WEIGHT_POSTFIX, HANSIS_MEDIUM_DARK, MONTHS } from '../../Constants'
 
@@ -12,7 +12,7 @@ class RecordedWeightsScreen extends Component {
 
     renderItem = ({ item }) => (
         <ListItem
-            title={`${String(item.weight)}${WEIGHT_POSTFIX}`}
+            title={`${String(item.weight)} ${WEIGHT_POSTFIX}`}
             subtitle={`${MONTHS[item.date.month - 1]} ${item.date.day}`}
             leftIcon={this.renderLeftIcon(item.userWeightGage)}
             rightIcon={{ name: 'chevron-right', type: 'font-awesome' }}
@@ -43,16 +43,22 @@ class RecordedWeightsScreen extends Component {
     }
 
     render () {
-        console.log(this.props.records)
+        const isThereAList = this.props.records.length > 0;
         return (
             <HeaderWrapper
                 title={'Records'}
             >
-                <FlatList
+               {!isThereAList ? 
+               <View style={{alignItems: 'center',justifyContent: 'center'}}>
+                    <FormButton title={'Add Record?'} onPress={() => this.props.navigation.navigate('Add')}/>
+               </View> 
+               :
+               <FlatList
                     keyExtractor={this.keyExtractor}
                     data={this.props.records.reverse()}
                     renderItem={this.renderItem}
-                />
+                />}
+               
             </HeaderWrapper>
         )
     }

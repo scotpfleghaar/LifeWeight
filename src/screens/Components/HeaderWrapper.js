@@ -10,7 +10,7 @@ export class HeaderWrapper extends Component {
     render() {
         return (
             <View style={this.props.style}>
-                <Header centerComponent={{ text: this.props.title, style: { color: HANSIS_LIGHT, fontSize: 24 } }} />
+                <Header backgroundColor={HANSIS_MEDIUM_DARK} centerComponent={{ text: this.props.title, style: { color: HANSIS_LIGHT, fontSize: 24 } }} />
                 {this.props.children}
             </View>
         );
