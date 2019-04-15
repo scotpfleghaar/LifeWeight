@@ -1,19 +1,16 @@
 import React, {Component} from 'react';
 import {ButtonGroup, Icon, Text} from "react-native-elements";
 import {StyleSheet, View} from "react-native";
-import {HANSIS_LIGHT, HANSIS_MEDIUM_LIGHT, PURE_WHITE} from "../../../Constants";
+import {HANSIS_LIGHT, HANSIS_MEDIUM_LIGHT, PURE_WHITE, HANSIS_MEDIUM_DARK} from "../../../Constants";
 
 class WeightCheck extends Component {
-    constructor() {
-        super();
-        this.state = {
-            selectedIndex: 0
-        };
+    constructor(props) {
+        super(props);
         this.updateIndex = this.updateIndex.bind(this)
     }
 
     updateIndex(selectedIndex) {
-        this.setState({selectedIndex})
+        this.props.selectedIndexUpdate(selectedIndex)
     }
 
     render() {
@@ -25,14 +22,14 @@ class WeightCheck extends Component {
         const sortaIcon = () => <Icon
             type={'font-awesome'}
             name={'minus'}
-            color={'blue'}/>;
+            color={HANSIS_MEDIUM_DARK}/>;
         const sadIcon = () => <Icon
             type={'font-awesome'}
             color={'salmon'}
             name={'times'}/>;
 
         const buttons = [{element: happyIcon}, {element: sortaIcon}, {element: sadIcon}];
-        const {selectedIndex} = this.state;
+        const {selectedIndex} = this.props;
 
         return (
             <View style={styles.viewGroup}>

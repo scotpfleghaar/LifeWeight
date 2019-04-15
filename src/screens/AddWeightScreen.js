@@ -7,6 +7,7 @@ import {HeaderWrapper, FormButton} from './Components'
 import {connect} from "react-redux";
 import WeightCheck from "./Components/weightCheck";
 import DatePicker from 'react-native-datepicker'
+import { addWeightRecord } from '../Redux/Actions'
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
@@ -17,7 +18,8 @@ class AddWeightScreen extends Component {
         super(props);
         this.state = {
             weight: '',
-            date: this.todaysDate()
+            date: this.todaysDate(),
+            selectedIndex: 0
         }
     }
 
@@ -27,6 +29,27 @@ class AddWeightScreen extends Component {
         const mm = today.getMonth() + 1;
         const yyyy = today.getFullYear();
         return `${mm}-${dd}-${yyyy}`
+    }
+
+
+    parseDate(date){
+        const parsedDate = date.split('-')
+        return {
+            month: parsedDate[0],
+            day: parsedDate[1],
+            year: parsedDate[2]
+        }
+    }
+
+    addWeightRecordToState() {
+        this.props.addWeightRecord(parseFloat(this.state.weight), this.parseDate(this.todaysDate()), this.state.selectedIndex, () => {
+            this.setState({
+                weight: '',
+                date: this.todaysDate(),
+                selectedIndex: 0
+            })
+            this.goHome();
+        })
     }
 
     goHome() {
@@ -76,10 +99,10 @@ class AddWeightScreen extends Component {
                             }}
                             onDateChange={(date) => {this.setState({date: date})}}
                         />
-                       <WeightCheck/>
+                       <WeightCheck selectedIndex={this.state.selectedIndex} selectedIndexUpdate={(index) => this.setState({selectedIndex: index})}/>
                         <FormButton
                             title={"Add Entry"}
-                            onPress={this.goHome.bind(this)}
+                            onPress={() => this.addWeightRecordToState()}
                         />
                     </View>
                 </TouchableWithoutFeedback>
@@ -110,7 +133,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     const {email, password, error, loading} = state.auth;
-    return {
+    return { 
         email,
         password,
         error,
@@ -118,4 +141,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, {})(AddWeightScreen);
+export default connect(mapStateToProps, {addWeightRecord})(AddWeightScreen);

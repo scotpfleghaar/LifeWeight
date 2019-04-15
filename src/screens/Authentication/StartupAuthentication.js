@@ -2,8 +2,6 @@ import React from 'react';
 import firebase from 'firebase'
 import {
     ActivityIndicator,
-    AsyncStorage,
-    StatusBar,
     View,
 } from 'react-native';
 

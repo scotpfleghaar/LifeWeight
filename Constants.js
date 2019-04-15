@@ -6,9 +6,16 @@ export const HANSIS_LIGHT = '#f9f9f9';
 export const PURE_WHITE = '#ffffff';
 
 
+export const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+export const WEIGHT_POSTFIX = 'lbs';
+
+
 
 export const EMAIL_CHANGED = "EMAIL_CHANGED";
 export const PASSWORD_CHANGED = "PASSWORD_CHANGED";
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
 export const LOGIN_USER_FAILED = "LOGIN_USER_FAILED";
 export const LOGIN_USER_INITIALIZED = "LOGIN_USER_INITIALIZED";
+
+
+export const ADD_WEIGHT_RECORD = 'ADD_WEIGHT_RECORD';

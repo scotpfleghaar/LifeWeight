@@ -2,19 +2,9 @@ import React, {Component} from 'react';
 import { FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements'
 import { HeaderWrapper } from "./Components";
+import { connect } from 'react-redux'
+import { WEIGHT_POSTFIX, HANSIS_MEDIUM_DARK, MONTHS } from '../../Constants'
 
-const list = [
-    {
-        name: 'Amy Farha',
-        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        subtitle: 'Vice President'
-    },
-    {
-        name: 'Chris Jackson',
-        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-        subtitle: 'Vice Chairman'
-    },
-];
 
 class RecordedWeightsScreen extends Component {
 
@@ -22,21 +12,45 @@ class RecordedWeightsScreen extends Component {
 
     renderItem = ({ item }) => (
         <ListItem
-            title={item.name}
-            subtitle={item.subtitle}
-            leftAvatar={{ source: { uri: item.avatar_url } }}
+            title={`${String(item.weight)}${WEIGHT_POSTFIX}`}
+            subtitle={`${MONTHS[item.date.month - 1]} ${item.date.day}`}
+            leftIcon={this.renderLeftIcon(item.userWeightGage)}
             rightIcon={{ name: 'chevron-right', type: 'font-awesome' }}
         />
     );
 
+    renderLeftIcon(userWeightGage){
+        switch(String(userWeightGage)){
+            case '0':
+                return {
+                    type: 'font-awesome',
+                    name : 'check',
+                    color: 'green'
+                }
+            case '1':
+                return {
+                        type: 'font-awesome',
+                        name : 'minus',
+                        color: HANSIS_MEDIUM_DARK
+                }
+            default:
+                return {
+                    type: 'font-awesome',
+                    name : 'times',
+                    color: 'salmon'
+                }
+        }
+    }
+
     render () {
+        console.log(this.props.records)
         return (
             <HeaderWrapper
                 title={'Records'}
             >
                 <FlatList
                     keyExtractor={this.keyExtractor}
-                    data={list}
+                    data={this.props.records.reverse()}
                     renderItem={this.renderItem}
                 />
             </HeaderWrapper>
@@ -44,5 +58,11 @@ class RecordedWeightsScreen extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    const { records } = state.app;
+    return { 
+        records
+    }
+};
 
-export default RecordedWeightsScreen;
+export default connect(mapStateToProps, {})(RecordedWeightsScreen);
