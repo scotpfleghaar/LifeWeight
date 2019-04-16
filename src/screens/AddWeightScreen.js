@@ -102,6 +102,7 @@ class AddWeightScreen extends Component {
                        <WeightCheck selectedIndex={this.state.selectedIndex} selectedIndexUpdate={(index) => this.setState({selectedIndex: index})}/>
                         <FormButton
                             title={"Add Entry"}
+                            isDisabled={!this.state.weight}
                             onPress={() => this.addWeightRecordToState()}
                         />
                     </View>

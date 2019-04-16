@@ -9,6 +9,7 @@ export class FormButton extends Component {
     render() {
         return (
              <Button
+                 disabled={this.props.isDisabled}
                 title={this.props.title}
                 type="clear"
                 titleStyle={ this.props.titleStyle ? this.props.titleStyle : styles.buttonTitleStyle }
