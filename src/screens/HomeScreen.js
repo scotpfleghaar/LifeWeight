@@ -2,7 +2,7 @@ import React from "react";
 import {HeaderWrapper} from "./Components";
 import {ScrollView, StyleSheet, Text} from "react-native";
 import {Card} from "react-native-elements";
-import LineChart from './Components/Charts/lineChart'
+import WeightLineChart from './Components/Charts/WeightLineChart'
 
 
 class HomeScreen extends React.Component {
@@ -18,7 +18,7 @@ class HomeScreen extends React.Component {
                     <Card
                         title='Your Weight'
                     >
-                        <LineChart/>
+                        <WeightLineChart/>
                     </Card>
 
                     <Card

@@ -9,7 +9,7 @@ import {
 } from 'react-native-chart-kit'
 
 
-class LineChart extends Component {
+class WeightLineChart extends Component {
     render() {
         return (
            <LineChart
@@ -49,4 +49,4 @@ class LineChart extends Component {
     }
 }
 
-export default LineChart;
+export default WeightLineChart;
