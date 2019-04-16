@@ -7,6 +7,7 @@ import {
   ContributionGraph,
   StackedBarChart
 } from 'react-native-chart-kit'
+import { Dimensions } from 'react-native'
 
 
 class WeightLineChart extends Component {
