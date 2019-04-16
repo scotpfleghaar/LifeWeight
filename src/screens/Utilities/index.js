@@ -1,4 +1,5 @@
 import { values } from 'lodash'
+import { HANSIS_MEDIUM_DARK } from '../../../Constants';
 
 export const firebaseErrorCodesTranslated = (error) => {
     switch(error.code) {
@@ -31,5 +32,16 @@ export const parseDate = (date) => {
 
 export const sortRecords = (records) => {
     return values(records).sort((a, b) => (a.date.year > b.date.year) ? 1 : (a.date.month === b.date.month) ? ((a.date.day > b.date.day) ? 1 : -1) : -1 )
-  
+
+}
+
+export const userGageToColor = (userWeightGage) => {
+    switch(String(userWeightGage)){
+            case '0':
+                return 'green'
+            case '1':
+                return HANSIS_MEDIUM_DARK
+            default:
+                return 'salmon'
+        }
 }

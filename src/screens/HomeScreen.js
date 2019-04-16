@@ -3,6 +3,8 @@ import {HeaderWrapper} from "./Components";
 import {ScrollView, StyleSheet, Text} from "react-native";
 import {Card} from "react-native-elements";
 import WeightLineChart from './Components/Charts/WeightLineChart'
+import { connect } from 'react-redux'
+import { sortRecords } from './Utilities'
 
 class HomeScreen extends React.Component {
     render() {
@@ -99,4 +101,11 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeScreen;
+const mapStateToProps = state => {
+    const { records } = state.app;
+    return {
+        records: sortRecords(records)
+    }
+};
+
+export default connect(mapStateToProps)(HomeScreen);

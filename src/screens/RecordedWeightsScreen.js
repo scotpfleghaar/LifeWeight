@@ -5,7 +5,7 @@ import { HeaderWrapper, FormButton } from "./Components";
 import { connect } from 'react-redux'
 import { WEIGHT_POSTFIX, HANSIS_MEDIUM_DARK, MONTHS } from '../../Constants'
 import EditWeightOverlay from "./Components/EditWeightOverlay";
-import { sortRecords } from './Utilities' 
+import { sortRecords } from './Utilities'
 
 class RecordedWeightsScreen extends Component {
     constructor(props){
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     const { records } = state.app;
-    return { 
+    return {
         records: sortRecords(records)
     }
 };
