@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { FlatList, View } from 'react-native';
+import {FlatList, ScrollView, StyleSheet, View} from 'react-native';
 import { ListItem } from 'react-native-elements'
 import { HeaderWrapper, FormButton } from "./Components";
 import { connect } from 'react-redux'
@@ -8,15 +8,22 @@ import EditWeightOverlay from "./Components/EditWeightOverlay";
 
 
 class RecordedWeightsScreen extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            currentItemBeingEdited: ''
+        }
+    }
 
     keyExtractor = (item, index) => index.toString();
 
     renderItem = ({ item }) => (
         <ListItem
+            onPress={() => this.setState({currentItemBeingEdited: item})}
             title={`${String(item.weight)} ${WEIGHT_POSTFIX}`}
             subtitle={`${MONTHS[item.date.month - 1]} ${item.date.day}`}
             leftIcon={this.renderLeftIcon(item.userWeightGage)}
-            rightIcon={{ name: 'chevron-right', type: 'font-awesome' }}
+            rightIcon={{ name: 'edit', type: 'font-awesome' }}
         />
     );
 
@@ -49,13 +56,15 @@ class RecordedWeightsScreen extends Component {
             <HeaderWrapper
                 title={'Records'}
             >
-                {/*<EditWeightOverlay/>*/}
+                <EditWeightOverlay item={this.state.currentItemBeingEdited} doneEditing={() => {this.setState({currentItemBeingEdited: ''})}}/>
                 {!isThereAList ?
                     <View style={{alignItems: 'center',justifyContent: 'center'}}>
                         <FormButton title={'Add Record?'} onPress={() => this.props.navigation.navigate('Add')}/>
                     </View>
                     :
                     <FlatList
+                        showsVerticalScrollIndicator={false}
+                        contentContainerStyle={styles.scrollStyle}
                         keyExtractor={this.keyExtractor}
                         data={this.props.records.reverse()}
                         renderItem={this.renderItem}
@@ -64,6 +73,12 @@ class RecordedWeightsScreen extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    scrollStyle: {
+        paddingBottom: 110
+    }
+});
 
 const mapStateToProps = state => {
     const { records } = state.app;
