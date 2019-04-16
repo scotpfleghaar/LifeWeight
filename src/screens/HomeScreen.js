@@ -2,7 +2,8 @@ import React from "react";
 import {HeaderWrapper} from "./Components";
 import {ScrollView, StyleSheet, Text} from "react-native";
 import {Card} from "react-native-elements";
-import DecoratorExample from './Components/Charts/lineChart'
+import LineChart from './Components/Charts/lineChart'
+
 
 class HomeScreen extends React.Component {
     render() {
@@ -17,7 +18,7 @@ class HomeScreen extends React.Component {
                     <Card
                         title='Your Weight'
                     >
-                        <DecoratorExample/>
+                        <LineChart/>
                     </Card>
 
                     <Card
