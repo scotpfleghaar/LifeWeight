@@ -12,7 +12,6 @@ const DEVICE_WIDTH = Dimensions.get('window').width;
 
 class LogIn extends Component {
     routeToSignUp() {
-        console.log('Button Pressed');
         this.props.navigation.navigate('SignUp')
     };
 

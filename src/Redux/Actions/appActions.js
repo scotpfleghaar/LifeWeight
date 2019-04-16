@@ -1,6 +1,7 @@
 import {
     ADD_WEIGHT_RECORD,
-    FETCH_WEIGHT_RECORDS
+    FETCH_WEIGHT_RECORDS,
+    EDIT_WEIGHT_RECORD
 } from "../../../Constants";
 import firebase from 'firebase'
 import { values } from 'lodash'
@@ -44,11 +45,29 @@ export const weightRecordsFetch = (callBack) => {
         firebase.database().ref(`/users/${currentUser.uid}/records`).on("value", snapshot => {
             dispatch({
                 type: FETCH_WEIGHT_RECORDS,
-                payload: values(snapshot.val())
+                payload: snapshot.val()
             });
-            callBack()
+            callBack && callBack();
         });
     };
+};
+
+
+export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack) => (dispatch) => {
+    const {currentUser} = firebase.auth();
+    const postData = {
+        weight,
+        date,
+        userWeightGage,
+        entryId
+    };
+    firebase.database().ref(`/users/${currentUser.uid}/employees/${entryId}`).set(postData).then(() => {
+        dispatch({
+            type: EDIT_WEIGHT_RECORD,
+            payload: postData
+        });
+        callBack && callBack();
+}); 
 };
 
 

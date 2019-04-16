@@ -7,6 +7,8 @@ import WeightDatePicker from "./WeightForm/WeightDatePicker";
 import WeightCheck from "./weightCheck";
 import {FormButton} from "./FormButton";
 import {todaysDate, parseDate } from "../Utilities";
+import { editWeightRecord } from '../../Redux/Actions' 
+import { connect } from 'react-redux'
 
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 
@@ -22,8 +24,8 @@ class EditWeightOverlay extends Component {
         }
     }
 
-    editWeightRecord() {
-        this.props.editWeightRecord(parseFloat(this.state.weight), parseDate(todaysDate()), this.state.selectedIndex, () => {
+    editWeightRecordFromState() {
+        this.props.editWeightRecord(parseFloat(this.state.weight), parseDate(this.state.date), this.state.selectedIndex, this.state.entryId, () => {
             this.setState({
                 weight: '',
                 date: todaysDate(),
@@ -34,14 +36,13 @@ class EditWeightOverlay extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('nextProps.item', nextProps.item);
-        console.log(nextProps.item.entryId);
         if (nextProps.item.entryId){
             this.setState({
                 isVisible: true,
                 weight: String(nextProps.item.weight),
-                date: todaysDate(),
-                selectedIndex: Number(nextProps.item.userWeightGage)
+                date: `${nextProps.item.date.month}-${nextProps.item.date.day}-${nextProps.item.date.year}`,
+                selectedIndex: Number(nextProps.item.userWeightGage),
+                entryId: nextProps.item.entryId
             })
         } else {
             this.setState({
@@ -78,7 +79,7 @@ class EditWeightOverlay extends Component {
                     <FormButton
                         title={"Update Entry"}
                         isDisabled={!this.state.weight}
-                        onPress={() => this.editWeightRecord()}
+                        onPress={() => this.editWeightRecordFromState()}
                     />
                     <Button
                         onPress={() => this.props.doneEditing()}
@@ -98,4 +99,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default EditWeightOverlay;
+export default connect(null, { editWeightRecord })(EditWeightOverlay);
