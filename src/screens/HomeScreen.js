@@ -4,7 +4,6 @@ import {ScrollView, StyleSheet, Text} from "react-native";
 import {Card} from "react-native-elements";
 import WeightLineChart from './Components/Charts/WeightLineChart'
 
-
 class HomeScreen extends React.Component {
     render() {
         return (
@@ -20,12 +19,11 @@ class HomeScreen extends React.Component {
                     >
                         <WeightLineChart/>
                     </Card>
-
                     <Card
                         title='Progress'
                     >
                         <Text style={{marginBottom: 10}}>
-                            Progress
+                            Trends
                         </Text>
                     </Card>
 

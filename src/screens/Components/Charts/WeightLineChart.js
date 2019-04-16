@@ -1,53 +1,48 @@
-import React, {Component} from 'react';
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
-} from 'react-native-chart-kit'
-import { Dimensions } from 'react-native'
+import React from 'react'
+import { AreaChart, Grid } from 'react-native-svg-charts'
+import { Circle, Path } from 'react-native-svg'
 
+class WeightLineChart extends React.PureComponent {
 
-class WeightLineChart extends Component {
     render() {
-        return (
-           <LineChart
-                data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [{
-                    data: [
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100
-                    ]
-                }]
-                }}
-                width={Dimensions.get('window').width} // from react-native
-                height={220}
-                yAxisLabel={'$'}
-                chartConfig={{
-                backgroundColor: '#e26a00',
-                backgroundGradientFrom: '#fb8c00',
-                backgroundGradientTo: '#ffa726',
-                decimalPlaces: 2, // optional, defaults to 2dp
-                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                style: {
-                    borderRadius: 16
-                }
-                }}
-                bezier
-                style={{
-                marginVertical: 8,
-                borderRadius: 16
-                }}
+
+        const data = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ]
+
+        const Decorator = ({ x, y, data }) => {
+            return data.map((value, index) => (
+                <Circle
+                    key={ index }
+                    cx={ x(index) }
+                    cy={ y(value) }
+                    r={ 4 }
+                    stroke={ 'rgb(134, 65, 244)' }
+                    fill={ 'white' }
+                />
+            ))
+        }
+
+        const Line = ({ line }) => (
+            <Path
+                d={ line }
+                stroke={ 'rgba(134, 65, 244)' }
+                fill={ 'none' }
             />
-        );
+        )
+
+        return (
+            <AreaChart
+                style={{ height: 200 }}
+                data={ data }
+                svg={{ fill: 'rgba(134, 65, 244, 0.2)' }}
+                contentInset={{ top: 20, bottom: 30 }}
+            >
+                <Grid/>
+                <Line/>
+                <Decorator/>
+            </AreaChart>
+        )
     }
+
 }
 
-export default WeightLineChart;
+export default WeightLineChart
