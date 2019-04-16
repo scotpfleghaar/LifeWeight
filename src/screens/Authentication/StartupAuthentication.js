@@ -1,5 +1,7 @@
 import React from 'react';
 import firebase from 'firebase'
+import { connect } from 'react-redux'
+import { weightRecordsFetch } from '../../Redux/Actions'
 import {
     ActivityIndicator,
     View,
@@ -19,7 +21,9 @@ class StartupAuthentication extends React.Component {
     componentDidMount() {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                this.props.navigation.navigate('App');
+                this.props.weightRecordsFetch(() => {
+                    this.props.navigation.navigate('App');
+                })
             } else {
                this.props.navigation.navigate('Auth');
             }
@@ -35,4 +39,4 @@ class StartupAuthentication extends React.Component {
     }
 }
 
-export default StartupAuthentication;
+export default connect(null, { weightRecordsFetch })(StartupAuthentication);

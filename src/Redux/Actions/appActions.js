@@ -1,7 +1,9 @@
 import {
-    ADD_WEIGHT_RECORD
+    ADD_WEIGHT_RECORD,
+    FETCH_WEIGHT_RECORDS
 } from "../../../Constants";
 import firebase from 'firebase'
+import { values } from 'lodash'
 
 export const addWeightRecord = (weight, date, userWeightGage, callBack) => (dispatch) => {
     // Make Firebase Call
@@ -33,6 +35,20 @@ export const addWeightRecord = (weight, date, userWeightGage, callBack) => (disp
         console.log(err.message)
     });
 
+};
+
+
+export const weightRecordsFetch = (callBack) => {
+    const {currentUser} = firebase.auth();
+    return (dispatch) => {
+        firebase.database().ref(`/users/${currentUser.uid}/records`).on("value", snapshot => {
+            dispatch({
+                type: FETCH_WEIGHT_RECORDS,
+                payload: values(snapshot.val())
+            });
+            callBack()
+        });
+    };
 };
 
 
