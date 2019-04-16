@@ -1,3 +1,5 @@
+import { values } from 'lodash'
+
 export const firebaseErrorCodesTranslated = (error) => {
     switch(error.code) {
         case 'auth/user-not-found' :
@@ -25,3 +27,9 @@ export const parseDate = (date) => {
         year: parsedDate[2]
     }
 };
+
+
+export const sortRecords = (records) => {
+    return values(records).sort((a, b) => (a.date.year > b.date.year) ? 1 : (a.date.month === b.date.month) ? ((a.date.day > b.date.day) ? 1 : -1) : -1 )
+  
+}

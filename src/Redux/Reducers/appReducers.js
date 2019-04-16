@@ -15,7 +15,7 @@ export default (state = INITIAL_STATE, action) => {
         case ADD_WEIGHT_RECORD:
             return {
                 ...state,
-                records: state.records.concat(action.payload)
+                records: set(state.records, action.payload.entryId, action.payload)
             };
         case FETCH_WEIGHT_RECORDS:
             return {
