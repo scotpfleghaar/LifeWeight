@@ -19,7 +19,7 @@ class HomeScreen extends React.Component {
                     <Card
                         title='Your Weight'
                     >
-                        <WeightLineChart/>
+                        <WeightLineChart records={this.props.records}/>
                     </Card>
                     <Card
                         title='Progress'
