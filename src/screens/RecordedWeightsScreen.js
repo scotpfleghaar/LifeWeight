@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
     const { records } = state.app;
     return {
-        records: sortRecords(records)
+        records: sortRecords(records).reverse()
     }
 };
 

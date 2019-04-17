@@ -61,7 +61,7 @@ export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack
         userWeightGage,
         entryId
     };
-    firebase.database().ref(`/users/${currentUser.uid}/employees/${entryId}`).set(postData).then(() => {
+    firebase.database().ref(`/users/${currentUser.uid}/records/${entryId}`).set(postData).then(() => {
         dispatch({
             type: EDIT_WEIGHT_RECORD,
             payload: postData

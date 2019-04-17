@@ -31,16 +31,21 @@ export const parseDate = (date) => {
 
 
 export const sortRecords = (records) => {
-    return values(records).sort((a, b) => (a.date.month > b.date.month) ? 1 : (a.date.day === b.date.day) ? ((a.date.year > b.date.year) ? 1 : -1) : -1 ).reverse()
+    const recordValues = values(records);
+    return  recordValues.sort(function(a,b){
+        const time1 = new Date(a.date.year, a.date.month, a.date.day); // year, month, day
+        const time2 = new Date(b.date.year, b.date.month, b.date.day);
+        return time1 - time2;
+    });
 };
 
 export const userGageToColor = (userWeightGage) => {
     switch(String(userWeightGage)){
             case '0':
-                return 'green'
+                return 'green';
             case '1':
-                return HANSIS_MEDIUM_DARK
+                return HANSIS_MEDIUM_DARK;
             default:
                 return 'salmon'
         }
-}
+};
