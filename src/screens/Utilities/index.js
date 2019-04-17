@@ -31,9 +31,8 @@ export const parseDate = (date) => {
 
 
 export const sortRecords = (records) => {
-    return values(records).sort((a, b) => (a.date.year > b.date.year) ? 1 : (a.date.month === b.date.month) ? ((a.date.day > b.date.day) ? 1 : -1) : -1 )
-
-}
+    return values(records).sort((a, b) => (a.date.month > b.date.month) ? 1 : (a.date.day === b.date.day) ? ((a.date.year > b.date.year) ? 1 : -1) : -1 ).reverse()
+};
 
 export const userGageToColor = (userWeightGage) => {
     switch(String(userWeightGage)){

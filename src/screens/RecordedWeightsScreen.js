@@ -66,7 +66,7 @@ class RecordedWeightsScreen extends Component {
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={styles.scrollStyle}
                         keyExtractor={this.keyExtractor}
-                        data={this.props.records.reverse()}
+                        data={this.props.records}
                         renderItem={this.renderItem}
                     />}
             </HeaderWrapper>
