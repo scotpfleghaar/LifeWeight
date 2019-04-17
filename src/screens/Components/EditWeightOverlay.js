@@ -7,7 +7,7 @@ import WeightDatePicker from "./WeightForm/WeightDatePicker";
 import WeightCheck from "./weightCheck";
 import {FormButton} from "./FormButton";
 import {todaysDate, parseDate } from "../Utilities";
-import { editWeightRecord } from '../../Redux/Actions' 
+import { editWeightRecord } from '../../Redux/Actions'
 import { connect } from 'react-redux'
 
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -20,7 +20,8 @@ class EditWeightOverlay extends Component {
             isVisible: false,
             weight: '',
             date: todaysDate(),
-            selectedIndex: 0
+            selectedIndex: 0,
+            doneEditing: false
         }
     }
 
@@ -30,13 +31,14 @@ class EditWeightOverlay extends Component {
                 weight: '',
                 date: todaysDate(),
                 selectedIndex: 0,
-                isVisible: false
+                isVisible: false,
+                doneEditing: true
             });
         })
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.item.entryId){
+        if (nextProps.item.entryId && !this.state.doneEditing){
             this.setState({
                 isVisible: true,
                 weight: String(nextProps.item.weight),
@@ -46,7 +48,8 @@ class EditWeightOverlay extends Component {
             })
         } else {
             this.setState({
-                isVisible: false
+                isVisible: false,
+                doneEditing: false
             })
         }
     }

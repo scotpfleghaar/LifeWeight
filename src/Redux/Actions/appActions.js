@@ -27,12 +27,13 @@ export const addWeightRecord = (weight, date, userWeightGage, callBack) => (disp
     updates['/users/' + userId + '/records/' + newPostKey] = postData;
 
     firebase.database().ref().update(updates).then(function (snapshot) {
+        callBack && callBack();
         dispatch({
             type: ADD_WEIGHT_RECORD,
             payload: postData
         });
-        callBack();
     }).catch(err => {
+        callBack && callBack();
         console.log(err.message)
     });
 
@@ -43,12 +44,12 @@ export const weightRecordsFetch = (callBack) => {
     const {currentUser} = firebase.auth();
     return (dispatch) => {
         firebase.database().ref(`/users/${currentUser.uid}/records`).on("value", snapshot => {
+            callBack && callBack();
             dispatch({
                 type: FETCH_WEIGHT_RECORDS,
                 payload: snapshot.val()
             });
-            callBack && callBack();
-        });
+        })
     };
 };
 
@@ -62,12 +63,15 @@ export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack
         entryId
     };
     firebase.database().ref(`/users/${currentUser.uid}/records/${entryId}`).set(postData).then(() => {
+        callBack && callBack();
         dispatch({
             type: EDIT_WEIGHT_RECORD,
             payload: postData
         });
+    }).catch(err => {
         callBack && callBack();
-}); 
+        console.log(err.message)
+    });
 };
 
 
