@@ -4,6 +4,7 @@ import {ScrollView, StyleSheet, Text} from "react-native";
 import {Card} from "react-native-elements";
 import WeightLineChartAdvanced from './Components/Charts/WeightLineChartAdvanced'
 import WeightAverageTitle from './Components/Charts/WeightAverageTitle'
+import WeightProgressCircle from './Components/Charts/WeightProgressCircle'
 import { connect } from 'react-redux'
 import { sortRecords } from './Utilities'
 
@@ -11,27 +12,26 @@ class HomeScreen extends React.Component {
     render() {
         return (
             <HeaderWrapper
-                title={'Summary'}
+                title={'Overview'}
             >
                 <ScrollView
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.scrollStyle}>
 
                     <Card
-                        title='Your Weight'
+                        title='Your Current Weight'
                     >
                         <WeightAverageTitle records={this.props.records}/>
                     </Card>
+                    
                     <Card
                         title='Progress'
                     >
-                        <Text style={{marginBottom: 10}}>
-                            Example Progress
-                        </Text>
+                       <WeightProgressCircle records={this.props.records}/>
                     </Card>
 
                     <Card
-                        title='Trends (2 weeks)'
+                        title='Trend (2 weeks)'
                     >
                         <WeightLineChartAdvanced records={this.props.records}/>
                     </Card>

@@ -1,4 +1,4 @@
-import { values } from 'lodash'
+import { values, mean } from 'lodash'
 import { HANSIS_MEDIUM_DARK } from '../../../Constants';
 
 export const firebaseErrorCodesTranslated = (error) => {
@@ -49,3 +49,12 @@ export const userGageToColor = (userWeightGage) => {
                 return 'salmon'
         }
 };
+
+
+export const averageTenDayArrayAlgorythem = (weights) => {
+    return weights.map((value, index) => {
+        if ( weights.slice(0, index + 1)) {
+             return Number(mean(weights.slice(0, index + 1)).toFixed(1));
+        }
+    })
+} 
