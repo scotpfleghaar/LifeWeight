@@ -44,7 +44,7 @@ class WeightLineChartAdvanced extends React.PureComponent {
                         data={ data }
                         svg={{ fill: HANSIS_MEDIUM_LIGHT }}
                         curve={shape.curveNatural}
-                        contentInset={ { top: 6, bottom: 20,  left: -10, right: 6 } }
+                        contentInset={ { top: 6, bottom: 20,  left: -10, right: 5 } }
                     >
                         <Grid/>
                         <LineCustom/>
@@ -54,7 +54,7 @@ class WeightLineChartAdvanced extends React.PureComponent {
                                 style={ StyleSheet.absoluteFill }
                                 data={ averagedData }
                                 svg={{ fill: 'rgba(34, 128, 176, .15)' }}
-                                contentInset={ { top: 6, bottom: 20,  left: -10, right: 6 } }
+                                contentInset={ { top: 6, bottom: 20,  left: -10, right: 5 } }
                                 curve={ shape.curveNatural }
                             >
                         </AreaChart>

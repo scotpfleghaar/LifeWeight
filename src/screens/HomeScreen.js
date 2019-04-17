@@ -5,6 +5,7 @@ import {Card} from "react-native-elements";
 import WeightLineChartAdvanced from './Components/Charts/WeightLineChartAdvanced'
 import WeightAverageTitle from './Components/Charts/WeightAverageTitle'
 import WeightProgressCircle from './Components/Charts/WeightProgressCircle'
+import WeightDietTrandsBarGraph from './Components/Charts/WeightDietTrandsBarGraph'
 import { connect } from 'react-redux'
 import { sortRecords } from './Utilities'
 
@@ -35,59 +36,11 @@ class HomeScreen extends React.Component {
                     >
                         <WeightLineChartAdvanced records={this.props.records}/>
                     </Card>
-
                     <Card
-                        title='Example'
+                        title='Average Weight Gain/Loss'
                     >
-                        <Text style={{marginBottom: 10}}>
-                            Example Data
-                        </Text>
+                        <WeightDietTrandsBarGraph records={this.props.records}/>
                     </Card>
-
-                    <Card
-                        title='Example'
-                    >
-                        <Text style={{marginBottom: 10}}>
-                            Example Data
-                        </Text>
-                    </Card>
-
-
-                    <Card
-                        title='Example'
-                    >
-                        <Text style={{marginBottom: 10}}>
-                            Example Data
-                        </Text>
-                    </Card>
-
-                    <Card
-                        title='Example'
-                    >
-                        <Text style={{marginBottom: 10}}>
-                            Example Data
-                        </Text>
-                    </Card>
-
-
-                    <Card
-                        title='Example'
-                    >
-                        <Text style={{marginBottom: 10}}>
-                            Example Data
-                        </Text>
-                    </Card>
-
-
-                    <Card
-                        title='Example'
-                    >
-                        <Text style={{marginBottom: 10}}>
-                            Example Data
-                        </Text>
-                    </Card>
-
-
                 </ScrollView>
             </HeaderWrapper>
         );

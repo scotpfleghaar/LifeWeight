@@ -58,3 +58,27 @@ export const averageTenDayArrayAlgorythem = (weights) => {
         }
     })
 } 
+
+export const averageWeightGainAndLoss = (records) => {
+    let dietSuccess = [], dietMaintained = [], dietFail = [];
+    records.map((record, index) => {
+        if (records[index -1]) {
+        const previousWeight = records[index -1].weight;
+                if(previousWeight) {
+                    switch(String(record.userWeightGage)){
+                        case '0':
+                            return dietSuccess.push(previousWeight - record.weight)
+                        case '1':
+                            return dietFail.push(previousWeight - record.weight)
+                        default:
+                            return dietMaintained.push(previousWeight - record.weight)
+                }
+            }
+        }
+    })
+    return {
+        dietSuccess, 
+        dietMaintained, 
+        dietFail
+    }
+} 
