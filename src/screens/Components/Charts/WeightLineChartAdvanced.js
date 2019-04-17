@@ -1,7 +1,8 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { AreaChart, Grid } from 'react-native-svg-charts'
-import { Circle, Path } from 'react-native-svg'
+import { AreaChart, Grid, YAxis } from 'react-native-svg-charts'
+import { Circle, Path, G, Line, Rect, Text } from 'react-native-svg'
+import * as scale from 'd3-scale'
 import * as shape from 'd3-shape'
 import { HANSIS_DARK, HANSIS_MEDIUM, HANSIS_MEDIUM_LIGHT } from '../../../../Constants'
 import { userGageToColor, averageTenDayArrayAlgorythem } from '../../Utilities'
@@ -13,7 +14,6 @@ class WeightLineChartAdvanced extends React.PureComponent {
         const adjustedRecords = this.props.records.slice(0, 16);
         const data = adjustedRecords.map(item => item.weight && item.weight);
         const averagedData = averageTenDayArrayAlgorythem(data)
-        console.log("averagedData", averagedData)
         const Decorator = ({ x, y, data }) => {
             return data.map((value, index) => (
                 <Circle
@@ -27,7 +27,7 @@ class WeightLineChartAdvanced extends React.PureComponent {
             ))
         }
 
-        const Line = ({ line }) => {
+        const LineCustom = ({ line }) => {
             return (
                 <Path
                     d={ line }
@@ -47,23 +47,23 @@ class WeightLineChartAdvanced extends React.PureComponent {
                         contentInset={ { top: 6, bottom: 20,  left: -10, right: 6 } }
                     >
                         <Grid/>
-                        <Line/>
+                        <LineCustom/>
                         <Decorator/>
                     </AreaChart>
                    {averagedData.length > 0 && <AreaChart
-                            style={ StyleSheet.absoluteFill }
-                            data={ averagedData }
-                            svg={{ fill: 'rgba(34, 128, 176, .15)' }}
-                            contentInset={ { top: 6, bottom: 20,  left: -10, right: 6 } }
-                            curve={ shape.curveNatural }
-                        >
-                    </AreaChart>
+                                style={ StyleSheet.absoluteFill }
+                                data={ averagedData }
+                                svg={{ fill: 'rgba(34, 128, 176, .15)' }}
+                                contentInset={ { top: 6, bottom: 20,  left: -10, right: 6 } }
+                                curve={ shape.curveNatural }
+                            >
+                        </AreaChart>
                          }
+                        
                 </View>
 
         )
     }
-
 }
 
 export default WeightLineChartAdvanced

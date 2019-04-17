@@ -31,7 +31,7 @@ class HomeScreen extends React.Component {
                     </Card>
 
                     <Card
-                        title='Trend (2 weeks)'
+                        title='Trends (Average & Actual)'
                     >
                         <WeightLineChartAdvanced records={this.props.records}/>
                     </Card>
