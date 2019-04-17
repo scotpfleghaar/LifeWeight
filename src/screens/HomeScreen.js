@@ -2,7 +2,7 @@ import React from "react";
 import {HeaderWrapper} from "./Components";
 import {ScrollView, StyleSheet, Text} from "react-native";
 import {Card} from "react-native-elements";
-import WeightLineChart from './Components/Charts/WeightLineChart'
+import WeightLineChartAdvanced from './Components/Charts/WeightLineChartAdvanced'
 import { connect } from 'react-redux'
 import { sortRecords } from './Utilities'
 
@@ -19,22 +19,22 @@ class HomeScreen extends React.Component {
                     <Card
                         title='Your Weight'
                     >
-                        <WeightLineChart records={this.props.records}/>
+                        <Text style={{marginBottom: 10}}>
+                            Example Weight
+                        </Text>
                     </Card>
                     <Card
                         title='Progress'
                     >
                         <Text style={{marginBottom: 10}}>
-                            Trends
+                            Example Progress
                         </Text>
                     </Card>
 
                     <Card
-                        title='Trends'
+                        title='Trends (2 weeks)'
                     >
-                        <Text style={{marginBottom: 10}}>
-                            Trends
-                        </Text>
+                        <WeightLineChartAdvanced records={this.props.records}/>
                     </Card>
 
                     <Card
