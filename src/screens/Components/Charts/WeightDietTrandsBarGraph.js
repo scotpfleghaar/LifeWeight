@@ -10,19 +10,23 @@ class WeightDietTrandsBarGraph extends React.PureComponent {
     render() {
 
         const weightAverages = averageWeightGainAndLoss(this.props.records)
-        console.log(weightAverages)
+        const weightLabel = [
+            weightAverages.dietSuccess >= 0 ? 'Loss' : 'Gain',
+            weightAverages.dietMaintained >= 0 ? 'Gain' : 'Loss',
+            weightAverages.dietFail >= 0 ? 'Gain' : 'Loss'
+        ]
         const data = [
             {
-                value: Math.abs(mean(weightAverages.dietSuccess).toFixed(2)),
+                value: Math.abs(weightAverages.dietSuccess),
                 svg: {
                     fill: 'green',
                 },
             },
              {
-                value: Math.abs(mean(weightAverages.dietMaintained).toFixed(2))
+                value: Math.abs(weightAverages.dietMaintained)
             },
              {
-                value: Math.abs(mean(weightAverages.dietFail).toFixed(2)),
+                value: Math.abs(weightAverages.dietFail),
                 svg: {
                     fill: 'salmon',
                 },
@@ -42,7 +46,7 @@ class WeightDietTrandsBarGraph extends React.PureComponent {
                     alignmentBaseline={ 'middle' }
                     textAnchor={ 'middle' }
                 >
-                    {data.value}
+                    {`${data.value} ${weightLabel[index]}`}
                 </Text>
             ))
         )

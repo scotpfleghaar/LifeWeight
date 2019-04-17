@@ -77,8 +77,8 @@ export const averageWeightGainAndLoss = (records) => {
         }
     })
     return {
-        dietSuccess, 
-        dietMaintained, 
-        dietFail
+        dietSuccess: mean(dietSuccess).toFixed(2), 
+        dietMaintained: mean(dietMaintained).toFixed(2), 
+        dietFail: mean(dietFail).toFixed(2)
     }
-} 
+}
