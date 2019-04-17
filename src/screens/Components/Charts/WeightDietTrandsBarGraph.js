@@ -12,9 +12,9 @@ class WeightDietTrandsBarGraph extends React.PureComponent {
         const weightAverages = averageWeightGainAndLoss(this.props.records)
         const weightLabel = [
             weightAverages.dietSuccess >= 0 ? 'Loss' : 'Gain',
-            weightAverages.dietMaintained >= 0 ? 'Gain' : 'Loss',
+            weightAverages.dietMaintained >= 0 ? 'Loss' : 'Gain',
             weightAverages.dietFail >= 0 ? 'Gain' : 'Loss'
-        ]
+        ];
         const data = [
             {
                 value: Math.abs(weightAverages.dietSuccess),

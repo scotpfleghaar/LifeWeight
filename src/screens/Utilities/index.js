@@ -69,16 +69,16 @@ export const averageWeightGainAndLoss = (records) => {
                         case '0':
                             return dietSuccess.push(previousWeight - record.weight)
                         case '1':
-                            return dietFail.push(previousWeight - record.weight)
-                        default:
                             return dietMaintained.push(previousWeight - record.weight)
+                        default:
+                            return dietFail.push(previousWeight - record.weight)
                 }
             }
         }
-    })
+    });
     return {
         dietSuccess: mean(dietSuccess).toFixed(2), 
         dietMaintained: mean(dietMaintained).toFixed(2), 
         dietFail: mean(dietFail).toFixed(2)
     }
-}
+};

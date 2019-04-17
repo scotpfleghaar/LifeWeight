@@ -20,8 +20,7 @@ class EditWeightOverlay extends Component {
             isVisible: false,
             weight: '',
             date: todaysDate(),
-            selectedIndex: 0,
-            doneEditing: false
+            selectedIndex: 0
         }
     }
 
@@ -34,17 +33,17 @@ class EditWeightOverlay extends Component {
     }
 
     doneEditingCallBack () {
+         this.props.doneEditing();
          this.setState({
                 weight: '',
                 date: todaysDate(),
                 selectedIndex: 0,
-                isVisible: false,
-                doneEditing: true
+                isVisible: false
             });
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.item.entryId && !this.state.doneEditing){
+        if (nextProps.item.entryId){
             this.setState({
                 isVisible: true,
                 weight: String(nextProps.item.weight),
@@ -54,8 +53,7 @@ class EditWeightOverlay extends Component {
             })
         } else {
             this.setState({
-                isVisible: false,
-                doneEditing: false
+                isVisible: false
             })
         }
     }
