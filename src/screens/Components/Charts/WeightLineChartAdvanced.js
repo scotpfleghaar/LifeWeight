@@ -21,7 +21,7 @@ class WeightLineChartAdvanced extends React.PureComponent {
                     cx={ x(index) }
                     cy={ y(value) }
                     r={ 4 }
-                   stroke={ HANSIS_DARK }
+                    stroke={ HANSIS_DARK }
                     fill={ userGageToColor(adjustedRecords[index].userWeightGage) }
                 />
             ))
@@ -42,22 +42,21 @@ class WeightLineChartAdvanced extends React.PureComponent {
                     <AreaChart
                         style={ { flex: 1 } }
                         data={ data }
-                        svg={{ fill: 'rgba(34, 128, 176, 0)' }}
+                        svg={{ fill: HANSIS_MEDIUM_LIGHT }}
                         curve={shape.curveNatural}
                         contentInset={ { top: 6, bottom: 20,  left: -10, right: 6 } }
                     >
                         <Grid/>
-                        
+                        <Line/>
                         <Decorator/>
                     </AreaChart>
                    {averagedData.length > 0 && <AreaChart
                             style={ StyleSheet.absoluteFill }
                             data={ averagedData }
-                            svg={{ fill: 'rgba(230, 240, 246, 0.5)' }}
-                            contentInset={ { top: 20, bottom: 20 } }
+                            svg={{ fill: 'rgba(34, 128, 176, .15)' }}
+                            contentInset={ { top: 6, bottom: 20,  left: -10, right: 6 } }
                             curve={ shape.curveNatural }
                         >
-                        <Line/>
                     </AreaChart>
                          }
                 </View>

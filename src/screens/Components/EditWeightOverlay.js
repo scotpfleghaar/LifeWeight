@@ -7,7 +7,7 @@ import WeightDatePicker from "./WeightForm/WeightDatePicker";
 import WeightCheck from "./weightCheck";
 import {FormButton} from "./FormButton";
 import {todaysDate, parseDate } from "../Utilities";
-import { editWeightRecord } from '../../Redux/Actions'
+import { editWeightRecord, employeeDelete } from '../../Redux/Actions'
 import { connect } from 'react-redux'
 
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -26,15 +26,21 @@ class EditWeightOverlay extends Component {
     }
 
     editWeightRecordFromState() {
-        this.props.editWeightRecord(parseFloat(this.state.weight), parseDate(this.state.date), this.state.selectedIndex, this.state.entryId, () => {
-            this.setState({
+        this.props.editWeightRecord(parseFloat(this.state.weight), parseDate(this.state.date), this.state.selectedIndex, this.state.entryId, this.doneEditingCallBack.bind(this));
+    }
+
+    deleteRecord() {
+        this.props.employeeDelete(this.state.entryId, this.doneEditingCallBack.bind(this));
+    }
+
+    doneEditingCallBack () {
+         this.setState({
                 weight: '',
                 date: todaysDate(),
                 selectedIndex: 0,
                 isVisible: false,
                 doneEditing: true
             });
-        })
     }
 
     componentWillReceiveProps(nextProps) {
@@ -88,6 +94,11 @@ class EditWeightOverlay extends Component {
                         onPress={() => this.props.doneEditing()}
                         title={'Cancel'}
                     />
+
+                     <Button
+                        onPress={() => this.deleteRecord()}
+                        title={'Delete'}
+                    />
                 </View>
             </Overlay>
         );
@@ -102,4 +113,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(null, { editWeightRecord })(EditWeightOverlay);
+export default connect(null, { editWeightRecord, employeeDelete })(EditWeightOverlay);

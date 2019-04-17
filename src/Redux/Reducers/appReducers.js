@@ -1,10 +1,11 @@
 import {
     ADD_WEIGHT_RECORD,
     FETCH_WEIGHT_RECORDS,
-    EDIT_WEIGHT_RECORD
+    EDIT_WEIGHT_RECORD,
+    DELETE_WEIGHT_RECORD
 } from "../../../Constants";
 
-import { set } from 'lodash'
+import { set, omit } from 'lodash'
 
 const INITIAL_STATE = {
     records: []
@@ -26,6 +27,11 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 records: set(state.records, action.payload.entryId, action.payload)
+            };
+        case DELETE_WEIGHT_RECORD:
+            return {
+                ...state,
+                records: omit(state.records, action.payload)
             };
         default:
             return state

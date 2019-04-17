@@ -1,7 +1,8 @@
 import {
     ADD_WEIGHT_RECORD,
     FETCH_WEIGHT_RECORDS,
-    EDIT_WEIGHT_RECORD
+    EDIT_WEIGHT_RECORD,
+    DELETE_WEIGHT_RECORD
 } from "../../../Constants";
 import firebase from 'firebase'
 import { values } from 'lodash'
@@ -74,6 +75,19 @@ export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack
     });
 };
 
+ export const employeeDelete = (entryId, callBack) => (dispatch) => {
+    const {currentUser} = firebase.auth();
+    firebase.database().ref(`/users/${currentUser.uid}/records/${entryId}`).remove().then(() => {
+        callBack && callBack();
+        dispatch({
+            type: DELETE_WEIGHT_RECORD,
+            payload: entryId
+        }); 
+    }).catch(err => {
+        callBack && callBack();
+        console.log(err.message)
+    });;
+};
 
 // export const employeeUpdate = ({prop, value}) => {
 //     return {
