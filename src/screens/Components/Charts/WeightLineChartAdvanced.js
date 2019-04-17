@@ -24,13 +24,15 @@ class WeightLineChartAdvanced extends React.PureComponent {
             ))
         }
 
-        const Line = ({ line }) => (
-            <Path
-                d={ line }
-                stroke={ HANSIS_DARK }
-                fill={ 'none' }
-            />
-        )
+        const Line = ({ line }) => {
+            return (
+                <Path
+                    d={ line }
+                    stroke={ HANSIS_DARK }
+                    fill={ 'none' }
+                />
+            )
+        }
 
         return (
             <AreaChart

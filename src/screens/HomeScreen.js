@@ -3,6 +3,7 @@ import {HeaderWrapper} from "./Components";
 import {ScrollView, StyleSheet, Text} from "react-native";
 import {Card} from "react-native-elements";
 import WeightLineChartAdvanced from './Components/Charts/WeightLineChartAdvanced'
+import WeightAverageTitle from './Components/Charts/WeightAverageTitle'
 import { connect } from 'react-redux'
 import { sortRecords } from './Utilities'
 
@@ -19,9 +20,7 @@ class HomeScreen extends React.Component {
                     <Card
                         title='Your Weight'
                     >
-                        <Text style={{marginBottom: 10}}>
-                            Example Weight
-                        </Text>
+                        <WeightAverageTitle records={this.props.records}/>
                     </Card>
                     <Card
                         title='Progress'
