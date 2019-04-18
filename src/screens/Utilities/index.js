@@ -59,6 +59,17 @@ export const averageTenDayArrayAlgorythem = (weights) => {
     })
 }
 
+export const weightLoseRate = (records) => {
+    let loseRate =[];
+    records.map((record, index) => {
+        if (records[index -1]) {
+            const previousWeight = records[index -1].weight; 
+            loseRate.push(Number(previousWeight - record.weight))
+        }
+    });
+    return loseRate
+};
+
 export const averageWeightGainAndLoss = (records) => {
     let dietSuccess = [], dietMaintained = [], dietFail = [];
     records.map((record, index) => {

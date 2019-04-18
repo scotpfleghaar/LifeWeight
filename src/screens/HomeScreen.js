@@ -2,12 +2,10 @@ import React from "react";
 import {HeaderWrapper} from "./Components";
 import {ScrollView, StyleSheet, Text} from "react-native";
 import {Card} from "react-native-elements";
-import WeightLineChartAdvanced from './Components/Charts/WeightLineChartAdvanced'
 import WeightAverageTitle from './Components/Charts/WeightAverageTitle'
-import WeightProgressCircle from './Components/Charts/WeightProgressCircle'
-import WeightDietTrandsBarGraph from './Components/Charts/WeightDietTrandsBarGraph'
-import WeightPieChart from './Components/Charts/WeightPieChart'
 import WeightLineChartMovingAverage from './Components/Charts/WeightLineChartMovingAverage'
+import WeightGoalTimeline from './Components/Charts/WeightGoalTimeline'
+
 import { connect } from 'react-redux'
 import { sortRecords } from './Utilities'
 
@@ -22,9 +20,15 @@ class HomeScreen extends React.Component {
                     contentContainerStyle={styles.scrollStyle}>
 
                     <Card
-                        title='Your Current Weight'
+                        title='Current Weight'
                     >
                         <WeightAverageTitle records={this.props.records}/>
+                    </Card>
+
+                     <Card
+                        title='Goal Timeline'
+                    >
+                        <WeightGoalTimeline records={this.props.records}/>
                     </Card>
 
                      <Card
