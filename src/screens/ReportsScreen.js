@@ -8,6 +8,7 @@ import WeightProgressCircle from './Components/Charts/WeightProgressCircle'
 import WeightDietTrandsBarGraph from './Components/Charts/WeightDietTrandsBarGraph'
 import WeightPieChart from './Components/Charts/WeightPieChart'
 import WeightLineChartMovingAverage from './Components/Charts/WeightLineChartMovingAverage'
+import CollapseableCard from './Components/CollapseableCard'
 import { connect } from 'react-redux'
 import { sortRecords } from './Utilities'
 
@@ -21,28 +22,28 @@ class ReportsScreen extends React.Component {
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.scrollStyle}>
 
-                     <Card
+                     <CollapseableCard
                         title='Moving Average'
                     >
                         <WeightLineChartMovingAverage records={this.props.records}/>
-                    </Card>
-                    <Card
+                    </CollapseableCard>
+                    <CollapseableCard
                         title='Trends (Actual)'
                     >
                         <WeightLineChartAdvanced records={this.props.records}/>
-                    </Card>
-                    <Card
+                    </CollapseableCard>
+                    <CollapseableCard
                         title='Average Weight Gain/Loss'
                     >
                         <WeightDietTrandsBarGraph records={this.props.records}/>
 
-                    </Card>
+                    </CollapseableCard>
 
-                      <Card
+                      <CollapseableCard
                         title='Percent Diet is Followed'
                     >
                         <WeightPieChart records={this.props.records}/>
-                    </Card>
+                    </CollapseableCard>
                 </ScrollView>
             </HeaderWrapper>
         );
