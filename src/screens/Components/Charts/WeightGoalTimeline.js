@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { ProgressCircle } from 'react-native-svg-charts'
 import { Text, StyleSheet, View } from 'react-native'
-import { HANSIS_DARK, HANSIS_MEDIUM_DARK, MONTHS } from '../../../../Constants'
+import { HANSIS_DARK, HANSIS_MEDIUM_LIGHT, MONTHS } from '../../../../Constants'
 import { connect } from 'react-redux'
 import { sortRecords, weightLoseRate } from '../../Utilities'
 import { mean } from 'lodash'
+import { Divider } from 'react-native-elements'
 
 class WeightGoalTimeline extends Component {
 
@@ -22,8 +23,9 @@ class WeightGoalTimeline extends Component {
 
         return (
             <View>
-                <Text>Weight loss rate per week:</Text>
-                <Text style={styles.textStyle}>{ `${(averageRate * 7).toFixed(2)}` }</Text>
+                <Text>Current weight change per week:</Text>
+                <Text style={styles.textStyle}>{ `${(averageRate * 7).toFixed(1)}` }</Text>
+                <Divider style={{ backgroundColor: HANSIS_MEDIUM_LIGHT, height: 1,  margin: 10, marginLeft: 0 }} />
                 <Text>At your current rate you'll reach your goal on:</Text>
                 <Text style={styles.textStyle}>{ `${MONTHS[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}` }</Text>
             </View>
@@ -33,8 +35,9 @@ class WeightGoalTimeline extends Component {
 
 const styles = StyleSheet.create({
     textStyle: {
-        fontSize: 24,
+        fontSize: 28,
         color: HANSIS_DARK,
+        marginTop: 5
     }
 });
 
