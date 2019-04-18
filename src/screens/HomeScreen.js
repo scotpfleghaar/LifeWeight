@@ -30,7 +30,7 @@ class HomeScreen extends React.Component {
                      <Card
                         title='Moving Average'
                     >
-                        <WeightLineChartMovingAverage records={this.props.records}/>
+                        <WeightLineChartMovingAverage/>
                     </Card>
                 </ScrollView>
             </HeaderWrapper>

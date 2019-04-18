@@ -12,9 +12,9 @@ class CollapseableCard extends React.Component {
         }
     }
 
-    componentWillUpdate(){
-        LayoutAnimation.easeInEaseOut();
-    }
+    // componentWillUpdate(){
+    //     LayoutAnimation.easeInEaseOut();
+    // }
 
     CardTitle() {
             return (

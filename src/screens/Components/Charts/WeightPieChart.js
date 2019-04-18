@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { PieChart } from 'react-native-svg-charts'
 import { Circle, G, Line, Text } from 'react-native-svg'
 import { percentDietIsFollowed, userGageToColor } from '../../Utilities'
 
-class WeightPieChart extends React.PureComponent {
+class WeightPieChart extends Component {
     render() {
 
         const data = percentDietIsFollowed(this.props.records);

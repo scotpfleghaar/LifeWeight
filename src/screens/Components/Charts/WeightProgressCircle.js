@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { ProgressCircle } from 'react-native-svg-charts'
 import { Text, StyleSheet, View } from 'react-native'
 import { HANSIS_DARK, HANSIS_MEDIUM_DARK } from '../../../../Constants'
 
-class WeightProgressCircle extends React.PureComponent {
+class WeightProgressCircle extends Component {
 
     render() {
         return (

@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { BarChart, Grid } from 'react-native-svg-charts'
 import { Defs, LinearGradient, Stop, Text } from "react-native-svg";
 import { HANSIS_MEDIUM } from '../../../../Constants';
 import { averageWeightGainAndLoss } from '../../Utilities'
 import { mean } from 'lodash'
 
-class WeightDietTrandsBarGraph extends React.PureComponent {
-
+class WeightDietTrandsBarGraph extends Component {
     render() {
 
         const weightAverages = averageWeightGainAndLoss(this.props.records)
