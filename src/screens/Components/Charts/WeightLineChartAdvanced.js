@@ -50,16 +50,6 @@ class WeightLineChartAdvanced extends React.PureComponent {
                         <LineCustom/>
                         <Decorator/>
                     </AreaChart>
-                   {averagedData.length > 0 && <AreaChart
-                                style={ StyleSheet.absoluteFill }
-                                data={ averagedData }
-                                svg={{ fill: 'rgba(34, 128, 176, .15)' }}
-                                contentInset={ { top: 6, bottom: 20,  left: -10, right: 5 } }
-                                curve={ shape.curveNatural }
-                            >
-                        </AreaChart>
-                         }
-                        
                 </View>
 
         )
@@ -67,3 +57,15 @@ class WeightLineChartAdvanced extends React.PureComponent {
 }
 
 export default WeightLineChartAdvanced
+
+
+
+//   {averagedData.length > 0 && <AreaChart
+//                                 style={ StyleSheet.absoluteFill }
+//                                 data={ averagedData }
+//                                 svg={{ fill: 'rgba(34, 128, 176, .15)' }}
+//                                 contentInset={ { top: 6, bottom: 20,  left: -10, right: 5 } }
+//                                 curve={ shape.curveNatural }
+//                             >
+//                         </AreaChart>
+//                          }
