@@ -17,7 +17,7 @@ class WeightGoalTimeline extends Component {
         const data = this.props.records.map(item => item.weight && Number(item.weight));
         const tenDayAverageWeight = mean(data).toFixed(1)
         const daysUntilComplete = ((tenDayAverageWeight - goalWeight) / averageRate).toFixed(0)
-        let now = new Date(); 
+        let now = new Date();
         now.setDate(now.getDate() + Number(daysUntilComplete));
 
         return (
