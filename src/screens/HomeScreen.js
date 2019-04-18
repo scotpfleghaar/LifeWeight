@@ -32,23 +32,6 @@ class HomeScreen extends React.Component {
                     >
                         <WeightLineChartMovingAverage records={this.props.records}/>
                     </Card>
-                    <Card
-                        title='Trends (Average & Actual)'
-                    >
-                        <WeightLineChartAdvanced records={this.props.records}/>
-                    </Card>
-                    <Card
-                        title='Average Weight Gain/Loss'
-                    >
-                        <WeightDietTrandsBarGraph records={this.props.records}/>
-
-                    </Card>
-
-                      <Card
-                        title='Percent Diet is Followed'
-                    >
-                        <WeightPieChart records={this.props.records}/>
-                    </Card>
                 </ScrollView>
             </HeaderWrapper>
         );

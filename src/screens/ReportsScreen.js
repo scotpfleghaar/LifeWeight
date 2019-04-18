@@ -1,26 +1,65 @@
-import React, {Component} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import {HeaderWrapper} from "./Components";
+import {ScrollView, StyleSheet, Text} from "react-native";
+import {Card} from "react-native-elements";
+import WeightLineChartAdvanced from './Components/Charts/WeightLineChartAdvanced'
+import WeightAverageTitle from './Components/Charts/WeightAverageTitle'
+import WeightProgressCircle from './Components/Charts/WeightProgressCircle'
+import WeightDietTrandsBarGraph from './Components/Charts/WeightDietTrandsBarGraph'
+import WeightPieChart from './Components/Charts/WeightPieChart'
+import WeightLineChartMovingAverage from './Components/Charts/WeightLineChartMovingAverage'
+import { connect } from 'react-redux'
+import { sortRecords } from './Utilities'
 
-class ReportsScreen extends Component {
+class ReportsScreen extends React.Component {
     render() {
         return (
-            <View style={styles.container}>
-                <Text>
-                    ReportsScreen
-                </Text>
-            </View>
+            <HeaderWrapper
+                title={'Charts'}
+            >
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.scrollStyle}>
+
+                     <Card
+                        title='Moving Average'
+                    >
+                        <WeightLineChartMovingAverage records={this.props.records}/>
+                    </Card>
+                    <Card
+                        title='Trends (Actual)'
+                    >
+                        <WeightLineChartAdvanced records={this.props.records}/>
+                    </Card>
+                    <Card
+                        title='Average Weight Gain/Loss'
+                    >
+                        <WeightDietTrandsBarGraph records={this.props.records}/>
+
+                    </Card>
+
+                      <Card
+                        title='Percent Diet is Followed'
+                    >
+                        <WeightPieChart records={this.props.records}/>
+                    </Card>
+                </ScrollView>
+            </HeaderWrapper>
         );
     }
 }
 
-
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+    scrollStyle: {
+        paddingBottom: 110
     }
 });
 
-export default ReportsScreen;
+const mapStateToProps = state => {
+    const { records } = state.app;
+    return {
+        records: sortRecords(records)
+    }
+};
+
+export default connect(mapStateToProps)(ReportsScreen);

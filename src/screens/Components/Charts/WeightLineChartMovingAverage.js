@@ -33,7 +33,7 @@ class WeightLineChartMovingAverage extends React.PureComponent {
         }
 
         return (
-            <View style={{ height: 200, paddingLeft: 20, flexDirection: 'row' }}>
+            <View style={{ height: 200, flexDirection: 'row' }}>
                 <YAxis
                     data={averagedData}
                     style={{ marginBottom: xAxisHeight }}
