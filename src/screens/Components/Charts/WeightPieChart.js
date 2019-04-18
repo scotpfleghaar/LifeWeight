@@ -1,13 +1,12 @@
 import React from 'react'
 import { PieChart } from 'react-native-svg-charts'
-import { Circle, G, Line } from 'react-native-svg'
+import { Circle, G, Line, Text } from 'react-native-svg'
 import { percentDietIsFollowed, userGageToColor } from '../../Utilities'
 
 class WeightPieChart extends React.PureComponent {
     render() {
 
         const data = percentDietIsFollowed(this.props.records);
-        console.log(data)
 
         const randomColor = () => ('#' + (Math.random() * 0xFFFFFF << 0).toString(16) + '000000').slice(0, 7)
 
@@ -24,19 +23,19 @@ class WeightPieChart extends React.PureComponent {
                 const { labelCentroid, pieCentroid, data } = slice;
                 return (
                     <G key={ index }>
-                        <Line
-                            x1={ labelCentroid[ 0 ] }
-                            y1={ labelCentroid[ 1 ] }
-                            x2={ pieCentroid[ 0 ] }
-                            y2={ pieCentroid[ 1 ] }
-                            stroke={ data.svg.fill }
-                        />
-                        <Circle
-                            cx={ labelCentroid[ 0 ] }
-                            cy={ labelCentroid[ 1 ] }
-                            r={ 15 }
-                            fill={ data.svg.fill }
-                        />
+                        <Text
+                            key={index}
+                            x={pieCentroid[ 0 ]}
+                            y={pieCentroid[ 1 ]}
+                            fill={'white'}
+                            textAnchor={'middle'}
+                            alignmentBaseline={'middle'}
+                            fontSize={18}
+                            stroke={'black'}
+                            strokeWidth={0.2}
+                        >
+                            {`${((Number(pieData[index].value) / this.props.records.length) * 100).toFixed(0)}%`}
+                        </Text>
                     </G>
                 )
             })
@@ -46,9 +45,8 @@ class WeightPieChart extends React.PureComponent {
             <PieChart
                 style={ { height: 200 } }
                 data={ pieData }
-                innerRadius={ 20 }
-                outerRadius={ 55 }
-                labelRadius={ 80 }
+                spacing={0}
+                outerRadius={ '95%' }
             >
                 <Labels/>
             </PieChart>
