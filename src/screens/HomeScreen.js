@@ -6,6 +6,7 @@ import WeightLineChartAdvanced from './Components/Charts/WeightLineChartAdvanced
 import WeightAverageTitle from './Components/Charts/WeightAverageTitle'
 import WeightProgressCircle from './Components/Charts/WeightProgressCircle'
 import WeightDietTrandsBarGraph from './Components/Charts/WeightDietTrandsBarGraph'
+import WeightPieChart from './Components/Charts/WeightPieChart'
 import { connect } from 'react-redux'
 import { sortRecords } from './Utilities'
 
@@ -24,7 +25,7 @@ class HomeScreen extends React.Component {
                     >
                         <WeightAverageTitle records={this.props.records}/>
                     </Card>
-                    
+
                     <Card
                         title='Progress'
                     >
@@ -40,6 +41,13 @@ class HomeScreen extends React.Component {
                         title='Average Weight Gain/Loss'
                     >
                         <WeightDietTrandsBarGraph records={this.props.records}/>
+
+                    </Card>
+
+                      <Card
+                        title='Average Weight Gain/Loss'
+                    >
+                        <WeightPieChart records={this.props.records}/>
                     </Card>
                 </ScrollView>
             </HeaderWrapper>

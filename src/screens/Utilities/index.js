@@ -57,7 +57,7 @@ export const averageTenDayArrayAlgorythem = (weights) => {
              return Number(mean(weights.slice(0, index + 1)).toFixed(1));
         }
     })
-} 
+}
 
 export const averageWeightGainAndLoss = (records) => {
     let dietSuccess = [], dietMaintained = [], dietFail = [];
@@ -77,8 +77,31 @@ export const averageWeightGainAndLoss = (records) => {
         }
     });
     return {
-        dietSuccess: mean(dietSuccess).toFixed(2), 
-        dietMaintained: mean(dietMaintained).toFixed(2), 
+        dietSuccess: mean(dietSuccess).toFixed(2),
+        dietMaintained: mean(dietMaintained).toFixed(2),
         dietFail: mean(dietFail).toFixed(2)
     }
 };
+
+
+
+export const percentDietIsFollowed = (records) => {
+    let dietSuccessTotal = 0, dietMaintainedTotal = 0, dietFailTotal = 0;
+   records.map((record, index) => {
+        if (record) {
+            switch(String(record.userWeightGage)){
+                case '0':
+                    return dietSuccessTotal += 1
+                case '1':
+                    return dietMaintainedTotal += 1
+                default:
+                    return dietFailTotal += 1
+        }
+   }
+   });
+   return [
+        dietSuccessTotal,
+        dietMaintainedTotal,
+        dietFailTotal
+       ]
+}

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Overlay, Text} from 'react-native-elements'
-import {Dimensions, StyleSheet, TouchableWithoutFeedback, View} from 'react-native'
+import {Dimensions, StyleSheet, TouchableWithoutFeedback, View, Keyboard} from 'react-native'
 import {HANSIS_MEDIUM, HANSIS_MEDIUM_LIGHT, PURE_WHITE} from "../../../Constants";
 import WeightInput from "./WeightForm/WeightInput";
 import WeightDatePicker from "./WeightForm/WeightDatePicker";
@@ -33,6 +33,7 @@ class EditWeightOverlay extends Component {
     }
 
     doneEditingCallBack () {
+         Keyboard.dismiss();
          this.props.doneEditing();
          this.setState({
                 weight: '',
@@ -52,6 +53,7 @@ class EditWeightOverlay extends Component {
                 entryId: nextProps.item.entryId
             })
         } else {
+            Keyboard.dismiss();
             this.setState({
                 isVisible: false
             })
