@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet, Button} from 'react-native';
 
-class EditWeightScreen extends Component {
+class UserSettingsScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <Text>
-                    EditWeightScreen
+                    UserSettingsScreen
                 </Text>
+                <Button
+                    onPress={() => this.props.navigation.goBack()}
+                    title="Go back"
+                />
             </View>
         );
     }
@@ -23,4 +27,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default EditWeightScreen;
+export default UserSettingsScreen;

@@ -1,4 +1,4 @@
-import {createBottomTabNavigator, createSwitchNavigator} from "react-navigation";
+import {createBottomTabNavigator, createSwitchNavigator, createDrawerNavigator} from "react-navigation";
 import {Icon} from "react-native-elements";
 import ReportsScreen from "../screens/ReportsScreen";
 import RecordedWeightsScreen from "../screens/RecordedWeightsScreen";
@@ -10,6 +10,18 @@ import SignUp from "../screens/Authentication/SignUp";
 import StartupAuthentication from "../screens/Authentication/StartupAuthentication";
 import React from "react";
 import AddWeightScreen from "../screens/AddWeightScreen";
+import UserSettingsScreen from "../screens/UserSettingsScreen";
+import ExtrasScreen from "../screens/ExtrasScreen";
+
+const SettingsStack = createDrawerNavigator({
+    Settings: SettingsScreen,
+    Profile: UserSettingsScreen,
+    Extras: ExtrasScreen
+}, {
+    initialRouteName: "Settings",
+    header: null,
+});
+
 
 const AppStack = createBottomTabNavigator({
         Home: {
@@ -61,7 +73,7 @@ const AppStack = createBottomTabNavigator({
             }
         },
         Settings: {
-            screen: SettingsScreen,
+            screen: SettingsStack,
             navigationOptions: {
                 tabBarIcon: ({tintColor}) => {
                     return <Icon
