@@ -7,7 +7,7 @@ import WeightDatePicker from "./WeightForm/WeightDatePicker";
 import WeightCheck from "./weightCheck";
 import {FormButton} from "./FormButton";
 import {todaysDate, parseDate } from "../Utilities";
-import { editWeightRecord, employeeDelete } from '../../Redux/Actions'
+import { editWeightRecord, recordDelete } from '../../Redux/Actions'
 import { connect } from 'react-redux'
 
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -113,4 +113,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(null, { editWeightRecord, employeeDelete })(EditWeightOverlay);
+export default connect(null, { editWeightRecord, employeeDelete: recordDelete })(EditWeightOverlay);

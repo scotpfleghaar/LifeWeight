@@ -5,9 +5,9 @@ import {HeaderWrapper, FormButton} from './Components'
 import {connect} from "react-redux";
 import WeightCheck from "./Components/weightCheck";
 import WeightDatePicker from "./Components/WeightForm/WeightDatePicker";
-import {addWeightRecord} from '../Redux/Actions'
+import {addWeightRecord, _storeData} from '../Redux/Actions'
 import WeightInput from "./Components/WeightForm/WeightInput";
-import { todaysDate, parseDate } from "./Utilities";
+import {todaysDate, parseDate, sortRecords} from "./Utilities";
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
@@ -26,6 +26,8 @@ class AddWeightScreen extends Component {
 
     addWeightRecordToState() {
         this.props.addWeightRecord(parseFloat(this.state.weight), parseDate(this.state.date), this.state.selectedIndex, () => {
+            console.log(this.props.records);
+            this.props.records.length !== 0 && _storeData(this.props.records);
             this.setState({
                 weight: '',
                 date: todaysDate(),
@@ -90,12 +92,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-    const {email, password, error, loading} = state.auth;
+    const { records } = state.app;
     return {
-        email,
-        password,
-        error,
-        loading
+        records: sortRecords(records)
     }
 };
 

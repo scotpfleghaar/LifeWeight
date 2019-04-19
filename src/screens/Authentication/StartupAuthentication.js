@@ -10,8 +10,8 @@ import {
 
 class StartupAuthentication extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
         loading: true,
         authenticated: false,
