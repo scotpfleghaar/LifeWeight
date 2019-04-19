@@ -52,7 +52,6 @@ export const addWeightRecord = (weight, date, userWeightGage, callBack) => (disp
 export const weightRecordsFetch = (callBack) => (dispatch) =>  {
     const {currentUser} = firebase.auth();
     firebase.database().ref(`/users/${currentUser.uid}/records`).once("value", snapshot => {
-        console.log('weightRecordsFetch', snapshot.val());
         callBack && callBack();
         if (snapshot.val()) {
             dispatch({
