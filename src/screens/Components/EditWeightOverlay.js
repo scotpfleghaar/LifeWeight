@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Overlay, Text} from 'react-native-elements'
+import {Button, Overlay, Text, Divider} from 'react-native-elements'
 import {Dimensions, StyleSheet, TouchableWithoutFeedback, View, Keyboard} from 'react-native'
 import {HANSIS_MEDIUM, HANSIS_MEDIUM_LIGHT, PURE_WHITE} from "../../../Constants";
 import WeightInput from "./WeightForm/WeightInput";
@@ -20,7 +20,8 @@ class EditWeightOverlay extends Component {
             isVisible: false,
             weight: '',
             date: todaysDate(),
-            selectedIndex: 0
+            selectedIndex: 0,
+            areYouSure: false
         }
     }
 
@@ -60,6 +61,12 @@ class EditWeightOverlay extends Component {
         }
     }
 
+    areYouSure(){
+        this.setState({
+            areYouSure: !this.state.areYouSure
+        })
+    }
+
     render() {
         return (
             <Overlay
@@ -90,15 +97,36 @@ class EditWeightOverlay extends Component {
                         isDisabled={!this.state.weight}
                         onPress={() => this.editWeightRecordFromState()}
                     />
-                    <Button
+
+                    <FormButton
                         onPress={() => this.props.doneEditing()}
                         title={'Cancel'}
                     />
 
-                     <Button
-                        onPress={() => this.deleteRecord()}
-                        title={'Delete'}
-                    />
+                    {this.state.areYouSure ?
+                        <View>
+                            <Text style={{textAlign: 'center', fontSize: 18, marginTop: 10}}>
+                                Are you sure?
+                            </Text>
+                            <View style={{flexDirection: 'row', justifyContent: 'space-between', width: 150}}>
+                                <Button
+                                    onPress={() => this.deleteRecord()}
+                                    title={'Yes'}
+                                    type="clear"
+                                />
+                                <Button
+                                    onPress={() => this.areYouSure()}
+                                    title={'No'}
+                                    type="clear"
+                                />
+                            </View>
+                        </View>
+                    :
+                        <FormButton
+                            onPress={() => this.areYouSure()}
+                            title={'Delete'}
+                        />
+                    }
                 </View>
             </Overlay>
         );
@@ -107,7 +135,7 @@ class EditWeightOverlay extends Component {
 
 const styles = StyleSheet.create({
     formStyle: {
-        height: 350,
+        height: 500,
         justifyContent: 'center',
         alignItems: 'center',
     }

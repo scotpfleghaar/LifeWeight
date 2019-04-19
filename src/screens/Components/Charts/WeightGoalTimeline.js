@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { sortRecords, weightLoseRate } from '../../Utilities'
 import { mean } from 'lodash'
 import { Divider } from 'react-native-elements'
+import { FormButton } from '../FormButton';
 
 class WeightGoalTimeline extends Component {
 
@@ -18,15 +19,25 @@ class WeightGoalTimeline extends Component {
         const data = this.props.records.map(item => item.weight && Number(item.weight));
         const tenDayAverageWeight = mean(data).toFixed(1)
         const daysUntilComplete = ((tenDayAverageWeight - goalWeight) / averageRate).toFixed(0)
-        let now = new Date();
-        now.setDate(now.getDate() + Number(daysUntilComplete));
+        let now, successMessage;
+        if (daysUntilComplete > 0) {
+            now = new Date();
+            now.setDate(now.getDate() + Number(daysUntilComplete));
+        } else {
+            successMessage = 'Not Available'
+        }
+
         return (
             <View>
                 <Text>Current weight(<Text style={{color: HANSIS_DARK,}}>{ `${WEIGHT_POSTFIX}` }</Text>) change per week:</Text>
-                <Text style={styles.textStyle}>{ `${(averageRate * 7).toFixed(1)}` }</Text>
-                <Divider style={{ backgroundColor: HANSIS_MEDIUM_LIGHT, height: 1,  margin: 10, marginLeft: 0 }} />
-                <Text>At your current rate you'll reach <Text style={{color: HANSIS_DARK,}}>{ `${goalWeight} ${WEIGHT_POSTFIX}` }</Text> on:</Text>
-                <Text style={styles.textStyle}>{ `${MONTHS[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}` }</Text>
+                <Text style={styles.textStyle}>{ `${(averageRate * 7).toFixed(1) - ((averageRate * 7).toFixed(1)* 2)}` }</Text>
+                {successMessage ? null :
+                    <View>
+                        <Divider style={{ backgroundColor: HANSIS_MEDIUM_LIGHT, height: 1,  margin: 10, marginLeft: 0 }} />
+                        <Text>At your current rate you'll reach <Text style={{color: HANSIS_DARK,}}>{ `${goalWeight} ${WEIGHT_POSTFIX}` }</Text> on:</Text>
+                        <Text style={styles.textStyle}>{ `${MONTHS[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}` }</Text>
+                    </View>
+                }
             </View>
         )
     }
