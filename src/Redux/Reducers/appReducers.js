@@ -8,12 +8,13 @@ import {
 import { set, omit } from 'lodash'
 
 const INITIAL_STATE = {
-    records: []
+    records: {}
 };
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case ADD_WEIGHT_RECORD:
+            console.log(state);
             return {
                 ...state,
                 records: set(state.records, action.payload.entryId, action.payload)

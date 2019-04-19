@@ -6,8 +6,8 @@ import WeightInput from "./WeightForm/WeightInput";
 import WeightDatePicker from "./WeightForm/WeightDatePicker";
 import WeightCheck from "./weightCheck";
 import {FormButton} from "./FormButton";
-import {todaysDate, parseDate } from "../Utilities";
-import { editWeightRecord, recordDelete } from '../../Redux/Actions'
+import {todaysDate, parseDate, sortRecords} from "../Utilities";
+import {_storeData, editWeightRecord, recordDelete} from '../../Redux/Actions'
 import { connect } from 'react-redux'
 
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -41,6 +41,7 @@ class EditWeightOverlay extends Component {
                 selectedIndex: 0,
                 isVisible: false
             });
+        this.props.records.length !== 0 && _storeData(this.props.records);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -113,4 +114,12 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(null, { editWeightRecord, employeeDelete: recordDelete })(EditWeightOverlay);
+const mapStateToProps = state => {
+    const { records } = state.app;
+    return {
+        records
+    }
+};
+
+
+export default connect(mapStateToProps, { editWeightRecord, employeeDelete: recordDelete })(EditWeightOverlay);
