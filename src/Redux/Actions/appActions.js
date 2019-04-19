@@ -50,38 +50,38 @@ export const addWeightRecord = (weight, date, userWeightGage, callBack) => (disp
     // updates['/records/' + newPostKey] = postData;
     updates['/users/' + userId + '/records/' + newPostKey] = postData;
 
+    callBack && callBack("Weight Added!");
     firebase.database().ref().update(updates).then(function (snapshot) {
         dispatch({
             type: ADD_WEIGHT_RECORD,
             payload: postData
         });
-        callBack && callBack("Weight Added!");
     }).catch(err => {
         console.log(err.message);
         dispatch({
             type: ADD_WEIGHT_RECORD,
             payload: postData
         });
-        callBack && callBack("Weight Added!");
     });
 };
 
 
 export const weightRecordsFetch = (callBack) => {
     const {currentUser} = firebase.auth();
-    callBack && callBack();
     return (dispatch) => {
         firebase.database().ref(`/users/${currentUser.uid}/records`).on("value", snapshot => {
             dispatch({
                 type: FETCH_WEIGHT_RECORDS,
                 payload: snapshot.val()
             });
+            callBack && callBack();
         }, () => {
             _retrieveData().then((response)=>{
                 dispatch({
                     type: FETCH_WEIGHT_RECORDS,
                     payload: response
                 });
+                callBack && callBack();
             })
         })
     };
@@ -112,7 +112,6 @@ export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack
  export const recordDelete = (entryId, callBack) => (dispatch) => {
     const {currentUser} = firebase.auth();
      callBack && callBack();
-
      firebase.database().ref(`/users/${currentUser.uid}/records/${entryId}`).remove().then(() => {
          dispatch({
              type: DELETE_WEIGHT_RECORD,

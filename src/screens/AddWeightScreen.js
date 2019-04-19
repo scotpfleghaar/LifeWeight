@@ -26,14 +26,13 @@ class AddWeightScreen extends Component {
 
     addWeightRecordToState() {
         this.props.addWeightRecord(parseFloat(this.state.weight), parseDate(this.state.date), this.state.selectedIndex, () => {
-            console.log(this.props.records);
-            this.props.records.length !== 0 && _storeData(this.props.records);
             this.setState({
                 weight: '',
                 date: todaysDate(),
                 selectedIndex: 0
             });
             this.goHome();
+            this.props.records.length !== 0 && _storeData(this.props.records);
         })
     }
 
