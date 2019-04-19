@@ -4,6 +4,7 @@ import {
     EDIT_WEIGHT_RECORD,
     DELETE_WEIGHT_RECORD
 } from "../../../Constants";
+import { _storeData } from '../Actions'
 
 import { set, omit } from 'lodash'
 
@@ -12,27 +13,35 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
+    let newRecords;
     switch (action.type) {
         case ADD_WEIGHT_RECORD:
-            console.log(state);
+            newRecords = set(state.records, action.payload.entryId, action.payload)
+            _storeData(newRecords);
             return {
                 ...state,
-                records: set(state.records, action.payload.entryId, action.payload)
+                records: newRecords
             };
         case FETCH_WEIGHT_RECORDS:
+            newRecords = action.payload
+            _storeData(newRecords);
             return {
                 ...state,
-                records: action.payload
+                records: newRecords
             };
         case EDIT_WEIGHT_RECORD:
+            newRecords = set(state.records, action.payload.entryId, action.payload)
+            _storeData(newRecords);
             return {
                 ...state,
-                records: set(state.records, action.payload.entryId, action.payload)
+                records: newRecords
             };
         case DELETE_WEIGHT_RECORD:
+            newRecords = omit(state.records, action.payload)
+            _storeData(newRecords);
             return {
                 ...state,
-                records: omit(state.records, action.payload)
+                records: newRecords
             };
         default:
             return state

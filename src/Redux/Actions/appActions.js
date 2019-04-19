@@ -13,7 +13,6 @@ const WEIGHT_RECORDS = 'WEIGHT_RECORDS';
 export const _storeData = async (records) => {
     try {
         await AsyncStorage.setItem(WEIGHT_RECORDS, JSON.stringify(records));
-        console.log(keys(records));
         weightRecordsDispatch(records);
     } catch (error) {
         console.log('_storeData', error)
@@ -50,28 +49,26 @@ export const addWeightRecord = (weight, date, userWeightGage, callBack) => (disp
 };
 
 
-export const weightRecordsFetch = (callBack) => {
+export const weightRecordsFetch = (callBack) => (dispatch) =>  {
     const {currentUser} = firebase.auth();
-    return (dispatch) => {
-        firebase.database().ref(`/users/${currentUser.uid}/records`).on("value", snapshot => {
-            console.log('weightRecordsFetch', snapshot.val());
+    firebase.database().ref(`/users/${currentUser.uid}/records`).once("value", snapshot => {
+        console.log('weightRecordsFetch', snapshot.val());
+        callBack && callBack();
+        if (snapshot.val()) {
+            dispatch({
+                type: FETCH_WEIGHT_RECORDS,
+                payload: snapshot.val()
+            });
+        }
+    }, () => {
+        _retrieveData().then((response)=>{
+            dispatch({
+                type: FETCH_WEIGHT_RECORDS,
+                payload: response
+            });
             callBack && callBack();
-            if (snapshot.val()) {
-                dispatch({
-                    type: FETCH_WEIGHT_RECORDS,
-                    payload: snapshot.val()
-                });
-            }
-        }, () => {
-            _retrieveData().then((response)=>{
-                dispatch({
-                    type: FETCH_WEIGHT_RECORDS,
-                    payload: response
-                });
-                callBack && callBack();
-            })
         })
-    };
+    })
 };
 
 export const weightRecordsDispatch = (records) => {

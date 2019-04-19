@@ -32,7 +32,6 @@ class AddWeightScreen extends Component {
                 selectedIndex: 0
             });
             this.goHome();
-            this.props.records.length !== 0 && _storeData(this.props.records);
         })
     }
 

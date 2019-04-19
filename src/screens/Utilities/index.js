@@ -31,6 +31,7 @@ export const parseDate = (date) => {
 
 
 export const sortRecords = (records) => {
+    if(!records && records.length === 0) return undefined;
     const recordValues = values(records);
     return  recordValues.sort(function(a,b){
         const time1 = new Date(a.date.year, a.date.month, a.date.day); // year, month, day
@@ -63,7 +64,7 @@ export const weightLoseRate = (records) => {
     let loseRate =[];
     records.map((record, index) => {
         if (records[index -1]) {
-            const previousWeight = records[index -1].weight; 
+            const previousWeight = records[index -1].weight;
             loseRate.push(Number(previousWeight - record.weight))
         }
     });
@@ -88,9 +89,9 @@ export const averageWeightGainAndLoss = (records) => {
         }
     });
     return {
-        dietSuccess: mean(dietSuccess).toFixed(2),
-        dietMaintained: mean(dietMaintained).toFixed(2),
-        dietFail: mean(dietFail).toFixed(2)
+        dietSuccess: dietSuccess.length !== 0 ? mean(dietSuccess).toFixed(2) : 0,
+        dietMaintained: dietMaintained.length !== 0 ? mean(dietMaintained).toFixed(2) : 0,
+        dietFail: dietFail.length !== 0 ? mean(dietFail).toFixed(2) : 0
     }
 };
 

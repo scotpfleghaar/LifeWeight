@@ -10,7 +10,7 @@ import { Divider } from 'react-native-elements'
 class WeightGoalTimeline extends Component {
 
     render() {
-        if(this.props.records.length === 0) return null
+        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
 
         const goalWeight = 165;
 

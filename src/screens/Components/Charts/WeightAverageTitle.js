@@ -2,9 +2,12 @@ import React, {Component} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { mean } from 'lodash'
 import { HANSIS_DARK } from '../../../../Constants'
+import { sortRecords } from '../../Utilities'
+import { connect } from 'react-redux'
 
 class WeightAverageTitle extends Component {
     render() {
+        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
         const adjustedRecords = this.props.records.slice(0, 11);
         const data = adjustedRecords.map(item => item.weight && item.weight);
         const tenDayAverage = mean(data).toFixed(1)
@@ -31,4 +34,11 @@ const styles = StyleSheet.create({
     }
 });
 
-export default WeightAverageTitle;
+const mapStateToProps = state => {
+    const { records } = state.app;
+    return {
+        records: sortRecords(records)
+    }
+};
+
+export default connect(mapStateToProps)(WeightAverageTitle);

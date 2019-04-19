@@ -25,24 +25,24 @@ class ReportsScreen extends React.Component {
                      <CollapseableCard
                         title='Moving Average'
                     >
-                        <WeightLineChartMovingAverage records={this.props.records}/>
+                        <WeightLineChartMovingAverage/>
                     </CollapseableCard>
                     <CollapseableCard
                         title='Trends (Actual)'
                     >
-                        <WeightLineChartAdvanced records={this.props.records}/>
+                        <WeightLineChartAdvanced/>
                     </CollapseableCard>
                     <CollapseableCard
                         title='Average Weight Gain/Loss'
                     >
-                        <WeightDietTrandsBarGraph records={this.props.records}/>
+                        <WeightDietTrandsBarGraph/>
 
                     </CollapseableCard>
 
                       <CollapseableCard
                         title='Percent Diet is Followed'
                     >
-                        <WeightPieChart records={this.props.records}/>
+                        <WeightPieChart/>
                     </CollapseableCard>
                 </ScrollView>
             </HeaderWrapper>

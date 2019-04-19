@@ -22,13 +22,13 @@ class HomeScreen extends React.Component {
                     <Card
                         title='Current Weight'
                     >
-                        <WeightAverageTitle records={this.props.records}/>
+                        <WeightAverageTitle/>
                     </Card>
 
                      <Card
                         title='Goal Timeline'
                     >
-                        <WeightGoalTimeline records={this.props.records}/>
+                        <WeightGoalTimeline/>
                     </Card>
 
                      <Card

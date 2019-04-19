@@ -41,7 +41,6 @@ class EditWeightOverlay extends Component {
                 selectedIndex: 0,
                 isVisible: false
             });
-        this.props.records.length !== 0 && _storeData(this.props.records);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
     const { records } = state.app;
     return {
-        records
+        records: sortRecords(records)
     }
 };
 

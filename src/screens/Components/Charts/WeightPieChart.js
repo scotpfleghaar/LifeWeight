@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { PieChart } from 'react-native-svg-charts'
 import { Circle, G, Line, Text } from 'react-native-svg'
-import { percentDietIsFollowed, userGageToColor } from '../../Utilities'
+import { percentDietIsFollowed, userGageToColor, sortRecords } from '../../Utilities'
+import { connect } from 'react-redux'
 
 class WeightPieChart extends Component {
     render() {
-
+        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
         const data = percentDietIsFollowed(this.props.records);
-
-        const randomColor = () => ('#' + (Math.random() * 0xFFFFFF << 0).toString(16) + '000000').slice(0, 7)
 
         const pieData = data
             .filter(value => value > 0)
@@ -55,4 +54,11 @@ class WeightPieChart extends Component {
 
 }
 
-export default WeightPieChart
+const mapStateToProps = state => {
+    const { records } = state.app;
+    return {
+        records: sortRecords(records)
+    }
+};
+
+export default connect(mapStateToProps)(WeightPieChart);

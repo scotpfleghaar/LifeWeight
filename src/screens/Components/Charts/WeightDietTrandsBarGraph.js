@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { BarChart, Grid } from 'react-native-svg-charts'
 import { Defs, LinearGradient, Stop, Text } from "react-native-svg";
 import { HANSIS_MEDIUM } from '../../../../Constants';
-import { averageWeightGainAndLoss } from '../../Utilities'
+import { averageWeightGainAndLoss, sortRecords } from '../../Utilities'
 import { mean } from 'lodash'
+import { connect } from 'react-redux'
 
 class WeightDietTrandsBarGraph extends Component {
     render() {
-
+        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
         const weightAverages = averageWeightGainAndLoss(this.props.records)
         const weightLabel = [
             weightAverages.dietSuccess >= 0 ? 'Loss' : 'Gain',
@@ -67,4 +68,11 @@ class WeightDietTrandsBarGraph extends Component {
 
 }
 
-export default WeightDietTrandsBarGraph
+const mapStateToProps = state => {
+    const { records } = state.app;
+    return {
+        records: sortRecords(records)
+    }
+};
+
+export default connect(mapStateToProps)(WeightDietTrandsBarGraph);
