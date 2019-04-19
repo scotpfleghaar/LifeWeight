@@ -1,5 +1,5 @@
 import React from "react";
-import {ScrollView, StyleSheet, View, LayoutAnimation} from "react-native";
+import {ScrollView, StyleSheet, View, LayoutAnimation, Animated} from "react-native";
 import {Card, Text, Button, Divider, Icon} from "react-native-elements";
 import { HANSIS_MEDIUM_LIGHT, HANSIS_DARK } from "../../../Constants";
 
@@ -8,13 +8,9 @@ class CollapseableCard extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            isOpen: true
+            isOpen: false
         }
     }
-
-    // componentWillUpdate(){
-    //     LayoutAnimation.easeInEaseOut();
-    // }
 
     CardTitle() {
             return (
@@ -48,10 +44,13 @@ class CollapseableCard extends React.Component {
                 <Card
                     title={ this.CardTitle() }
                 >
-                    <View style={{height: this.state.isOpen ? 'auto' : 0, overflow: 'hidden'}}>
+                    <View>
                         <Divider style={{ backgroundColor: HANSIS_MEDIUM_LIGHT, height: 1, width: 'auto', marginBottom: 10, marginTop: 10 }} />
                         { this.props.children }
                     </View>
+                    <View  style={{height: this.state.isOpen ? 'auto' : 0, overflow: 'hidden', marginTop: 10}}>
+                        <Text>{this.props.description}</Text>
+                    </View >
                 </Card>
              </View>
         );

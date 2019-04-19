@@ -11,6 +11,12 @@ import WeightLineChartMovingAverage from './Components/Charts/WeightLineChartMov
 import CollapseableCard from './Components/CollapseableCard'
 import { connect } from 'react-redux'
 import { sortRecords } from './Utilities'
+import {
+    MOVING_AVERAGE_LINE_GRAPH_DESCRIPTION,
+    ACTUAL_DATA_LINE_GRAPH_DESCRIPTION,
+    WEIGHT_GAIN_LOSS_BAR_GRAPH_DESCRIPTION,
+    HOW_OFTEN_YOUR_DIET_IS_FOLLOWED_DESCRIPTION
+} from '../../Constants'
 
 class ReportsScreen extends React.Component {
     render() {
@@ -24,23 +30,25 @@ class ReportsScreen extends React.Component {
 
                      <CollapseableCard
                         title='Moving Average'
+                        description={MOVING_AVERAGE_LINE_GRAPH_DESCRIPTION}
                     >
                         <WeightLineChartMovingAverage/>
                     </CollapseableCard>
                     <CollapseableCard
-                        title='Trends (Actual)'
+                        title='Actual Weight Records'
+                        description={ACTUAL_DATA_LINE_GRAPH_DESCRIPTION}
                     >
                         <WeightLineChartAdvanced/>
                     </CollapseableCard>
                     <CollapseableCard
                         title='Average Weight Gain/Loss'
+                        description={WEIGHT_GAIN_LOSS_BAR_GRAPH_DESCRIPTION}
                     >
                         <WeightDietTrandsBarGraph/>
-
                     </CollapseableCard>
-
                       <CollapseableCard
-                        title='Percent Diet is Followed'
+                        title='How often your diet is followed'
+                        description={HOW_OFTEN_YOUR_DIET_IS_FOLLOWED_DESCRIPTION}
                     >
                         <WeightPieChart/>
                     </CollapseableCard>

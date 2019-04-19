@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { mean } from 'lodash'
-import { HANSIS_DARK } from '../../../../Constants'
+import { HANSIS_DARK, WEIGHT_POSTFIX } from '../../../../Constants'
 import { sortRecords } from '../../Utilities'
 import { connect } from 'react-redux'
 
@@ -15,7 +15,7 @@ class WeightAverageTitle extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.textStyle}>
-                    { tenDayAverage }
+                    {`${tenDayAverage} ${WEIGHT_POSTFIX}`}
                 </Text>
             </View>
         );

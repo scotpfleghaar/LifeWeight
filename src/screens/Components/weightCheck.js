@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
-import {ButtonGroup, Icon, Text} from "react-native-elements";
-import {StyleSheet, View} from "react-native";
-import {HANSIS_LIGHT, HANSIS_MEDIUM_LIGHT, PURE_WHITE, HANSIS_MEDIUM_DARK} from "../../../Constants";
+import {ButtonGroup, Icon, Text, Tooltip} from "react-native-elements";
+import {StyleSheet, View, Dimensions} from "react-native";
+import {HANSIS_LIGHT, HANSIS_MEDIUM_LIGHT, PURE_WHITE, HANSIS_MEDIUM_DARK, HANSIS_MEDIUM, TOOLTIP_WEIGHT_RECORD_DESCRIPTION} from "../../../Constants";
+import { CustomToolTip } from './CustomToolTip'
+
+const DEVICE_WIDTH = Dimensions.get('window').width;
 
 class WeightCheck extends Component {
     constructor(props) {
@@ -33,7 +36,17 @@ class WeightCheck extends Component {
 
         return (
             <View style={styles.viewGroup}>
-                <Text style={styles.viewGroupLabel}>How well did you follow your diet since the last record?</Text>
+                <Tooltip backgroundColor={HANSIS_MEDIUM_DARK} width={DEVICE_WIDTH * 0.8} height={'auto'} popover={<Text style={{color: PURE_WHITE}}>{TOOLTIP_WEIGHT_RECORD_DESCRIPTION}</Text>}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10}}>
+                        <Text style={{marginRight: 10, fontSize: 18}}>How well did you follow your diet?</Text>
+                        <Icon
+                            size={22}
+                            name='info'
+                            type='font-awesome'
+                            color={ HANSIS_MEDIUM }
+                        />
+                    </View>
+                </Tooltip>
                 <ButtonGroup
                     onPress={this.updateIndex}
                     selectedIndex={selectedIndex}
@@ -53,7 +66,8 @@ const styles = StyleSheet.create({
         marginTop: 30
     },
     viewGroupLabel: {
-        marginBottom: 5
+        marginRight: 5,
+        fontSize: 18
     },
     buttonGroupButtonStyle: {
         backgroundColor: PURE_WHITE,
