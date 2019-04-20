@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk';
 import Main from './Main'
 import reducers from './src/Redux/Reducers';
+
 class App extends React.Component {
     componentWillMount() {
         const config = {

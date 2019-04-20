@@ -5,23 +5,26 @@ import {
     DELETE_WEIGHT_RECORD
 } from "../../../Constants";
 import firebase from 'firebase'
+
+// uid: firebase.auth().currentUser.uid;
 import { keys } from 'lodash'
 import { AsyncStorage } from 'react-native';
 
 const WEIGHT_RECORDS = 'WEIGHT_RECORDS';
 
-export const _storeData = async (records) => {
+export const _storeData = async (userId, records) => {
+    if (!userId) return null;
     try {
-        await AsyncStorage.setItem(WEIGHT_RECORDS, JSON.stringify(records));
+        await AsyncStorage.setItem(userId, JSON.stringify(records));
         weightRecordsDispatch(records);
     } catch (error) {
         console.log('_storeData', error)
     }
 };
 
-const _retrieveData = async () => {
+const _retrieveData = async (userId) => {
     try {
-        const value = await AsyncStorage.getItem(WEIGHT_RECORDS);
+        const value = await AsyncStorage.getItem(userId);
         if (value !== null) {
             return JSON.parse(value)
         }
@@ -43,7 +46,8 @@ export const addWeightRecord = (weight, date, userWeightGage, callBack) => (disp
     };
     dispatch({
         type: ADD_WEIGHT_RECORD,
-        payload: postData
+        payload: postData,
+        uid: firebase.auth().currentUser.uid
     });
     callBack && callBack();
 };
@@ -52,18 +56,18 @@ export const addWeightRecord = (weight, date, userWeightGage, callBack) => (disp
 export const weightRecordsFetch = (callBack) => (dispatch) =>  {
     const {currentUser} = firebase.auth();
     firebase.database().ref(`/users/${currentUser.uid}/records`).once("value", snapshot => {
+        dispatch({
+            type: FETCH_WEIGHT_RECORDS,
+            payload: snapshot.val(),
+            uid: firebase.auth().currentUser.uid
+        });
         callBack && callBack();
-        if (snapshot.val()) {
-            dispatch({
-                type: FETCH_WEIGHT_RECORDS,
-                payload: snapshot.val()
-            });
-        }
     }, () => {
-        _retrieveData().then((response)=>{
+        _retrieveData(currentUser.uid).then((response)=>{
             dispatch({
                 type: FETCH_WEIGHT_RECORDS,
-                payload: response
+                payload: response,
+                uid: firebase.auth().currentUser.uid
             });
             callBack && callBack();
         })
@@ -89,7 +93,8 @@ export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack
     callBack && callBack();
     dispatch({
         type: EDIT_WEIGHT_RECORD,
-        payload: postData
+        payload: postData,
+        uid: firebase.auth().currentUser.uid
     });
 };
 
@@ -97,7 +102,8 @@ export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack
      callBack && callBack();
      dispatch({
          type: DELETE_WEIGHT_RECORD,
-         payload: entryId
+         payload: entryId,
+         uid: firebase.auth().currentUser.uid
      });
 };
 

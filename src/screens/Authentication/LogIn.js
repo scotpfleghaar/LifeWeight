@@ -4,7 +4,7 @@ import {Input, Text} from 'react-native-elements'
 import {HANSIS_MEDIUM_DARK, HANSIS_MEDIUM} from "../../../Constants";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {HeaderWrapper, FormButton} from '../Components'
-import {loginUser, emailChange, passwordChange} from "../../Redux/Actions";
+import {loginUser, emailChange, passwordChange, weightRecordsFetch} from "../../Redux/Actions";
 import {connect} from "react-redux";
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
@@ -54,7 +54,9 @@ class LogIn extends Component {
                     <FormButton
                         title={"Login"}
                         onPress={() => this.props.loginUser(this.props.email, this.props.password, () => {
-                            this.props.navigation.navigate('App')
+                            this.props.weightRecordsFetch(() => {
+                                this.props.navigation.navigate('App');
+                            })
                         })}
                     />
                 </View>
@@ -100,4 +102,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, {loginUser, emailChange, passwordChange})(LogIn);
+export default connect(mapStateToProps, {loginUser, emailChange, passwordChange, weightRecordsFetch})(LogIn);
