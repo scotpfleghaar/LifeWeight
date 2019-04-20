@@ -46,7 +46,6 @@ export const createAccount = (email, password, matcherPassword, callBack) => (di
 };
 
 const loginUserSuccess = (dispatch, user, callBack) => {
-    // AsyncStorage.setItem('userID', '.....UserData');
     dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: user

@@ -9,10 +9,10 @@ import {
 import firebase from 'firebase'
 
 // uid: firebase.auth().currentUser.uid;
-import { keys } from 'lodash'
-import { AsyncStorage } from 'react-native';
+import {keys} from 'lodash'
+import {AsyncStorage} from 'react-native';
 
-const WEIGHT_RECORDS = 'WEIGHT_RECORDS';
+const GOAL_WEIGHT = 'GOAL_WEIGHT';
 
 export const _storeData = async (userId, records) => {
     if (!userId) return null;
@@ -32,6 +32,26 @@ const _retrieveData = async (userId) => {
         }
     } catch (error) {
         console.log('_retrieveData', error)
+    }
+};
+
+export const _storeGoalWeight = async (goalWeight) => {
+    if (!goalWeight) return null;
+    try {
+        await AsyncStorage.setItem(GOAL_WEIGHT, JSON.stringify(goalWeight));
+    } catch (error) {
+        console.log('_storeGoalWeight', error)
+    }
+};
+
+const _retrieveGoalWeight = async () => {
+    try {
+        const value = await AsyncStorage.getItem(GOAL_WEIGHT);
+        if (value !== null) {
+            return JSON.parse(value)
+        }
+    } catch (error) {
+        console.log('_retrieveGoalWeight', error)
     }
 };
 
@@ -55,7 +75,7 @@ export const addWeightRecord = (weight, date, userWeightGage, callBack) => (disp
 };
 
 
-export const weightRecordsFetch = (callBack) => (dispatch) =>  {
+export const weightRecordsFetch = (callBack) => (dispatch) => {
     const {currentUser} = firebase.auth();
     firebase.database().ref(`/users/${currentUser.uid}/records`).once("value", snapshot => {
         dispatch({
@@ -63,9 +83,16 @@ export const weightRecordsFetch = (callBack) => (dispatch) =>  {
             payload: snapshot.val(),
             uid: firebase.auth().currentUser.uid
         });
+        _retrieveGoalWeight().then((weight) => {
+            dispatch({
+                type: UPDATE_GOAL_WEIGHT,
+                payload: weight,
+                uid: firebase.auth().currentUser.uid
+            });
+        });
         callBack && callBack();
     }, () => {
-        _retrieveData(currentUser.uid).then((response)=>{
+        _retrieveData(currentUser.uid).then((response) => {
             dispatch({
                 type: FETCH_WEIGHT_RECORDS,
                 payload: response,
@@ -78,7 +105,7 @@ export const weightRecordsFetch = (callBack) => (dispatch) =>  {
 
 export const weightRecordsDispatch = (records) => {
     const {currentUser} = firebase.auth();
-    firebase.database().ref(`/users/${currentUser.uid}/records`).set(records).then(()=> {
+    firebase.database().ref(`/users/${currentUser.uid}/records`).set(records).then(() => {
         console.log('weightRecordsDispatch Success')
     }).catch((err) => {
         console.log(err.message)
@@ -100,13 +127,13 @@ export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack
     });
 };
 
- export const recordDelete = (entryId, callBack) => (dispatch) => {
-     callBack && callBack();
-     dispatch({
-         type: DELETE_WEIGHT_RECORD,
-         payload: entryId,
-         uid: firebase.auth().currentUser.uid
-     });
+export const recordDelete = (entryId, callBack) => (dispatch) => {
+    callBack && callBack();
+    dispatch({
+        type: DELETE_WEIGHT_RECORD,
+        payload: entryId,
+        uid: firebase.auth().currentUser.uid
+    });
 };
 
 export const deleteAllRecordsPERMINANTLY = (entryId, callBack) => (dispatch) => {
@@ -120,10 +147,19 @@ export const deleteAllRecordsPERMINANTLY = (entryId, callBack) => (dispatch) => 
 
 
 export const updateGoalWeight = (goalWeight, callBack) => (dispatch) => {
-    callBack && callBack();
-    dispatch({
-        type: UPDATE_GOAL_WEIGHT,
-        payload: goalWeight,
-        uid: firebase.auth().currentUser.uid
+    _storeGoalWeight(goalWeight).then(() => {
+        callBack && callBack();
+        dispatch({
+            type: UPDATE_GOAL_WEIGHT,
+            payload: goalWeight,
+            uid: firebase.auth().currentUser.uid
+        });
+    }).catch(() => {
+        callBack && callBack();
+        dispatch({
+            type: UPDATE_GOAL_WEIGHT,
+            payload: goalWeight,
+            uid: firebase.auth().currentUser.uid
+        });
     });
 };
