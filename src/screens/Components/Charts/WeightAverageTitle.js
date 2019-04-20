@@ -7,10 +7,10 @@ import { connect } from 'react-redux'
 
 class WeightAverageTitle extends Component {
     render() {
-        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
-        const adjustedRecords = this.props.records.slice(0, 11);
+        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>;
+        const adjustedRecords = this.props.records.slice(0, 6);
         const data = adjustedRecords.map(item => item.weight && item.weight);
-        const tenDayAverage = mean(data).toFixed(1)
+        const tenDayAverage = mean(data).toFixed(1);
 
         return (
             <View style={styles.container}>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
     const { records } = state.app;
     return {
-        records: sortRecords(records)
+        records: sortRecords(records).reverse()
     }
 };
 

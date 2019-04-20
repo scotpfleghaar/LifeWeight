@@ -17,6 +17,7 @@ import {
     WEIGHT_GAIN_LOSS_BAR_GRAPH_DESCRIPTION,
     HOW_OFTEN_YOUR_DIET_IS_FOLLOWED_DESCRIPTION
 } from '../../Constants'
+import LongTermActual from "./Components/Charts/LongTermActual";
 
 class ReportsScreen extends React.Component {
     render() {
@@ -51,6 +52,12 @@ class ReportsScreen extends React.Component {
                         description={HOW_OFTEN_YOUR_DIET_IS_FOLLOWED_DESCRIPTION}
                     >
                         <WeightPieChart/>
+                    </CollapseableCard>
+                    <CollapseableCard
+                        title='Long Term'
+                        description={'This shows all check ins all time'}
+                    >
+                        <LongTermActual/>
                     </CollapseableCard>
                 </ScrollView>
             </HeaderWrapper>

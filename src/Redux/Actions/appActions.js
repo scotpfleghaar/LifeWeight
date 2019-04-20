@@ -2,7 +2,9 @@ import {
     ADD_WEIGHT_RECORD,
     FETCH_WEIGHT_RECORDS,
     EDIT_WEIGHT_RECORD,
-    DELETE_WEIGHT_RECORD
+    DELETE_WEIGHT_RECORD,
+    DELETE_ALL_RECORDS_PERMINANT,
+    UPDATE_GOAL_WEIGHT
 } from "../../../Constants";
 import firebase from 'firebase'
 
@@ -107,57 +109,21 @@ export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack
      });
 };
 
-// export const employeeUpdate = ({prop, value}) => {
-//     return {
-//         type: EMPLOYEE_UPDATE,
-//         payload: {prop, value}
-//     }
-// };
-//
-// export const employeeCreate = ({name, phone, shift}) => {
-//     const {currentUser} = firebase.auth();
-//     return () => {
-//         firebase.database().ref(`/users/${currentUser.uid}/employees`).push({name, phone, shift}).then(() => {
-//             Actions.pop();
-//             return {
-//                 type: EMPLOYEE_CREATE
-//             };
-//         });
-//     };
-// };
-//
-// export const employeesFetch = () => {
-//     const {currentUser} = firebase.auth();
-//     return (dispatch) => {
-//         firebase.database().ref(`/users/${currentUser.uid}/employees`).on("value", snapshot => {
-//             dispatch({
-//                 type: EMPLOYEES_FETCH_SUCCESS,
-//                 payload: snapshot.val()
-//             })
-//         });
-//     };
-// };
-//
-// export const employeeEdit = ({name, phone, shift, uid}) => {
-//     const {currentUser} = firebase.auth();
-//     return () => {
-//         firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`).set({name, phone, shift}).then(() => {
-//             Actions.pop();
-//             return {
-//                 type: EMPLOYEE_EDIT
-//             };
-//         });
-//     };
-// };
-//
-// export const recordDelete = ({uid}) => {
-//     const {currentUser} = firebase.auth();
-//     return () => {
-//         firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`).remove().then(() => {
-//             Actions.pop();
-//             return {
-//                 type: EMPLOYEE_EDIT
-//             };
-//         });
-//     };
-// };
+export const deleteAllRecordsPERMINANTLY = (entryId, callBack) => (dispatch) => {
+    callBack && callBack();
+    dispatch({
+        type: DELETE_ALL_RECORDS_PERMINANT,
+        payload: entryId,
+        uid: firebase.auth().currentUser.uid
+    });
+};
+
+
+export const updateGoalWeight = (goalWeight, callBack) => (dispatch) => {
+    callBack && callBack();
+    dispatch({
+        type: UPDATE_GOAL_WEIGHT,
+        payload: goalWeight,
+        uid: firebase.auth().currentUser.uid
+    });
+};

@@ -8,8 +8,9 @@ import { connect } from 'react-redux'
 
 class WeightDietTrandsBarGraph extends Component {
     render() {
-        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
-        const weightAverages = averageWeightGainAndLoss(this.props.records)
+        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>;
+        const adjustedRecords = this.props.records.slice(0, 16);
+        const weightAverages = averageWeightGainAndLoss(adjustedRecords);
         const weightLabel = [
             weightAverages.dietSuccess >= 0 ? 'Loss' : 'Gain',
             weightAverages.dietMaintained >= 0 ? 'Loss' : 'Gain',

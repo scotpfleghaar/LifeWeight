@@ -11,10 +11,10 @@ import { sortRecords } from '../../Utilities'
 
 class WeightLineChartMovingAverage extends Component {
     render() {
-       if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
+       if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>;
         const adjustedRecords = this.props.records.slice(0, 16);
         const data = adjustedRecords.map(item => item.weight && item.weight);
-        const averagedData = averageTenDayArrayAlgorythem(data)
+        const averagedData = averageTenDayArrayAlgorythem(data);
 
         const axesSvg = { fontSize: 10, fill: 'grey' };
         const verticalContentInset = { top: 10, bottom: 10,  left: -10, right: 5 }

@@ -15,7 +15,7 @@ class WeightLineChartAdvanced extends Component {
        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
         const adjustedRecords = this.props.records.slice(0, 16);
         const data = adjustedRecords.map(item => item.weight && item.weight);
-        const averagedData = averageTenDayArrayAlgorythem(data)
+        const averagedData = averageTenDayArrayAlgorythem(data);
         const Decorator = ({ x, y, data }) => {
             return data.map((value, index) => (
                 <Circle
