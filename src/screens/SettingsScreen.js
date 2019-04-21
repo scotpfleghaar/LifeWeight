@@ -12,6 +12,11 @@ class SettingsScreen extends React.Component {
     render() {
         const list = [
             {
+                title: 'Weight Goal',
+                icon: 'security',
+                screen: 'GoalWeight'
+            },
+            {
                 title: 'Details',
                 icon: 'security',
                 screen: 'Profile'

@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96edc2d9-58a7-4b9f-8cdb-0af36c41891b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/screens/GoalWeightScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/Actions/appActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Actions/appActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/Reducers/appReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Reducers/appReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routing/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Utilities/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Utilities/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/ExtrasScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ExtrasScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/SettingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SettingsScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/UserSettingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/UserSettingsScreen.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,52 +24,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/Components/EditWeightOverlay.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/screens/GoalWeightScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
-              <caret line="137" column="10" lean-forward="true" selection-start-line="137" selection-start-column="10" selection-end-line="137" selection-end-column="10" />
+            <state relative-caret-position="166">
+              <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" column="80" selection-start-line="3" selection-start-column="80" selection-end-line="3" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/Components/Charts/WeightDietTrandsBarGraph.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="11" column="64" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Redux/Actions/appActions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="119" column="23" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/Utilities/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,8 +39,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Redux/Reducers/appReducers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="54" column="31" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="31" />
+            <state relative-caret-position="409">
+              <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#193#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Redux/Actions/appActions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="85" column="11" lean-forward="true" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-484">
+              <caret line="15" column="48" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,7 +103,11 @@
       <find>UPDATE_GOAL_WEIGHT</find>
       <find>employeeDelete</find>
       <find>wk,m</find>
+      <find>console</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -131,7 +127,6 @@
         <option value="$PROJECT_DIR$/src/screens/Authentication/SignUp.js" />
         <option value="$PROJECT_DIR$/Main.js" />
         <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/EditOverlay.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/weightForm.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/WeightForm/DatePicker.js" />
@@ -145,7 +140,6 @@
         <option value="$PROJECT_DIR$/src/screens/Authentication/StartupAuthentication.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/weightCheck.js" />
         <option value="$PROJECT_DIR$/src/screens/UserSettings.js" />
-        <option value="$PROJECT_DIR$/src/Routing/index.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/FormButton.js" />
         <option value="$PROJECT_DIR$/src/screens/Authentication/LogIn.js" />
         <option value="$PROJECT_DIR$/App.js" />
@@ -156,20 +150,23 @@
         <option value="$PROJECT_DIR$/src/screens/Components/Charts/LongTermActual.js" />
         <option value="$PROJECT_DIR$/src/screens/ReportsScreen.js" />
         <option value="$PROJECT_DIR$/Constants.js" />
-        <option value="$PROJECT_DIR$/src/Redux/Reducers/appReducers.js" />
         <option value="$PROJECT_DIR$/src/Redux/Actions/AuthenticationActions.js" />
-        <option value="$PROJECT_DIR$/src/screens/SettingsScreen.js" />
-        <option value="$PROJECT_DIR$/src/screens/ExtrasScreen.js" />
-        <option value="$PROJECT_DIR$/src/screens/UserSettingsScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/AddWeightScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/EditWeightOverlay.js" />
-        <option value="$PROJECT_DIR$/src/Redux/Actions/appActions.js" />
         <option value="$PROJECT_DIR$/src/screens/Utilities/index.js" />
+        <option value="$PROJECT_DIR$/src/Routing/index.js" />
+        <option value="$PROJECT_DIR$/src/screens/SettingsScreen.js" />
+        <option value="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" />
+        <option value="$PROJECT_DIR$/src/screens/ExtrasScreen.js" />
+        <option value="$PROJECT_DIR$/src/screens/UserSettingsScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js" />
+        <option value="$PROJECT_DIR$/src/Redux/Reducers/appReducers.js" />
+        <option value="$PROJECT_DIR$/src/Redux/Actions/appActions.js" />
+        <option value="$PROJECT_DIR$/src/screens/GoalWeightScreen.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="x" value="180" />
     <option name="y" value="122" />
     <option name="width" value="1080" />
@@ -550,17 +547,31 @@
       <option name="project" value="LOCAL" />
       <updated>1555856967094</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Weekly weight change">
+      <created>1555857291169</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1555857291169</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Solving">
+      <created>1555857590755</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1555857590755</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71279000" />
+    <option name="totallyTimeSpent" value="74327000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12271644" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22103004" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -578,14 +589,13 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.21803018" />
+      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.2761087" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Linked up React Redux" />
     <MESSAGE value="Login Server is working" />
     <MESSAGE value="Create Account is working" />
     <MESSAGE value="Working toword Async persistant storage" />
@@ -610,19 +620,10 @@
     <MESSAGE value="Working on settings and extras screen" />
     <MESSAGE value="Added Week number to the data tracking" />
     <MESSAGE value="Weekly weight change" />
-    <option name="LAST_COMMIT_MESSAGE" value="Weekly weight change" />
+    <MESSAGE value="Solving" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solving" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Redux/Reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Authentication/SignUp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1863">
@@ -647,16 +648,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Components/index.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -687,13 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="1" column="58" selection-start-line="1" selection-start-column="58" selection-end-line="1" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/Components/WeightForm/WeightInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -812,26 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Routing/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="121" column="12" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/Components/FormButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Authentication/LogIn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="796">
@@ -943,46 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/UserSettingsScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/ExtrasScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/SettingsScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="28" column="13" selection-start-line="26" selection-start-column="11" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/AddWeightScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Components/EditWeightOverlay.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="821">
@@ -993,26 +917,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/Actions/appActions.js">
+    <entry file="file://$PROJECT_DIR$/src/screens/AddWeightScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="119" column="23" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/Reducers/appReducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="54" column="31" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/Utilities/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
+        <state relative-caret-position="598">
+          <caret line="26" lean-forward="true" selection-end-line="101" selection-end-column="76" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Routing/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#104#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1024,10 +944,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js">
+    <entry file="file://$PROJECT_DIR$/src/screens/Utilities/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="62" column="44" lean-forward="true" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Components/WeightForm/WeightInput.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
-          <caret line="3" column="80" selection-start-line="3" selection-start-column="80" selection-end-line="3" selection-end-column="80" />
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/UserSettingsScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/ExtrasScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/SettingsScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-241">
+          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Components/FormButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/Reducers/appReducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/Actions/appActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="85" column="11" lean-forward="true" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-484">
+          <caret line="15" column="48" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/GoalWeightScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

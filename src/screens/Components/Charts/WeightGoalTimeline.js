@@ -13,9 +13,9 @@ class WeightGoalTimeline extends Component {
     render() {
         if (this.props.records.length < 3) return <Text>We Need at least three entries</Text>;
 
-        const goalWeight = 165;
+        const goalWeight = this.props.goalWeight;
+        if (!goalWeight) return <Text>Set Goal In settings!</Text>;
         const averageRate = weightLoseRate(weightLossRatePerWeek(this.props.records))[0]; // .toFixed(1)
-        console.log(averageRate);
         if (averageRate.length === 0) return <Text>Enter at least 8 days of information to see this data</Text>;
         const message = averageRate.length < 3 ? `Accuracy will increase over the first few weeks` : null;
         const data = this.props.records.map(item => item.weight && Number(item.weight));
@@ -68,9 +68,10 @@ const styles = StyleSheet.create({
 
 
 const mapStateToProps = state => {
-    const { records } = state.app;
+    const { records, goalWeight } = state.app;
     return {
-        records: sortRecords(records)
+        records: sortRecords(records),
+        goalWeight: Number(goalWeight)
     }
 };
 

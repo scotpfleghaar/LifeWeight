@@ -7,6 +7,7 @@ class UserSettingsScreen extends Component {
         return (
             <HeaderWrapper
                 title={'User Settings'}
+                goBackCallBack={this.props.navigation.goBack}
             >
                 <View style={styles.container}>
                     <Text>

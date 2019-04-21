@@ -6,7 +6,7 @@ import {
     DELETE_ALL_RECORDS_PERMINANT,
     UPDATE_GOAL_WEIGHT
 } from "../../../Constants";
-import { _storeData } from '../Actions'
+import {_storeData, _storeGoalWeight} from '../Actions'
 
 import { set, omit } from 'lodash'
 
@@ -53,7 +53,7 @@ export default (state = INITIAL_STATE, action) => {
                 records: {}
             };
         case UPDATE_GOAL_WEIGHT:
-            // _storeData(action.uid, {}).catch(err => err);
+            _storeGoalWeight(action.payload, action.uid).catch(err => err);
             return {
                 ...state,
                 goalWeight: action.payload

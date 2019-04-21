@@ -35,18 +35,18 @@ const _retrieveData = async (userId) => {
     }
 };
 
-export const _storeGoalWeight = async (goalWeight) => {
+export const _storeGoalWeight = async (goalWeight, uid) => {
     if (!goalWeight) return null;
     try {
-        await AsyncStorage.setItem(GOAL_WEIGHT, JSON.stringify(goalWeight));
+        await AsyncStorage.setItem(`${GOAL_WEIGHT}-${uid}`, JSON.stringify(goalWeight));
     } catch (error) {
         console.log('_storeGoalWeight', error)
     }
 };
 
-const _retrieveGoalWeight = async () => {
+const _retrieveGoalWeight = async (uid) => {
     try {
-        const value = await AsyncStorage.getItem(GOAL_WEIGHT);
+        const value = await AsyncStorage.getItem(`${GOAL_WEIGHT}-${uid}`);
         if (value !== null) {
             return JSON.parse(value)
         }
@@ -84,7 +84,7 @@ export const weightRecordsFetch = (callBack) => (dispatch) => {
             payload: snapshot.val(),
             uid: firebase.auth().currentUser.uid
         });
-        _retrieveGoalWeight().then((weight) => {
+        _retrieveGoalWeight(currentUser.uid).then((weight) => {
             dispatch({
                 type: UPDATE_GOAL_WEIGHT,
                 payload: weight,
@@ -149,19 +149,10 @@ export const deleteAllRecordsPERMINANTLY = (entryId, callBack) => (dispatch) => 
 
 
 export const updateGoalWeight = (goalWeight, callBack) => (dispatch) => {
-    _storeGoalWeight(goalWeight).then(() => {
-        callBack && callBack();
-        dispatch({
-            type: UPDATE_GOAL_WEIGHT,
-            payload: goalWeight,
-            uid: firebase.auth().currentUser.uid
-        });
-    }).catch(() => {
-        callBack && callBack();
-        dispatch({
-            type: UPDATE_GOAL_WEIGHT,
-            payload: goalWeight,
-            uid: firebase.auth().currentUser.uid
-        });
+    callBack && callBack();
+    dispatch({
+        type: UPDATE_GOAL_WEIGHT,
+        payload: goalWeight,
+        uid: firebase.auth().currentUser.uid
     });
 };

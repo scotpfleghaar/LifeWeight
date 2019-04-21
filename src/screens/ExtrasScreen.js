@@ -7,6 +7,7 @@ class ExtrasScreen extends Component {
         return (
             <HeaderWrapper
                 title={'Extras'}
+                goBackCallBack={this.props.navigation.goBack}
             >
                 <View style={styles.container}>
                     <Text>

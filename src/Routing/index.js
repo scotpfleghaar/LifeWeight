@@ -12,10 +12,12 @@ import React from "react";
 import AddWeightScreen from "../screens/AddWeightScreen";
 import UserSettingsScreen from "../screens/UserSettingsScreen";
 import ExtrasScreen from "../screens/ExtrasScreen";
+import GoalWeightScreen from "../screens/GoalWeightScreen";
 
 const SettingsStack = createDrawerNavigator({
     Settings: SettingsScreen,
     Profile: UserSettingsScreen,
+    GoalWeight: GoalWeightScreen,
     Extras: ExtrasScreen
 }, {
     initialRouteName: "Settings",
