@@ -55,7 +55,7 @@ const _retrieveGoalWeight = async () => {
     }
 };
 
-export const addWeightRecord = (weight, date, userWeightGage, callBack) => (dispatch) => {
+export const addWeightRecord = (weight, date, userWeightGage, dateEnteredWeek, callBack) => (dispatch) => {
     // Make Firebase Call
     // Get a key for a new Post.
     const newPostKey = '_' + Math.random().toString(36).substr(2, 9);
@@ -63,6 +63,7 @@ export const addWeightRecord = (weight, date, userWeightGage, callBack) => (disp
     const postData = {
         weight,
         date,
+        dateEnteredWeek,
         userWeightGage,
         entryId: newPostKey
     };
@@ -112,10 +113,11 @@ export const weightRecordsDispatch = (records) => {
     })
 };
 
-export const editWeightRecord = (weight, date, userWeightGage, entryId, callBack) => (dispatch) => {
+export const editWeightRecord = (weight, date, userWeightGage, entryId, dateEnteredWeek, callBack) => (dispatch) => {
     const postData = {
         weight,
         date,
+        dateEnteredWeek,
         userWeightGage,
         entryId
     };

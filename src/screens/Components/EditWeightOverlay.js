@@ -8,44 +8,49 @@ import WeightCheck from "./weightCheck";
 import {FormButton} from "./FormButton";
 import {todaysDate, parseDate, sortRecords} from "../Utilities";
 import {_storeData, editWeightRecord, recordDelete} from '../../Redux/Actions'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
+import moment from 'moment';
+import { get } from 'lodash'
 
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 class EditWeightOverlay extends Component {
-    state;
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             isVisible: false,
             weight: '',
             date: todaysDate(),
+            weekOfEnteredDate: moment(new Date()).week(),
             selectedIndex: 0,
             areYouSure: false
         }
     }
 
-    editWeightRecordFromState() {
-        this.props.editWeightRecord(parseFloat(this.state.weight), parseDate(this.state.date), this.state.selectedIndex, this.state.entryId, this.doneEditingCallBack.bind(this));
-    }
+    editWeightRecordFromState = () => {
+        const newDate = parseDate(this.state.date);
+        this.props.editWeightRecord(parseFloat(this.state.weight), newDate, this.state.selectedIndex, this.state.entryId, moment(new Date(newDate.year, newDate.month, newDate.day)).week(), this.doneEditingCallBack.bind(this));
+    };
 
-    deleteRecord() {
-        this.props.employeeDelete(this.state.entryId, this.doneEditingCallBack.bind(this));
-    }
+    deleteRecord = () =>  {
+        this.props.recordDelete(this.state.entryId, this.doneEditingCallBack.bind(this));
+    };
 
-    doneEditingCallBack () {
-         Keyboard.dismiss();
-         this.props.doneEditing();
-         this.setState({
-                weight: '',
-                date: todaysDate(),
-                selectedIndex: 0,
-                isVisible: false
-            });
-    }
+    doneEditingCallBack = () => {
+        Keyboard.dismiss();
+        this.props && this.props.doneEditing && this.props.doneEditing();
+        this.setState({
+            weight: '',
+            date: todaysDate(),
+            weekOfEnteredDate: moment(new Date()).week(),
+            selectedIndex: 0,
+            isVisible: false,
+            areYouSure: false
+        });
+    };
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.item.entryId){
+        if (get(nextProps, 'item.entryId', undefined)) {
             this.setState({
                 isVisible: true,
                 weight: String(nextProps.item.weight),
@@ -56,16 +61,17 @@ class EditWeightOverlay extends Component {
         } else {
             Keyboard.dismiss();
             this.setState({
-                isVisible: false
+                isVisible: false,
+                areYouSure: false
             })
         }
     }
 
-    areYouSure(){
+    areYouSure = () =>  {
         this.setState({
             areYouSure: !this.state.areYouSure
         })
-    }
+    };
 
     render() {
         return (
@@ -74,7 +80,7 @@ class EditWeightOverlay extends Component {
                 windowBackgroundColor="rgba(0, 0, 0, .75)"
                 overlayBackgroundColor={PURE_WHITE}
                 width="auto"
-                height={DEVICE_HEIGHT*0.75}
+                height={DEVICE_HEIGHT * 0.75}
             >
                 <View style={styles.formStyle}>
                     <WeightInput
@@ -89,7 +95,7 @@ class EditWeightOverlay extends Component {
                         date={this.state.date}
                         onDateChange={(date) => {
                             this.setState({date: date})
-                        }}  />
+                        }}/>
                     <WeightCheck selectedIndex={this.state.selectedIndex}
                                  selectedIndexUpdate={(index) => this.setState({selectedIndex: index})}/>
                     <FormButton
@@ -121,7 +127,7 @@ class EditWeightOverlay extends Component {
                                 />
                             </View>
                         </View>
-                    :
+                        :
                         <FormButton
                             onPress={() => this.areYouSure()}
                             title={'Delete'}
@@ -142,11 +148,11 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-    const { records } = state.app;
+    const {records} = state.app;
     return {
         records: sortRecords(records)
     }
 };
 
 
-export default connect(mapStateToProps, { editWeightRecord, employeeDelete: recordDelete })(EditWeightOverlay);
+export default connect(mapStateToProps, {editWeightRecord, recordDelete})(EditWeightOverlay);

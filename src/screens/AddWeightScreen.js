@@ -8,6 +8,7 @@ import WeightDatePicker from "./Components/WeightForm/WeightDatePicker";
 import {addWeightRecord, _storeData} from '../Redux/Actions'
 import WeightInput from "./Components/WeightForm/WeightInput";
 import {todaysDate, parseDate, sortRecords} from "./Utilities";
+import moment from 'moment';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
@@ -25,7 +26,9 @@ class AddWeightScreen extends Component {
     }
 
     addWeightRecordToState() {
-        this.props.addWeightRecord(parseFloat(this.state.weight), parseDate(this.state.date), this.state.selectedIndex, () => {
+        const newDate = parseDate(this.state.date);
+        const weekOfEnteredDate = moment(new Date(newDate.year, newDate.month, newDate.day)).week();
+        this.props.addWeightRecord(parseFloat(this.state.weight), newDate, this.state.selectedIndex, weekOfEnteredDate, () => {
             this.setState({
                 weight: '',
                 date: todaysDate(),
