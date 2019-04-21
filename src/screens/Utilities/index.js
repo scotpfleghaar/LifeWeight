@@ -72,6 +72,7 @@ export const weightLoseRate = (records) => {
 };
 
 export const weightLossRatePerWeek = (records) => {
+    records = records.slice(0, 45);
     let AverageWeightPerWeek = {};
     records.map((record) => {
             AverageWeightPerWeek[String(record.dateEnteredWeek)] = get(AverageWeightPerWeek, `${record.dateEnteredWeek}`, [] );

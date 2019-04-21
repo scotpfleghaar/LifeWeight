@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ProgressCircle } from 'react-native-svg-charts'
 import { Text, StyleSheet, View } from 'react-native'
-import { HANSIS_DARK, HANSIS_MEDIUM_LIGHT, MONTHS, WEIGHT_POSTFIX } from '../../../../Constants'
+import { HANSIS_DARK, HANSIS_MEDIUM_LIGHT, MONTHS, WEIGHT_POSTFIX, HANSIS_MEDIUM } from '../../../../Constants'
 import { connect } from 'react-redux'
 import { sortRecords, weightLoseRate, weightLossRatePerWeek } from '../../Utilities'
 import { mean } from 'lodash'
@@ -11,7 +11,7 @@ import { FormButton } from '../FormButton';
 class WeightGoalTimeline extends Component {
 
     render() {
-        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>;
+        if (this.props.records.length < 3) return <Text>We Need at least three entries</Text>;
 
         const goalWeight = 165;
         const averageRate = weightLoseRate(weightLossRatePerWeek(this.props.records)); // .toFixed(1)
@@ -51,7 +51,7 @@ class WeightGoalTimeline extends Component {
                         <Text style={styles.textStyle}>{ `${MONTHS[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}` }</Text>
                     </View>
                 }
-                <Text style={{marginTop: 5}}>{message}</Text>
+                <Text style={{marginTop: 5, color: HANSIS_MEDIUM}}>{message}</Text>
             </View>
         )
     }
