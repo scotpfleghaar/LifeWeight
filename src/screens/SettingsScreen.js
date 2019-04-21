@@ -17,15 +17,15 @@ class SettingsScreen extends React.Component {
                 screen: 'GoalWeight'
             },
             {
-                title: 'Details',
-                icon: 'user',
+                title: 'Premium',
+                icon: 'check-circle',
                 screen: 'Profile'
             },
-            {
-                title: 'Extras',
-                icon: 'star',
-                screen: 'Extras'
-            }
+            // {
+            //     title: 'Extras',
+            //     icon: 'star',
+            //     screen: 'Extras'
+            // }
         ];
         // onPress={() => this.props.navigation.navigate('Notifications')}
         return (
