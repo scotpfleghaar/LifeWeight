@@ -3,7 +3,7 @@ import { ProgressCircle } from 'react-native-svg-charts'
 import { Text, StyleSheet, View } from 'react-native'
 import { HANSIS_DARK, HANSIS_MEDIUM_LIGHT, MONTHS, WEIGHT_POSTFIX } from '../../../../Constants'
 import { connect } from 'react-redux'
-import { sortRecords, weightLoseRate } from '../../Utilities'
+import { sortRecords, weightLoseRate, weightLossRatePerWeek } from '../../Utilities'
 import { mean } from 'lodash'
 import {Divider, Icon} from 'react-native-elements'
 import { FormButton } from '../FormButton';
@@ -11,13 +11,15 @@ import { FormButton } from '../FormButton';
 class WeightGoalTimeline extends Component {
 
     render() {
-        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
+        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>;
 
         const goalWeight = 165;
-        const averageRate = mean(weightLoseRate(this.props.records));
+        const averageRate = weightLoseRate(weightLossRatePerWeek(this.props.records)); // .toFixed(1)
+        if (averageRate.length === 0) return <Text>Enter at least 8 days of information to see this data</Text>;
+        const message = averageRate.length < 3 ? `Accuracy will increase over the first few weeks` : null;
         const data = this.props.records.map(item => item.weight && Number(item.weight));
         const tenDayAverageWeight = mean(data).toFixed(1);
-        const daysUntilComplete = ((tenDayAverageWeight - goalWeight) / averageRate).toFixed(0)
+        const daysUntilComplete = ((tenDayAverageWeight - goalWeight) / averageRate).toFixed(0);
         let now, successMessage;
         if (daysUntilComplete > 0) {
             now = new Date();
@@ -25,8 +27,9 @@ class WeightGoalTimeline extends Component {
         } else {
             successMessage = 'Not Available'
         }
-        const averageRateOfLoss = Number((averageRate * 7).toFixed(1));
+        const averageRateOfLoss = Number((averageRate)).toFixed(1);
         const gainOrLoss = averageRateOfLoss >= 0 ? 'chevron-down' : 'chevron-up';
+
 
         return (
             <View>
@@ -48,6 +51,7 @@ class WeightGoalTimeline extends Component {
                         <Text style={styles.textStyle}>{ `${MONTHS[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}` }</Text>
                     </View>
                 }
+                <Text style={{marginTop: 5}}>{message}</Text>
             </View>
         )
     }

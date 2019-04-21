@@ -1,4 +1,4 @@
-import { values, mean } from 'lodash'
+import { values, mean, get } from 'lodash'
 import { HANSIS_MEDIUM_DARK } from '../../../Constants';
 
 export const firebaseErrorCodesTranslated = (error) => {
@@ -64,11 +64,25 @@ export const weightLoseRate = (records) => {
     let loseRate =[];
     records.map((record, index) => {
         if (records[index -1]) {
-            const previousWeight = records[index -1].weight;
-            loseRate.push(Number(previousWeight - record.weight))
+            const previousWeight = records[index -1];
+            loseRate.push(Number(previousWeight - record))
         }
     });
     return loseRate
+};
+
+export const weightLossRatePerWeek = (records) => {
+    let AverageWeightPerWeek = {};
+    records.map((record) => {
+            AverageWeightPerWeek[String(record.dateEnteredWeek)] = get(AverageWeightPerWeek, `${record.dateEnteredWeek}`, [] );
+            if(String(record.dateEnteredWeek)) {
+                AverageWeightPerWeek[String(record.dateEnteredWeek)].push(record.weight);
+            }
+    });
+    AverageWeightPerWeek = values(AverageWeightPerWeek).map(week => {
+        return mean(week)
+    });
+    return AverageWeightPerWeek
 };
 
 export const averageWeightGainAndLoss = (records) => {
