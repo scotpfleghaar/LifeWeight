@@ -3,7 +3,7 @@ import {HeaderWrapper} from "./Components";
 import {StyleSheet, View} from "react-native";
 import {connect} from 'react-redux'
 import {sortRecords} from './Utilities'
-import {ListItem, Button} from 'react-native-elements'
+import {ListItem, Button, Icon} from 'react-native-elements'
 import {HANSIS_DARK} from "../../Constants";
 import firebase from 'firebase'
 
@@ -13,12 +13,12 @@ class SettingsScreen extends React.Component {
         const list = [
             {
                 title: 'Weight Goal',
-                icon: 'security',
+                icon: 'bullseye',
                 screen: 'GoalWeight'
             },
             {
                 title: 'Details',
-                icon: 'security',
+                icon: 'user',
                 screen: 'Profile'
             },
             {
@@ -39,7 +39,10 @@ class SettingsScreen extends React.Component {
                                 chevron
                                 key={i}
                                 title={item.title}
-                                leftIcon={{name: item.icon}}
+                                leftIcon={<Icon
+                                    type={'font-awesome'}
+                                    name={item.icon}
+                                />}
                                 bottomDivider={true}
                                 onPress={() => item.screen && this.props.navigation.navigate(item.screen)}
                             />

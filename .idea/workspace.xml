@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96edc2d9-58a7-4b9f-8cdb-0af36c41891b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/screens/GoalWeightScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/Actions/appActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Actions/appActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/Reducers/appReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Reducers/appReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routing/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/ExtrasScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ExtrasScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/SettingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SettingsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/UserSettingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/UserSettingsScreen.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/GoalWeightScreen.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="166">
@@ -60,10 +52,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-484">
+            <state relative-caret-position="-400">
               <caret line="15" column="48" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="48" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/screens/SettingsScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/screens/Components/EditWeightOverlay.js" />
         <option value="$PROJECT_DIR$/src/screens/Utilities/index.js" />
         <option value="$PROJECT_DIR$/src/Routing/index.js" />
-        <option value="$PROJECT_DIR$/src/screens/SettingsScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" />
         <option value="$PROJECT_DIR$/src/screens/ExtrasScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/UserSettingsScreen.js" />
@@ -163,6 +166,7 @@
         <option value="$PROJECT_DIR$/src/Redux/Reducers/appReducers.js" />
         <option value="$PROJECT_DIR$/src/Redux/Actions/appActions.js" />
         <option value="$PROJECT_DIR$/src/screens/GoalWeightScreen.js" />
+        <option value="$PROJECT_DIR$/src/screens/SettingsScreen.js" />
       </list>
     </option>
   </component>
@@ -561,11 +565,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555857590755</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="User can set goal weight!">
+      <created>1555889292479</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1555889292480</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74327000" />
+    <option name="totallyTimeSpent" value="74836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -596,7 +607,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Login Server is working" />
     <MESSAGE value="Create Account is working" />
     <MESSAGE value="Working toword Async persistant storage" />
     <MESSAGE value="Setting up Main page" />
@@ -621,7 +631,8 @@
     <MESSAGE value="Added Week number to the data tracking" />
     <MESSAGE value="Weekly weight change" />
     <MESSAGE value="Solving" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solving" />
+    <MESSAGE value="User can set goal weight!" />
+    <option name="LAST_COMMIT_MESSAGE" value="User can set goal weight!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/screens/Authentication/SignUp.js">
@@ -981,16 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/SettingsScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-241">
-          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Components/FormButton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -1011,6 +1012,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/Actions/appActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="85" column="11" lean-forward="true" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/GoalWeightScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Redux/Reducers/appReducers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
@@ -1021,16 +1039,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/Actions/appActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="85" column="11" lean-forward="true" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-484">
+        <state relative-caret-position="-400">
           <caret line="15" column="48" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="48" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
@@ -1038,12 +1049,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/GoalWeightScreen.js">
+    <entry file="file://$PROJECT_DIR$/src/screens/SettingsScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+        <state relative-caret-position="389">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
