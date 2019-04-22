@@ -7,9 +7,6 @@ import {
     UPDATE_GOAL_WEIGHT
 } from "../../../Constants";
 import firebase from 'firebase'
-
-// uid: firebase.auth().currentUser.uid;
-import {keys} from 'lodash'
 import {AsyncStorage} from 'react-native';
 
 const GOAL_WEIGHT = 'GOAL_WEIGHT';
@@ -39,6 +36,7 @@ export const _storeGoalWeight = async (goalWeight, uid) => {
     if (!goalWeight) return null;
     try {
         await AsyncStorage.setItem(`${GOAL_WEIGHT}-${uid}`, JSON.stringify(goalWeight));
+        goalWeightDispatch(goalWeight)
     } catch (error) {
         console.log('_storeGoalWeight', error)
     }
@@ -108,6 +106,36 @@ export const weightRecordsDispatch = (records) => {
     const {currentUser} = firebase.auth();
     firebase.database().ref(`/users/${currentUser.uid}/records`).set(records).then(() => {
         console.log('weightRecordsDispatch Success')
+    }).catch((err) => {
+        console.log(err.message)
+    })
+};
+
+export const goalWeightFetch = (callBack) => (dispatch) => {
+    const {currentUser} = firebase.auth();
+    firebase.database().ref(`/users/${currentUser.uid}/goalWeight`).once("value", snapshot => {
+        dispatch({
+            type: UPDATE_GOAL_WEIGHT,
+            payload: snapshot.val(),
+            uid: firebase.auth().currentUser.uid
+        });
+        callBack && callBack();
+    }, () => {
+        _retrieveGoalWeight(currentUser.uid).then((response) => {
+            dispatch({
+                type: UPDATE_GOAL_WEIGHT,
+                payload: response,
+                uid: firebase.auth().currentUser.uid
+            });
+            callBack && callBack();
+        })
+    })
+};
+
+export const goalWeightDispatch = (goalWeight) => {
+    const {currentUser} = firebase.auth();
+    firebase.database().ref(`/users/${currentUser.uid}/goalWeight`).set(goalWeight).then(() => {
+        console.log('goalWeightDispatch Success')
     }).catch((err) => {
         console.log(err.message)
     })
