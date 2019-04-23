@@ -17,8 +17,8 @@ class WeightLineChartMovingAverage extends Component {
         const averagedData = averageTenDayArrayAlgorythem(data);
 
         const axesSvg = { fontSize: 10, fill: 'grey' };
-        const verticalContentInset = { top: 10, bottom: 10,  left: -10, right: 5 }
-        const xAxisHeight = 0
+        const verticalContentInset = { top: 10, bottom: 20,  left: -10, right: 5 };
+        const xAxisHeight = 0;
 
          const Decorator = ({ x, y, data }) => {
             return data.map((value, index) => (
@@ -31,7 +31,7 @@ class WeightLineChartMovingAverage extends Component {
                     fill={ userGageToColor(adjustedRecords[index].userWeightGage) }
                 />
             ))
-        }
+        };
 
         return (
             <View style={{ height: 200, flexDirection: 'row' }}>

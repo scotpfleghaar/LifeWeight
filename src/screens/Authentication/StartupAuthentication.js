@@ -3,7 +3,7 @@ import firebase from 'firebase'
 import { connect } from 'react-redux'
 import { weightRecordsFetch } from '../../Redux/Actions'
 import {
-    ActivityIndicator,
+    ActivityIndicator, StyleSheet,
     View,
 } from 'react-native';
 
@@ -19,24 +19,35 @@ class StartupAuthentication extends React.Component {
     }
 
     componentDidMount() {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                this.props.weightRecordsFetch(() => {
-                    this.props.navigation.navigate('App');
-                })
-            } else {
-               this.props.navigation.navigate('Auth');
-            }
-        });
+        this.props.weightRecordsFetch(() => {
+            this.props.navigation.navigate('App');
+        })
+        // firebase.auth().onAuthStateChanged((user) => {
+        //     if (user) {
+        //         this.props.weightRecordsFetch(() => {
+        //             this.props.navigation.navigate('App');
+        //         })
+        //     } else {
+        //        this.props.navigation.navigate('Auth');
+        //     }
+        // });
     }
 
      render() {
         return (
-            <View>
-                <ActivityIndicator />
+            <View style={styles.container}>
+                <ActivityIndicator size={52} />
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignContent: 'center'
+    }
+});
 
 export default connect(null, { weightRecordsFetch })(StartupAuthentication);

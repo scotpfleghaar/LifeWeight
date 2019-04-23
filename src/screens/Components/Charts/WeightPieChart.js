@@ -6,16 +6,14 @@ import { connect } from 'react-redux'
 
 class WeightPieChart extends Component {
     render() {
-        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
+        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>;
         const data = percentDietIsFollowed(this.props.records);
-
         const pieData = data
-            .filter(value => value > 0)
             .map((value, index) => ({
                 value,
                 svg: { fill: userGageToColor(index) },
                 key: `pie-${index}`,
-            }))
+            }));
 
         const Labels = ({ slices }) => {
             return slices.map((slice, index) => {
@@ -33,7 +31,7 @@ class WeightPieChart extends Component {
                             stroke={'black'}
                             strokeWidth={0.2}
                         >
-                            {`${((Number(pieData[index].value) / this.props.records.length) * 100).toFixed(0)}%`}
+                            { data.value > 0 && `${((Number(pieData[index].value) / this.props.records.length) * 100).toFixed(0)}%`}
                         </Text>
                     </G>
                 )
