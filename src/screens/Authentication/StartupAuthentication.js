@@ -6,6 +6,7 @@ import {
     ActivityIndicator, StyleSheet,
     View,
 } from 'react-native';
+import { get } from 'lodash'
 
 
 class StartupAuthentication extends React.Component {
@@ -20,7 +21,7 @@ class StartupAuthentication extends React.Component {
 
     componentDidMount() {
         firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
+            if (get(user, 'emailVerified', false)) {
                 this.props.weightRecordsFetch(() => {
                     this.props.navigation.navigate('App');
                 })

@@ -1,19 +1,53 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
-import {Input, Text} from 'react-native-elements'
+import {Input, Text, Button} from 'react-native-elements'
 import {HANSIS_MEDIUM_DARK, HANSIS_MEDIUM} from "../../../Constants";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {HeaderWrapper, FormButton} from '../Components'
 import {loginUser, emailChange, passwordChange, weightRecordsFetch} from "../../Redux/Actions";
 import {connect} from "react-redux";
+import firebase from 'firebase'
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
 
 class LogIn extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            passwordResponse: ''
+        }
+    }
+
+
     routeToSignUp() {
+        this.setState({
+                passwordResponse: ''
+            })
         this.props.navigation.navigate('SignUp')
     };
+
+    sendPasswordReset() {
+         this.setState({
+                passwordResponse: ''
+            })
+        const self = this;
+        if (this.props.email) {
+             firebase.auth().sendPasswordResetEmail(this.props.email).then(function() {
+                self.setState({
+                 passwordResponse: 'Password Reset Email Sent'
+                })
+            }).catch(function(error) {
+                self.setState({
+                    passwordResponse: error.errorMessage
+                })
+            });
+        } else {
+            self.setState({
+                passwordResponse: 'Please Enter Email'
+            })
+        }
+    }
 
     render() {
         return (
@@ -51,6 +85,15 @@ class LogIn extends Component {
                             />
                         }
                     />
+                    <View style={{justifyContent: 'center', alignItems: 'center',}}>
+                        <Button 
+                            title='Forgot Password?' 
+                            onPress={this.sendPasswordReset.bind(this)}
+                            type='clear'
+                            titleStyle={{color: HANSIS_MEDIUM_DARK}}
+                        />
+                        {this.state.passwordResponse ? <Text>{this.state.passwordResponse}</Text> : null}
+                    </View>
                     <FormButton
                         title={"Login"}
                         onPress={() => this.props.loginUser(this.props.email, this.props.password, () => {
@@ -83,6 +126,12 @@ const styles = StyleSheet.create({
         borderBottomColor: HANSIS_MEDIUM,
         borderBottomWidth: 1,
         width: DEVICE_WIDTH,
+    },
+
+     formButtonStyle: {
+        height: 150,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     formStyle: {

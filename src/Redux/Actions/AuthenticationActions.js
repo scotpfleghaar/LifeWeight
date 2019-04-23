@@ -34,7 +34,7 @@ export const loginUser = (email, password, callBack) => (dispatch) => {
 
 export const createAccount = (email, password, matcherPassword, callBack) => (dispatch) => {
     console.log("createAccount", email, password, matcherPassword);
-    dispatch({
+     dispatch({
         type: LOGIN_USER_INITIALIZED
     });
     if (password === matcherPassword) {
@@ -46,11 +46,16 @@ export const createAccount = (email, password, matcherPassword, callBack) => (di
 };
 
 const loginUserSuccess = (dispatch, user, callBack) => {
-    dispatch({
-        type: LOGIN_USER_SUCCESS,
-        payload: user
-    });
-    callBack();
+    if (firebase.auth().currentUser.emailVerified) {
+         dispatch({
+            type: LOGIN_USER_SUCCESS,
+            payload: user
+        });
+        callBack();
+    } else {
+       loginUserFail(dispatch, {message: 'Please Verify Your Email to Continue'})
+    }
+
 };
 
 const loginUserFail = (dispatch, error) => {
