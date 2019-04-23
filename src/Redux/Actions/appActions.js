@@ -68,53 +68,38 @@ export const addWeightRecord = (weight, date, userWeightGage, dateEnteredWeek, c
     dispatch({
         type: ADD_WEIGHT_RECORD,
         payload: postData,
-        uid: 'lifeWeight'
+        uid: firebase.auth().currentUser.uid
     });
     callBack && callBack();
 };
 
 
 export const weightRecordsFetch = (callBack) => (dispatch) => {
-    _retrieveData('lifeWeight').then((response) => {
+    const {currentUser} = firebase.auth();
+    firebase.database().ref(`/users/${currentUser.uid}/records`).once("value", snapshot => {
         dispatch({
             type: FETCH_WEIGHT_RECORDS,
-            payload: response,
-            uid: 'lifeWeight'
+            payload: snapshot.val(),
+            uid: firebase.auth().currentUser.uid
         });
-        _retrieveGoalWeight('lifeWeight').then((weight) => {
+        _retrieveGoalWeight(currentUser.uid).then((weight) => {
             dispatch({
                 type: UPDATE_GOAL_WEIGHT,
                 payload: weight,
-                uid: 'lifeWeight'
+                uid: firebase.auth().currentUser.uid
+            });
+        });
+        callBack && callBack();
+    }, () => {
+        _retrieveData(currentUser.uid).then((response) => {
+            dispatch({
+                type: FETCH_WEIGHT_RECORDS,
+                payload: response,
+                uid: firebase.auth().currentUser.uid
             });
             callBack && callBack();
-        });
-    });
-    // const {currentUser} = firebase.auth();
-    // firebase.database().ref(`/users/${currentUser.uid}/records`).once("value", snapshot => {
-    //     dispatch({
-    //         type: FETCH_WEIGHT_RECORDS,
-    //         payload: snapshot.val(),
-    //         uid: firebase.auth().currentUser.uid
-    //     });
-    //     _retrieveGoalWeight(currentUser.uid).then((weight) => {
-    //         dispatch({
-    //             type: UPDATE_GOAL_WEIGHT,
-    //             payload: weight,
-    //             uid: firebase.auth().currentUser.uid
-    //         });
-    //     });
-    //     callBack && callBack();
-    // }, () => {
-    //     _retrieveData(currentUser.uid).then((response) => {
-    //         dispatch({
-    //             type: FETCH_WEIGHT_RECORDS,
-    //             payload: response,
-    //             uid: firebase.auth().currentUser.uid
-    //         });
-    //         callBack && callBack();
-    //     })
-    // })
+        })
+    })
 };
 
 export const weightRecordsDispatch = (records) => {
@@ -168,7 +153,7 @@ export const editWeightRecord = (weight, date, userWeightGage, entryId, dateEnte
     dispatch({
         type: EDIT_WEIGHT_RECORD,
         payload: postData,
-        uid: 'lifeWeight'
+        uid: firebase.auth().currentUser.uid
     });
 };
 
@@ -177,7 +162,7 @@ export const recordDelete = (entryId, callBack) => (dispatch) => {
     dispatch({
         type: DELETE_WEIGHT_RECORD,
         payload: entryId,
-        uid: 'lifeWeight'
+        uid: firebase.auth().currentUser.uid
     });
 };
 
@@ -186,7 +171,7 @@ export const deleteAllRecordsPERMINANTLY = (entryId, callBack) => (dispatch) => 
     dispatch({
         type: DELETE_ALL_RECORDS_PERMINANT,
         payload: entryId,
-        uid: 'lifeWeight'
+        uid: firebase.auth().currentUser.uid
     });
 };
 
@@ -196,6 +181,6 @@ export const updateGoalWeight = (goalWeight, callBack) => (dispatch) => {
     dispatch({
         type: UPDATE_GOAL_WEIGHT,
         payload: goalWeight,
-        uid: 'lifeWeight'
+        uid: firebase.auth().currentUser.uid
     });
 };
