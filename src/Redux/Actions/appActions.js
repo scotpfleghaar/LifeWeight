@@ -12,9 +12,8 @@ import {AsyncStorage} from 'react-native';
 
 const GOAL_WEIGHT = 'GOAL_WEIGHT';
 
-export const _storeData = async (userId, records) => {
+export const _storeData = async (userId, records, isUserPremium = false) => {
     if (!userId) return null;
-    const isUserPremium = true
     try {
         await AsyncStorage.setItem(userId, JSON.stringify(records));
         isUserPremium && weightRecordsDispatch(records);
@@ -34,9 +33,8 @@ const _retrieveData = async (userId) => {
     }
 };
 
-export const _storeGoalWeight = async (goalWeight, uid) => {
+export const _storeGoalWeight = async (goalWeight, uid, isUserPremium = false) => {
     if (!goalWeight) return null;
-     const isUserPremium = true
     try {
         await AsyncStorage.setItem(`${GOAL_WEIGHT}-${uid}`, JSON.stringify(goalWeight));
         isUserPremium && goalWeightDispatch(goalWeight)

@@ -11,7 +11,7 @@ class UserSettingsScreen extends Component {
             >
                 <View style={styles.container}>
                     <Text>
-                        UserSettingsScreen
+                        Cancel subscription any time. Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period by going to your iOS Account Settings after purchase. Payment will be charged to iTunes Account. Any unused portion of free trial period, if offered, will be forfeited when you purchase a subscription.
                     </Text>
                     <Button
                         onPress={() => this.props.navigation.goBack()}
