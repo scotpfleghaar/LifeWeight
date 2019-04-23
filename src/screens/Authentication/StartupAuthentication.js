@@ -36,7 +36,7 @@ class StartupAuthentication extends React.Component {
      render() {
         return (
             <View style={styles.container}>
-                <ActivityIndicator size={52} />
+                <ActivityIndicator/>
             </View>
         );
     }

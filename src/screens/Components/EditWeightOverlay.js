@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Overlay, Text, Divider} from 'react-native-elements'
 import {Dimensions, StyleSheet, TouchableWithoutFeedback, View, Keyboard} from 'react-native'
-import {HANSIS_MEDIUM, HANSIS_MEDIUM_LIGHT, PURE_WHITE} from "../../../Constants";
+import {HANSIS_MEDIUM, HANSIS_MEDIUM_LIGHT, PURE_WHITE, HANSIS_DARK} from "../../../Constants";
 import WeightInput from "./WeightForm/WeightInput";
 import WeightDatePicker from "./WeightForm/WeightDatePicker";
 import WeightCheck from "./weightCheck";
@@ -13,7 +13,7 @@ import moment from 'moment';
 import { get } from 'lodash'
 
 const DEVICE_HEIGHT = Dimensions.get('window').height;
-
+const DEVICE_WIDTH = Dimensions.get('window').width;
 class EditWeightOverlay extends Component {
     constructor(props) {
         super(props);
@@ -108,7 +108,7 @@ class EditWeightOverlay extends Component {
                         onPress={() => this.props.doneEditing()}
                         title={'Cancel'}
                     />
-
+                    <View style={{borderTopColor: HANSIS_MEDIUM_LIGHT, borderTopWidth: 1, marginTop: 12, width: DEVICE_WIDTH/2}}/>
                     {this.state.areYouSure ?
                         <View>
                             <Text style={{textAlign: 'center', fontSize: 18, marginTop: 10}}>
@@ -119,11 +119,13 @@ class EditWeightOverlay extends Component {
                                     onPress={() => this.deleteRecord()}
                                     title={'Yes'}
                                     type="clear"
+                                    titleStyle={{color: HANSIS_DARK}}
                                 />
                                 <Button
                                     onPress={() => this.areYouSure()}
                                     title={'No'}
                                     type="clear"
+                                    titleStyle={{color: HANSIS_DARK}}
                                 />
                             </View>
                         </View>
