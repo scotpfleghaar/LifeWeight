@@ -6,6 +6,7 @@ import {sortRecords} from './Utilities'
 import {ListItem, Button, Icon} from 'react-native-elements'
 import {HANSIS_DARK} from "../../Constants";
 import firebase from 'firebase'
+import { get } from 'lodash'
 
 
 class SettingsScreen extends React.Component {
@@ -16,17 +17,17 @@ class SettingsScreen extends React.Component {
                 icon: 'bullseye',
                 screen: 'GoalWeight'
             },
-            {
-                title: 'Premium',
-                icon: 'check-circle',
-                screen: 'Profile'
-            },
             // {
             //     title: 'Extras',
             //     icon: 'star',
             //     screen: 'Extras'
             // }
         ];
+        !this.props.isPremiumUser ? list.push( {
+                title: 'Premium',
+                icon: 'check-circle',
+                screen: 'Profile'
+            }) : null;
         // onPress={() => this.props.navigation.navigate('Notifications')}
         return (
             <HeaderWrapper
@@ -75,9 +76,11 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-    const {records} = state.app;
+    const records = get(state, 'app.records', undefined)
+    const isPremiumUser = get(state, 'app.isPremiumUser', false)
     return {
-        records: sortRecords(records)
+        records: sortRecords(records),
+        isPremiumUser
     }
 };
 

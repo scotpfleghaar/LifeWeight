@@ -4,7 +4,8 @@ import {
     EDIT_WEIGHT_RECORD,
     DELETE_WEIGHT_RECORD,
     DELETE_ALL_RECORDS_PERMINANT,
-    UPDATE_GOAL_WEIGHT
+    UPDATE_GOAL_WEIGHT,
+    PREMIUM_USER
 } from "../../../Constants";
 import {_storeData, _storeGoalWeight} from '../Actions'
 
@@ -57,6 +58,11 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 goalWeight: action.payload
+            };
+        case PREMIUM_USER:
+            return {
+                ...state,
+                isPremiumUser: action.payload
             };
         default:
             return state

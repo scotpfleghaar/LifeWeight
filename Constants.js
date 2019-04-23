@@ -24,6 +24,7 @@ export const EDIT_WEIGHT_RECORD = 'EDIT_WEIGHT_RECORD';
 export const DELETE_WEIGHT_RECORD = 'DELETE_WEIGHT_RECORD';
 export const DELETE_ALL_RECORDS_PERMINANT = 'DELETE_ALL_RECORDS_PERMINANT';
 export const UPDATE_GOAL_WEIGHT = 'UPDATE_GOAL_WEIGHT';
+export const PREMIUM_USER = 'PREMIUM_USER';
 
 
 export const TOOLTIP_WEIGHT_RECORD_DESCRIPTION = 'How well did you follow your diet since you last checked in? Green: Nailed it!, Blue: Moderately, Red: did not follow. This helps determine helpful and motivational information for you. This information gets generated into graphs that give you insight into what happens when you follow your diet!';

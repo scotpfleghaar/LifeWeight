@@ -4,7 +4,8 @@ import {
     EDIT_WEIGHT_RECORD,
     DELETE_WEIGHT_RECORD,
     DELETE_ALL_RECORDS_PERMINANT,
-    UPDATE_GOAL_WEIGHT
+    UPDATE_GOAL_WEIGHT,
+    PREMIUM_USER
 } from "../../../Constants";
 import firebase from 'firebase'
 import {AsyncStorage} from 'react-native';
@@ -13,9 +14,10 @@ const GOAL_WEIGHT = 'GOAL_WEIGHT';
 
 export const _storeData = async (userId, records) => {
     if (!userId) return null;
+    const isUserPremium = true
     try {
         await AsyncStorage.setItem(userId, JSON.stringify(records));
-        // weightRecordsDispatch(records);
+        isUserPremium && weightRecordsDispatch(records);
     } catch (error) {
         console.log('_storeData', error)
     }
@@ -34,9 +36,10 @@ const _retrieveData = async (userId) => {
 
 export const _storeGoalWeight = async (goalWeight, uid) => {
     if (!goalWeight) return null;
+     const isUserPremium = true
     try {
         await AsyncStorage.setItem(`${GOAL_WEIGHT}-${uid}`, JSON.stringify(goalWeight));
-        // goalWeightDispatch(goalWeight)
+        isUserPremium && goalWeightDispatch(goalWeight)
     } catch (error) {
         console.log('_storeGoalWeight', error)
     }
@@ -76,21 +79,41 @@ export const addWeightRecord = (weight, date, userWeightGage, dateEnteredWeek, c
 
 export const weightRecordsFetch = (callBack) => (dispatch) => {
     const {currentUser} = firebase.auth();
-    firebase.database().ref(`/users/${currentUser.uid}/records`).once("value", snapshot => {
-        dispatch({
-            type: FETCH_WEIGHT_RECORDS,
-            payload: snapshot.val(),
-            uid: firebase.auth().currentUser.uid
-        });
-        _retrieveGoalWeight(currentUser.uid).then((weight) => {
+     const isUserPremium = true
+
+    if (isUserPremium) {
+        firebase.database().ref(`/users/${currentUser.uid}/records`).once("value", snapshot => {
             dispatch({
-                type: UPDATE_GOAL_WEIGHT,
-                payload: weight,
+                type: FETCH_WEIGHT_RECORDS,
+                payload: snapshot.val(),
                 uid: firebase.auth().currentUser.uid
             });
-        });
-        callBack && callBack();
-    }, () => {
+            _retrieveGoalWeight(currentUser.uid).then((weight) => {
+                dispatch({
+                    type: UPDATE_GOAL_WEIGHT,
+                    payload: weight,
+                    uid: firebase.auth().currentUser.uid
+                });
+            });
+            callBack && callBack();
+        }, () => {
+            _retrieveData(currentUser.uid).then((response) => {
+                dispatch({
+                    type: FETCH_WEIGHT_RECORDS,
+                    payload: response,
+                    uid: firebase.auth().currentUser.uid
+                });
+                callBack && callBack();
+            })
+        })
+    } else {
+         _retrieveGoalWeight(currentUser.uid).then((weight) => {
+                dispatch({
+                    type: UPDATE_GOAL_WEIGHT,
+                    payload: weight,
+                    uid: firebase.auth().currentUser.uid
+                });
+            });
         _retrieveData(currentUser.uid).then((response) => {
             dispatch({
                 type: FETCH_WEIGHT_RECORDS,
@@ -99,7 +122,12 @@ export const weightRecordsFetch = (callBack) => (dispatch) => {
             });
             callBack && callBack();
         })
-    })
+    }
+     dispatch({
+        type: PREMIUM_USER,
+        payload: isUserPremium,
+        uid: firebase.auth().currentUser.uid
+    });
 };
 
 export const weightRecordsDispatch = (records) => {
