@@ -9,6 +9,7 @@ import {
 } from "../../../Constants";
 import firebase from 'firebase'
 import {AsyncStorage} from 'react-native';
+import InAppBilling from "react-native-billing";
 
 const GOAL_WEIGHT = 'GOAL_WEIGHT';
 
@@ -75,10 +76,31 @@ export const addWeightRecord = (weight, date, userWeightGage, dateEnteredWeek, c
 };
 
 
-export const weightRecordsFetch = (callBack) => (dispatch) => {
+export const weightRecordsFetch = (callBack) => async (dispatch) => {
     const {currentUser} = firebase.auth();
-     const isUserPremium = true
+     let isUserPremium;
 
+    const checkSubscription = async () => {
+        try {
+            await InAppBilling.open();
+            // If subscriptions/products are updated server-side you
+            // will have to update cache with loadOwnedPurchasesFromGoogle()
+            await InAppBilling.loadOwnedPurchasesFromGoogle();
+            return await InAppBilling.isSubscribed("android.test.purchased")
+        } catch (err) {
+            console.log(err);
+            return false;
+        } finally {
+            try {
+                await InAppBilling.close();
+            } catch(err) {
+                return false;
+            }
+        }
+    }
+    console.log( await checkSubscription());
+    isUserPremium = await checkSubscription();
+    console.log('isUserPremium', isUserPremium)
     if (isUserPremium) {
         firebase.database().ref(`/users/${currentUser.uid}/records`).once("value", snapshot => {
             dispatch({
