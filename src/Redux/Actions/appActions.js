@@ -94,6 +94,8 @@ export const weightRecordsFetch = (callBack) => async (dispatch) => {
             try {
                 await InAppBilling.close();
             } catch(err) {
+                console.log(err);
+            } finally {
                 return false;
             }
         }
