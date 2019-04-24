@@ -18,7 +18,7 @@ class WeightGoalTimeline extends Component {
         const averageRate = weightLoseRate(weightLossRatePerWeek(this.props.records))[0]; // .toFixed(1)
         console.log(averageRate);
         if (!averageRate || averageRate.length === 0) return <Text>Enter at least 8 days of information to see this data</Text>;
-        const message = averageRate.length < 3 ? `Accuracy will increase over the first few weeks` : null;
+        const message = this.props.records.length < 10 ? `Accuracy will increase over the first few weeks` : null;
         const data = this.props.records.map(item => item.weight && Number(item.weight));
         const tenDayAverageWeight = mean(data).toFixed(1);
         const daysUntilComplete = ((tenDayAverageWeight - goalWeight) / (averageRate / 7 )).toFixed(0);

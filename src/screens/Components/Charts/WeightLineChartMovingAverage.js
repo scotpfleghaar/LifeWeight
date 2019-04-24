@@ -37,7 +37,7 @@ class WeightLineChartMovingAverage extends Component {
             <View style={{ height: 200, flexDirection: 'row' }}>
                 <YAxis
                     data={averagedData}
-                    style={{ marginBottom: xAxisHeight }}
+                    style={{ marginBottom: xAxisHeight, width: 32 }}
                     contentInset={verticalContentInset}
                     svg={axesSvg}
                 />

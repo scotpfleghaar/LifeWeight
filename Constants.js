@@ -43,9 +43,5 @@ Features:
 - Weight tracking system
 - Detailed information about what happens when you follow your diet
 - Simple interface that is not cluttered
-
-Premium Features:
-- Cloud storage and cross-platform data sync
-- More Graphs and Charts
 - Download data to CSV
-- Ad Free`
+`
