@@ -20,15 +20,18 @@ class StartupAuthentication extends React.Component {
     }
 
     componentDidMount() {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (get(user, 'emailVerified', false)) {
-                this.props.weightRecordsFetch(() => {
-                    this.props.navigation.navigate('App');
-                })
-            } else {
-               this.props.navigation.navigate('Auth');
-            }
-        });
+         this.props.weightRecordsFetch(() => {
+            this.props.navigation.navigate('App');
+        })
+        // firebase.auth().onAuthStateChanged((user) => {
+        //     if (get(user, 'emailVerified', false)) {
+        //         this.props.weightRecordsFetch(() => {
+        //             this.props.navigation.navigate('App');
+        //         })
+        //     } else {
+        //        this.props.navigation.navigate('Auth');
+        //     }
+        // });
     }
 
      render() {

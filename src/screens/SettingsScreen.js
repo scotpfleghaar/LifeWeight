@@ -10,6 +10,25 @@ import { get } from 'lodash'
 
 
 class SettingsScreen extends React.Component {
+
+    renderLogoutButton() {
+        return (
+            <View style={{justifyContent: 'center', marginTop: 20}}>
+                    <Button
+                        title={'Logout'}
+                        type={'clear'}
+                        titleStyle={{fontSize: 32, color: HANSIS_DARK}}
+                        onPress={() => {
+                            firebase.auth().signOut().then(() => {
+                                this.props.navigation.navigate('Auth')
+                            }, (error) => {
+                                this.props.navigation.navigate('Auth')
+                            });
+                        }}
+                    />
+                </View>
+        )
+    }
     render() {
         const list = [
             {
@@ -23,11 +42,11 @@ class SettingsScreen extends React.Component {
             //     screen: 'Extras'
             // }
         ];
-        !this.props.isPremiumUser ? list.push( {
-                title: 'Premium',
-                icon: 'check-circle',
-                screen: 'Profile'
-            }) : null;
+        // !this.props.isPremiumUser ? list.push( {
+        //         title: 'Premium',
+        //         icon: 'check-circle',
+        //         screen: 'Profile'
+        //     }) : null;
         // onPress={() => this.props.navigation.navigate('Notifications')}
         return (
             <HeaderWrapper
@@ -49,20 +68,6 @@ class SettingsScreen extends React.Component {
                             />
                         ))
                     }
-                </View>
-                <View style={{justifyContent: 'center', marginTop: 20}}>
-                    <Button
-                        title={'Logout'}
-                        type={'clear'}
-                        titleStyle={{fontSize: 32, color: HANSIS_DARK}}
-                        onPress={() => {
-                            firebase.auth().signOut().then(() => {
-                                this.props.navigation.navigate('Auth')
-                            }, (error) => {
-                                this.props.navigation.navigate('Auth')
-                            });
-                        }}
-                    />
                 </View>
             </HeaderWrapper>
         );
