@@ -1,6 +1,6 @@
 import React from "react";
 import {HeaderWrapper} from "./Components";
-import {ScrollView, StyleSheet, Text} from "react-native";
+import {ScrollView, StyleSheet, Text, LayoutAnimation} from "react-native";
 import {Card} from "react-native-elements";
 import WeightLineChartAdvanced from './Components/Charts/WeightLineChartAdvanced'
 import WeightAverageTitle from './Components/Charts/WeightAverageTitle'

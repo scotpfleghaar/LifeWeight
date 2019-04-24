@@ -80,7 +80,7 @@ class EditWeightOverlay extends Component {
                 windowBackgroundColor="rgba(0, 0, 0, .75)"
                 overlayBackgroundColor={PURE_WHITE}
                 width="auto"
-                height={DEVICE_HEIGHT * 0.75}
+                height="auto"
             >
                 <View style={styles.formStyle}>
                     <WeightInput

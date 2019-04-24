@@ -11,50 +11,54 @@ import { sortRecords } from '../../Utilities'
 
 class WeightLineChartAdvanced extends Component {
 
-    render() {
-       if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
-        const adjustedRecords = this.props.records.slice(0, 16);
-        const data = adjustedRecords.map(item => item.weight && item.weight);
-        const averagedData = averageTenDayArrayAlgorythem(data);
-        const Decorator = ({ x, y, data }) => {
-            return data.map((value, index) => (
-                <Circle
-                    key={ index }
-                    cx={ x(index) }
-                    cy={ y(value) }
-                    r={ 4 }
-                    stroke={ HANSIS_DARK }
-                    fill={ userGageToColor(adjustedRecords[index].userWeightGage) }
-                />
-            ))
-        }
+    renderChart() {
+        if(this.props.records.length < 3) return <Text>We Need at least three entries</Text>
+            const adjustedRecords = this.props.records.slice(0, 16);
+            const data = adjustedRecords.map(item => item.weight && item.weight);
+            const averagedData = averageTenDayArrayAlgorythem(data);
+            const Decorator = ({ x, y, data }) => {
+                return data.map((value, index) => (
+                    <Circle
+                        key={ index }
+                        cx={ x(index) }
+                        cy={ y(value) }
+                        r={ 4 }
+                        stroke={ HANSIS_DARK }
+                        fill={ userGageToColor(adjustedRecords[index].userWeightGage) }
+                    />
+                ))
+            }
 
-        const LineCustom = ({ line }) => {
+            const LineCustom = ({ line }) => {
+                return (
+                    <Path
+                        d={ line }
+                        stroke={ HANSIS_DARK }
+                        fill={ 'none' }
+                    />
+                )
+            }
+
             return (
-                <Path
-                    d={ line }
-                    stroke={ HANSIS_DARK }
-                    fill={ 'none' }
-                />
+                <View style={ { height: 200 } }>
+                        <AreaChart
+                            style={ { flex: 1 } }
+                            data={ data }
+                            svg={{ fill: HANSIS_MEDIUM_LIGHT }}
+                            curve={shape.curveNatural}
+                            contentInset={ { top: 6, bottom: 20,  left: -10, right: 5 } }
+                        >
+                            <Grid/>
+                            <LineCustom/>
+                            <Decorator/>
+                        </AreaChart>
+                    </View>
+
             )
         }
 
-        return (
-             <View style={ { height: 200 } }>
-                    <AreaChart
-                        style={ { flex: 1 } }
-                        data={ data }
-                        svg={{ fill: HANSIS_MEDIUM_LIGHT }}
-                        curve={shape.curveNatural}
-                        contentInset={ { top: 6, bottom: 20,  left: -10, right: 5 } }
-                    >
-                        <Grid/>
-                        <LineCustom/>
-                        <Decorator/>
-                    </AreaChart>
-                </View>
-
-        )
+    render() {
+        return this.renderChart()
     }
 }
 

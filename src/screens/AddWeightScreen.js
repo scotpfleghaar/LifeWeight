@@ -47,6 +47,7 @@ class AddWeightScreen extends Component {
             <HeaderWrapper
                 title={'Add Record'}
             >
+
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <View style={styles.formStyle}>
                         <WeightInput

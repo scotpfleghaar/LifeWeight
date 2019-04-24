@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {ButtonGroup, Icon, Text, Tooltip} from "react-native-elements";
-import {StyleSheet, View, Dimensions} from "react-native";
-import {HANSIS_LIGHT, HANSIS_MEDIUM_LIGHT, PURE_WHITE, HANSIS_MEDIUM_DARK, HANSIS_MEDIUM, TOOLTIP_WEIGHT_RECORD_DESCRIPTION} from "../../../Constants";
-
+import {ButtonGroup, Icon, Text, Tooltip, Button, Overlay} from "react-native-elements";
+import {StyleSheet, View, Dimensions, TouchableWithoutFeedback} from "react-native";
+import {HANSIS_LIGHT, HANSIS_DARK, HANSIS_MEDIUM_LIGHT, PURE_WHITE, HANSIS_MEDIUM_DARK, HANSIS_MEDIUM, TOOLTIP_WEIGHT_RECORD_DESCRIPTION} from "../../../Constants";
+import HowWellDidYouFollowYourDietDescription from './HowWellDidYouFollowYourDietDescription'
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -10,6 +10,9 @@ class WeightCheck extends Component {
     constructor(props) {
         super(props);
         this.updateIndex = this.updateIndex.bind(this)
+        this.state = {
+            isVisible: false
+        }
     }
 
     updateIndex(selectedIndex) {
@@ -36,17 +39,34 @@ class WeightCheck extends Component {
 
         return (
             <View style={styles.viewGroup}>
-                <Tooltip backgroundColor={HANSIS_MEDIUM_DARK} width={DEVICE_WIDTH * 0.8} height={180} popover={<Text style={{color: PURE_WHITE}}>{TOOLTIP_WEIGHT_RECORD_DESCRIPTION}</Text>}>
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10}}>
-                        <Text style={{marginRight: 10, fontSize: 18}}>How well did you follow your diet?</Text>
-                        <Icon
-                            size={22}
-                            name='info'
-                            type='font-awesome'
-                            color={ HANSIS_MEDIUM }
-                        />
+                 <Overlay
+                    isVisible={this.state.isVisible}
+                    windowBackgroundColor="rgba(0, 0, 0, .75)"
+                    overlayBackgroundColor={PURE_WHITE}
+                    width="auto"
+                    height={DEVICE_HEIGHT * 0.75}
+                    onBackdropPress={() => this.setState({isVisible: !this.state.isVisible})}
+                >
+                    <View>
+                        <HowWellDidYouFollowYourDietDescription/>
                     </View>
-                </Tooltip>
+                </Overlay>
+                <Button
+                    icon={
+                        <Icon
+                        size={22}
+                        name='info'
+                        type='font-awesome'
+                        color={ HANSIS_MEDIUM }
+                    />
+                    }
+                    type={'clear'}
+                    iconRight
+                    titleStyle={{marginRight: 10, fontSize: 18, color: HANSIS_DARK}}
+                    title="How well did you follow your diet?"
+                    onPress={() => this.setState({isVisible: !this.state.isVisible})}
+                    />
+
                 <ButtonGroup
                     onPress={this.updateIndex}
                     selectedIndex={selectedIndex}
