@@ -182,9 +182,18 @@ export const goalWeightFetch = (callBack) => (dispatch) => {
     })
 };
 
-export const storePurchaseFirebase = (device, reciept) => {
+
+export const storePurchaseFirebaseFetch = (deviceType, callBack) => (dispatch) => {
+    const {currentUser} = firebase.auth();
+    firebase.database().ref(`/users/${currentUser.uid}/${deviceType}-reciept`).once("value", snapshot => {
+        console.log(snapshot.val())
+        callBack && callBack();
+    })
+};
+
+export const storePurchaseFirebase = (deviceType, reciept) => {
       const {currentUser} = firebase.auth();
-        firebase.database().ref(`/users/${currentUser.uid}/${device}-reciept`).set(reciept).then(() => {
+        firebase.database().ref(`/users/${currentUser.uid}/${deviceType}-reciept`).set(reciept).then(() => {
             console.log('goalWeightDispatch Success')
         }).catch((err) => {
             console.log(err.message)
