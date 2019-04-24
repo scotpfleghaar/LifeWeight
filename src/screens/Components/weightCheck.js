@@ -43,8 +43,8 @@ class WeightCheck extends Component {
                     isVisible={this.state.isVisible}
                     windowBackgroundColor="rgba(0, 0, 0, .75)"
                     overlayBackgroundColor={PURE_WHITE}
-                    width="auto"
-                    height={DEVICE_HEIGHT * 0.75}
+                    width={DEVICE_WIDTH * 0.75}
+                    height="auto"
                     onBackdropPress={() => this.setState({isVisible: !this.state.isVisible})}
                 >
                     <View>

@@ -26,6 +26,8 @@ class HowWellDidYouFollowYourDietDescription extends Component {
 
         return (
           <View style={styles.containerStyle}>
+                <Text h4>Description:</Text>
+                <Divider/>
                <Text>How well did you follow your diet since you last checked in?</Text>
                 <View style={styles.textWrapperStyle}>
                         {happyIcon()}<Text style={styles.textStyle}>Nailed it!</Text>
@@ -49,18 +51,20 @@ const styles = StyleSheet.create({
         textWrapperStyle: {
             flexDirection: 'row',
              justifyContent: 'space-between',
-             alignContent: 'center',
-             width: 150,
-             height: 30
+             alignItems: 'center',
+             width: "auto",
+             height: 30,
+             margin: 10
         },
 
         textStyle: {
-            fontSize: 30
+            fontSize: 18
         },
 
         containerStyle: {
             margin: 10,
-            justifyContent: 'center'
+             flexDirection: 'column',
+             justifyContent: 'space-between',
         }
 });
 
