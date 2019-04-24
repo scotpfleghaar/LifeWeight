@@ -5,6 +5,7 @@
     "expo:login": "expo login",
     "start:tunnel": "expo start --tunnel",
     "android": "expo start --android",
+    "build:android": "expo build:andriod",
     "ios": "expo start --ios",
     "eject": "expo eject"
   },
