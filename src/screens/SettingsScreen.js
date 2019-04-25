@@ -36,11 +36,11 @@ class SettingsScreen extends React.Component {
                 icon: 'bullseye',
                 screen: 'GoalWeight'
             },
-            // {
-            //     title: 'Extras',
-            //     icon: 'star',
-            //     screen: 'Extras'
-            // }
+            {
+                title: 'Disclaimer',
+                icon: 'info-circle',
+                screen: 'Extras'
+            }
         ];
         // !this.props.isPremiumUser ? list.push( {
         //         title: 'Premium',
