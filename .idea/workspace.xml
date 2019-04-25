@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="96edc2d9-58a7-4b9f-8cdb-0af36c41891b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Components/HowWellDidYouFollowYourDietDescription.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Components/HowWellDidYouFollowYourDietDescription.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Components/weightCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Components/weightCheck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/ExtrasScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ExtrasScreen.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,13 +17,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/Components/HowWellDidYouFollowYourDietDescription.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
+            <state relative-caret-position="690">
               <caret line="30" column="54" lean-forward="true" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/screens/ExtrasScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/screens/SettingsScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="41" column="31" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,20 +181,20 @@
         <option value="$PROJECT_DIR$/src/screens/Utilities/index.js" />
         <option value="$PROJECT_DIR$/src/Routing/index.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/HeaderWrapper.js" />
-        <option value="$PROJECT_DIR$/src/screens/ExtrasScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/UserSettingsScreen.js" />
         <option value="$PROJECT_DIR$/src/Redux/Reducers/appReducers.js" />
         <option value="$PROJECT_DIR$/src/screens/GoalWeightScreen.js" />
-        <option value="$PROJECT_DIR$/src/screens/SettingsScreen.js" />
         <option value="$PROJECT_DIR$/src/Redux/Actions/appActions.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/Charts/WeightGoalTimeline.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/Charts/WeightLineChartMovingAverage.js" />
         <option value="$PROJECT_DIR$/src/screens/Authentication/StartupAuthentication.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/Charts/WeightPieChart.js" />
-        <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/screens/Components/weightCheck.js" />
         <option value="$PROJECT_DIR$/src/screens/Components/HowWellDidYouFollowYourDietDescription.js" />
+        <option value="$PROJECT_DIR$/src/screens/SettingsScreen.js" />
+        <option value="$PROJECT_DIR$/src/screens/ExtrasScreen.js" />
+        <option value="$PROJECT_DIR$/app.json" />
       </list>
     </option>
   </component>
@@ -236,7 +287,7 @@
       <workItem from="1555266724510" duration="20975000" />
       <workItem from="1555943817104" duration="2162000" />
       <workItem from="1556020240644" duration="1664000" />
-      <workItem from="1556060237052" duration="2118000" />
+      <workItem from="1556060237052" duration="2922000" />
     </task>
     <task id="LOCAL-00001" summary="Working through Screens">
       <created>1554896318061</created>
@@ -553,11 +604,25 @@
       <option name="project" value="LOCAL" />
       <updated>1556150756999</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Final">
+      <created>1556151736307</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1556151736307</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Disclaimer">
+      <created>1556152814601</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1556152814601</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81461000" />
+    <option name="totallyTimeSpent" value="82265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -581,15 +646,13 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.28755364" />
+      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.39484978" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Began working on the weight input screen" />
-    <MESSAGE value="Styling the weight check" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Fetching data from firebase" />
     <MESSAGE value="Began on the edit weight screen" />
@@ -613,7 +676,9 @@
     <MESSAGE value="Updated Icons" />
     <MESSAGE value="Updates" />
     <MESSAGE value="Styling the the hint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Styling the the hint" />
+    <MESSAGE value="Final" />
+    <MESSAGE value="Disclaimer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disclaimer" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/screens/Components/WeightForm/WeightDatePicker.js">
@@ -863,16 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/SettingsScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Authentication/LogIn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
@@ -888,13 +943,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/icon.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Components/ActivityIndicator/ActivityIndicator.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -930,25 +978,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/ExtrasScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" selection-start-line="25" selection-end-line="31" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -957,13 +988,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1026,11 +1050,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Components/HowWellDidYouFollowYourDietDescription.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
+        <state relative-caret-position="690">
           <caret line="30" column="54" lean-forward="true" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/SettingsScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/ExtrasScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
