@@ -25,7 +25,7 @@ class ReportsScreen extends React.Component {
             <HeaderWrapper
                 title={'Charts'}
             >
-                <ScrollView
+                { this.props.records > 3 ? <ScrollView
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.scrollStyle}>
 
@@ -59,7 +59,7 @@ class ReportsScreen extends React.Component {
                     >
                         <LongTermActual/>
                     </CollapseableCard>
-                </ScrollView>
+                </ScrollView> : <Text>Need Three Or More Records</Text> }
             </HeaderWrapper>
         );
     }
