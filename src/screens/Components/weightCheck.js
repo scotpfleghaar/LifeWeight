@@ -63,7 +63,7 @@ class WeightCheck extends Component {
                     type={'clear'}
                     iconRight
                     titleStyle={{marginRight: 10, fontSize: 18, color: HANSIS_DARK}}
-                    title="How well did you follow your diet?"
+                    title="Did you follow your diet?"
                     onPress={() => this.setState({isVisible: !this.state.isVisible})}
                     />
 

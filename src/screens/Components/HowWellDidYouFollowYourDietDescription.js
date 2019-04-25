@@ -29,7 +29,7 @@ class HowWellDidYouFollowYourDietDescription extends Component {
             <View style={styles.containerStyle}>
                 <Text h4>Hint:</Text>
                 <Divider style={styles.dividerStyle}/>
-                <Text>This is a measure if how well did you follow your diet since you last checked in.</Text>
+                <Text>This is a measure if how well you think you did at following your diet since you last checked in.</Text>
                 <Divider style={styles.dividerStyle}/>
                 <View style={styles.textWrapperStyle}>
                     {happyIcon()}<Text style={styles.textStyle}>Yes!</Text>
@@ -41,7 +41,7 @@ class HowWellDidYouFollowYourDietDescription extends Component {
                     {sadIcon()}<Text style={styles.textStyle}>No</Text>
                 </View>
                 <Divider style={styles.dividerStyle}/>
-                <Text>Its best to be honest with yourself, because this information determines helpful and motivational information for you.</Text>
+                <Text>Its best to be honest with yourself! This information determines helpful and motivational information for you.</Text>
                 <Text>This information gets generated into graphs that give you insight into what happens when you
                     follow your diet!</Text>
             </View>
@@ -53,15 +53,16 @@ class HowWellDidYouFollowYourDietDescription extends Component {
 const styles = StyleSheet.create({
     textWrapperStyle: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        width: "auto",
+        width: 'auto',
         height: 30,
         margin: 10
     },
 
     textStyle: {
-        fontSize: 18
+        fontSize: 18,
+        marginLeft: 10
     },
 
     dividerStyle: {
