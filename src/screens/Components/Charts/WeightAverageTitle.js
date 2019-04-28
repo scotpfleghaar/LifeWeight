@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 class WeightAverageTitle extends Component {
     render() {
-        if(this.props.records.length < 0) return <Text>Go add your first record!</Text>;
+        if(this.props.records.length < 1) return <Text>Go add your first record!</Text>;
         const adjustedRecords = this.props.records.slice(0, 6);
         const data = adjustedRecords.map(item => item.weight && item.weight);
         const tenDayAverage = mean(data).toFixed(1);
