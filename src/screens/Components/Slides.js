@@ -3,6 +3,7 @@ import React , { Component} from 'react'
 import { View, Text, ScrollView, Dimensions } from 'react-native'
 import { Button } from 'react-native-elements'
 const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class Slides extends Component {
     renderLastSlide(index) {
@@ -28,6 +29,7 @@ class Slides extends Component {
                         { backgroundColor: slide.color }
                     ]}
                 >
+                    <Text>TESTTEST</Text>
                     <Text style={styles.slideText}>{slide.text}</Text>
                     { this.renderLastSlide(index) }
                 </View>
@@ -57,7 +59,7 @@ const styles = {
     slideStyle: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: SCREEN_WIDTH
+        width: SCREEN_WIDTH,
     },
     buttonStyle: {
         backgroundColor: '#0288D1',

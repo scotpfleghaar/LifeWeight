@@ -11,27 +11,11 @@ import {connect} from 'react-redux'
 import {sortRecords} from './Utilities'
 
 class HomeScreen extends React.Component {
-    onSlidesComplete = () => {
-        this.props.nagivation.navigate('Add')
-    };
-
-    renderScenario() {
-        const SLIDE_DATA = [
-            {
-                text: 'Welcome to JobApp',
-                color: '#03A9F4'
-            },
-            {
-                text: 'Helping you Land your Next Job',
-                color: '#009688'
-            },
-            {
-                text: 'Set your location than swipe away',
-                color: '#03A9F4'
-            }
-        ];
-
-        return this.props.records > 3 ? (
+    render() {
+        return (
+            <HeaderWrapper
+                title={'Overview'}
+            >
                 <ScrollView
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.scrollStyle}>
@@ -54,23 +38,6 @@ class HomeScreen extends React.Component {
                         <WeightLineChartMovingAverage/>
                     </Card>
                 </ScrollView>
-        ) : (
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <Slides
-                    onComplete={this.onSlidesComplete}
-                    data={SLIDE_DATA}
-                />
-            </View>
-        )
-    }
-
-
-    render() {
-        return (
-            <HeaderWrapper
-                title={'Overview'}
-            >
-                { this.renderScenario() }
             </HeaderWrapper>
         );
     }

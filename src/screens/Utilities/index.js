@@ -64,11 +64,11 @@ export const weightLoseRate = (records) => {
     let loseRate =[];
     records.map((record, index) => {
         if (records[index -1]) {
-            const previousWeight = records[index -1];
-            loseRate.push(Number(previousWeight - record))
+            const previousWeight = Number(records[index -1].weight);
+            loseRate.push(Number(previousWeight - record.weight))
         }
     });
-    return loseRate
+    return mean(loseRate)
 };
 
 export const weightLossRatePerWeek = (records) => {
@@ -83,7 +83,14 @@ export const weightLossRatePerWeek = (records) => {
     AverageWeightPerWeek = values(AverageWeightPerWeek).map(week => {
         return mean(week)
     });
-    return AverageWeightPerWeek
+    let loseRate =[];
+    AverageWeightPerWeek.map((weight, index) => {
+        if (AverageWeightPerWeek[index -1]) {
+            const previousWeight = Number(AverageWeightPerWeek[index -1]);
+            loseRate.push(Number(previousWeight - weight))
+        }
+    });
+    return loseRate;
 };
 
 export const averageWeightGainAndLoss = (records) => {

@@ -25,7 +25,7 @@ class ReportsScreen extends React.Component {
             <HeaderWrapper
                 title={'Charts'}
             >
-                { this.props.records > 3 ? <ScrollView
+                { this.props.records.length > 2 ? <ScrollView
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.scrollStyle}>
 

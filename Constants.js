@@ -32,6 +32,7 @@ export const MOVING_AVERAGE_LINE_GRAPH_DESCRIPTION = 'The Moving average is a cl
 export const ACTUAL_DATA_LINE_GRAPH_DESCRIPTION = 'This line graph shows the actual value from the most recent 14 check ins. The color of each dot shows your report on how well you followed your diet when you checked In.';
 export const WEIGHT_GAIN_LOSS_BAR_GRAPH_DESCRIPTION = "This shows the percent of check ins you reported on how well you followed your diet over the past 14 check ins. It gives an estimated weight loss when you do, sorta, or don't follow your diet.";
 export const HOW_OFTEN_YOUR_DIET_IS_FOLLOWED_DESCRIPTION = 'This shows how often you followed your diet over the passed 14 Check Ins.';
+export const NO_WEIGHT_TIMELINE = `Based on your recent records, there isn't enough progress to get these estimations. Keep checking in and come back soon!`;
 
 
 const description = `LifeWeight doesn’t care about calorie tracking or what specific diet your following, it cares about what happens when you follow your diet. Dieting and exercising are incredibly hard, and sometimes we mess up and don’t know how that affects our weight. LifeWeight aims to show you what happens when you follow your diet and what happens when you don’t. By understanding these dynamics, you can have real insights into your weight that help you stay motivated!
