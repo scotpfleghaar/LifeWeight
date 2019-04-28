@@ -9,7 +9,7 @@
       "ios",
       "android"
     ],
-    "version": "4.1.0",
+    "version": "4.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -29,7 +29,7 @@
     },
     "android": {
       "package": "com.scotpfleghaar.lifeweight",
-      "versionCode": 5
+      "versionCode": 6
     }
   }
 }
