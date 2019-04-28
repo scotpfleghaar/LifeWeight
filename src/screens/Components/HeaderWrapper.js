@@ -24,8 +24,8 @@ export class HeaderWrapper extends Component {
         return (
             <View style={this.props.style}>
                 <Header backgroundColor={HANSIS_MEDIUM_DARK} leftComponent={buttonBack} centerComponent={{ text: this.props.title, style: { color: HANSIS_LIGHT, fontSize: 24 } }} />
-                    <View style={{background: '#ffffff'}}>
-                        {this.props.children}
+                    <View style={{background: '#ffffff', marginBottom: 100}}>
+                        { this.props.children }
                     </View>
             </View>
         );
