@@ -32,11 +32,11 @@ class HomeScreen extends React.Component {
                         <WeightGoalTimeline/>
                     </Card>
 
-                    <Card
+                    {this.props.records.length > 2 ? <Card
                         title='Moving Average'
                     >
                         <WeightLineChartMovingAverage/>
-                    </Card>
+                    </Card> : null }
                 </ScrollView>
             </HeaderWrapper>
         );

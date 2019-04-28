@@ -1,6 +1,6 @@
 import React from "react";
-import {HeaderWrapper} from "./Components";
-import {ScrollView, StyleSheet, Text, LayoutAnimation} from "react-native";
+import {FormButton, HeaderWrapper} from "./Components";
+import {ScrollView, StyleSheet, Text, View} from "react-native";
 import {Card} from "react-native-elements";
 import WeightLineChartAdvanced from './Components/Charts/WeightLineChartAdvanced'
 import WeightAverageTitle from './Components/Charts/WeightAverageTitle'
@@ -59,7 +59,12 @@ class ReportsScreen extends React.Component {
                     >
                         <LongTermActual/>
                     </CollapseableCard>
-                </ScrollView> : <Text>Need Three Or More Records</Text> }
+                </ScrollView> : (
+                    <View style={styles.tempView}>
+                        <Text style={styles.textStyle}>{`Records needed for charts to be shown: ${3 - this.props.records.length}`}</Text>
+                        <FormButton title={'Add Record?'} onPress={() => this.props.navigation.navigate('Add')}/>
+                    </View>
+                ) }
             </HeaderWrapper>
         );
     }
@@ -68,6 +73,15 @@ class ReportsScreen extends React.Component {
 const styles = StyleSheet.create({
     scrollStyle: {
         paddingBottom: 110
+    },
+    tempView: {
+        marginTop: 100,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    textStyle: {
+        fontSize: 16
     }
 });
 
