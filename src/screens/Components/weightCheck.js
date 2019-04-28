@@ -83,7 +83,8 @@ class WeightCheck extends Component {
 
 const styles = StyleSheet.create({
     viewGroup: {
-        marginTop: 30
+        marginTop: 30,
+        backgroundColor: PURE_WHITE
     },
     viewGroupLabel: {
         marginRight: 5,

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 import { Button, } from 'react-native-elements'
-import {HANSIS_DARK } from "../../../Constants";
+import {HANSIS_DARK, HANSIS_MEDIUM_LIGHT} from "../../../Constants";
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
     buttonStyle: {
         marginTop: 22,
-        // backgroundColor: HANSIS_DARK,
+        backgroundColor: HANSIS_MEDIUM_LIGHT,
         width: DEVICE_WIDTH * 0.75,
     }
 });
