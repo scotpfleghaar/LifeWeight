@@ -125,6 +125,7 @@ export default createSwitchNavigator(
     },
     {
         initialRouteName: 'AuthLoading',
+        cardStyle: { backgroundColor: '#fff'}
     }
 );
 

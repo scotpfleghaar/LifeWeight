@@ -29,9 +29,9 @@ class WeightGoalTimeline extends Component {
         } else {
             successMessage = true
         }
-        const averageRateOfLoss = Number((averageRate)).toFixed(1);
+        let averageRateOfLoss = Number((averageRate)).toFixed(1);
         const gainOrLoss = averageRateOfLoss >= 0 ? 'chevron-down' : 'chevron-up';
-
+        if (isNaN(averageRateOfLoss)) averageRateOfLoss = 0;
 
         return (
             <View>
